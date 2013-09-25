@@ -1,0 +1,19 @@
+import javax.swing.JFrame;
+
+
+public class main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		JFrame mainframe = new JFrame();
+		MainPanel mainpanel = new MainPanel();
+		
+		
+		
+
+	}
+
+}

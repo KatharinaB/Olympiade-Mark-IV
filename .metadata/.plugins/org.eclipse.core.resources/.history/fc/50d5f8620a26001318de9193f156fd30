@@ -1,0 +1,16 @@
+
+public class main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		MainWindow mainwindow = new MainWindow();
+		MainPanel mainpanel = new MainPanel();
+		
+		mainwindow.add(mainpanel);
+
+	}
+
+}

@@ -1,0 +1,49 @@
+import java.awt.Color;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.border.LineBorder;
+
+
+public class MainPanel extends JLayeredPane{
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private JLabel teamnameLabel;
+	private JButton button;
+	
+	
+	public MainPanel(){
+		
+		teamnameLabel = new JLabel("Teamname");
+		initLabel(teamnameLabel);
+		
+		
+		teamnameLabel.setVisible(true);
+		
+		this.add(teamnameLabel, new Integer(1), 0);
+		
+		this.setBackground(Color.BLACK);
+		this.setSize(200,200);
+		this.setVisible(true);
+		this.setLayout(null);
+		this.setBounds(100,100,100,100);
+		
+	}
+	
+	public void initLabel(JLabel teamnameLabel){
+		
+		teamnameLabel.setText("Teamname");
+		teamnameLabel.setSize(200, 50);	
+		teamnameLabel.setBounds(400, 10, 200, 30);
+		teamnameLabel.setBorder(new LineBorder(Color.BLACK));
+
+	}
+
+}

@@ -1,0 +1,7 @@
+import javax.swing.JFrame;
+import javax.swing.JWindow;
+
+
+public class MainFrame extends JWindow{
+
+}

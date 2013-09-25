@@ -1,0 +1,11 @@
+import javax.swing.JFrame;
+import javax.swing.JWindow;
+
+
+public class MainWindow extends JWindow{
+	
+	public MainWindow(){
+		
+	}
+
+}

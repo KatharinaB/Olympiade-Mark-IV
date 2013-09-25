@@ -1,0 +1,10 @@
+import javax.swing.JLayeredPane;
+
+
+public class MainPanel extends JLayeredPane{
+	
+	public MainPanel(){
+		
+	}
+
+}

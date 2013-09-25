@@ -1,0 +1,23 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+import javax.swing.JFrame;
+
+
+public class MainFrame {
+	
+	public Mainframe(){
+		mainpanel = new MainPanel();
+		
+		this.setBackground(Color.YELLOW);
+		
+		this.setSize(800,600);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLayout(new BorderLayout());
+		this.add(mainpanel, BorderLayout.CENTER);
+		this.setVisible(true);
+		
+		
+	}
+
+}
