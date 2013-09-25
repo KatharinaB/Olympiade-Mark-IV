@@ -1,0 +1,11 @@
+
+public class PlayerPanel {
+	
+	private JLabel playername;
+	private JLabel playerImage;
+	
+	public PlayerPanel(){
+		
+	}
+
+}

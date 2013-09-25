@@ -1,0 +1,129 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.border.LineBorder;
+
+
+public class MainPanel extends JPanel{
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private JLabel teamnameLabel;
+	private JButton button;
+	private JPanel navigationPanel;
+	private JButton [] buttons;
+	private JComboBox teamChoice;
+	private JTextArea newsticker;
+	private JTextArea transferticker;
+	private TeamPanel teampanel;
+	
+	public MainPanel(){
+		this.setLayout(null);
+		
+		initLabel();
+		initNavigationPanel();
+		initTeamChoiceComboBox();
+		initNewsticker();
+		initTransferticker();
+		initTeampanel();
+		
+		this.add(teamnameLabel);
+		this.add(navigationPanel);
+		this.add(teamChoice);
+		this.add(newsticker);
+		this.add(transferticker);
+		
+		
+	}
+	
+	private void initTransferticker() {
+		transferticker = new JTextArea("newsticker (Anzeige der letzten News");
+		transferticker.setBounds(1010, 100, 250, 100);
+		
+	}
+
+	private void initNewsticker() {
+		newsticker = new JTextArea("Transferticker (Anzeige der letzten Transfers");
+		newsticker.setBounds(1010, 250, 250, 100);
+	}
+
+	private void initTeamChoiceComboBox() {
+		String [] teams = {"DummyTeam 1", "dummyTeam2 ", "dummyTeam3"}; // TODO: aus Datenbank
+		
+		teamChoice = new JComboBox(teams);
+		teamChoice.setSelectedIndex(0);
+		teamChoice.setBackground(Color.PINK);
+		teamChoice.setBounds(1010,50,250,30);
+		teamChoice.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				teamnameLabel.setText((String) teamChoice.getSelectedItem());			
+			}
+
+		});
+		
+	}
+	
+	
+
+	private void initNavigationPanel(){
+		navigationPanel = new JPanel();
+		navigationPanel.setVisible(true);
+	
+		navigationPanel.setBounds(0,50,100,800);
+		navigationPanel.setBackground(Color.GREEN);
+		
+		buttons = initNavigationButtons();
+		
+		for(int i = 0; i < 12; i++){
+			navigationPanel.add(buttons[i]);
+		}
+
+	}
+	
+	private JButton[] initNavigationButtons(){
+		JButton [] buttons = new JButton[12];
+		
+		buttons[0] = new JButton("Overview");
+		buttons[1] = new JButton("next Round");
+		buttons[2] = new JButton("Team");
+		buttons[3] = new JButton("Training-Camp");
+		buttons[4] = new JButton("Standings");
+		buttons[5] = new JButton("Top Players");
+		buttons[6] = new JButton("News");
+		buttons[7] = new JButton("Transfers");
+		buttons[8] = new JButton("Rumors");
+		buttons[9] = new JButton("Prize-Money");
+		buttons[10] = new JButton("Spellbook");
+		buttons[11] = new JButton("Sponsors");
+
+		return buttons;
+		
+	}
+	
+	private void initLabel(){
+		teamnameLabel = new JLabel("Teamname");
+		teamnameLabel.setText("Teamname");
+		teamnameLabel.setSize(200, 50);	
+		teamnameLabel.setBounds(400, 10, 200, 30);
+		teamnameLabel.setBorder(new LineBorder(Color.BLACK));
+		teamnameLabel.setVisible(true);
+		
+	}
+
+}

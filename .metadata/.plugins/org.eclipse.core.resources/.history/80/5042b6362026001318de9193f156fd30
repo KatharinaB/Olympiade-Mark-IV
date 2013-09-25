@@ -1,0 +1,8 @@
+
+public class TeamPanel extends JPanel{
+	
+	public TeamPanel(){
+		
+	}
+
+}

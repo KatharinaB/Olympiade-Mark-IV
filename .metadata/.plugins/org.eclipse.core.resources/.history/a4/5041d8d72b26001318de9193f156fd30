@@ -1,0 +1,27 @@
+import javax.swing.JLabel;
+
+
+public class PlayerPanel extends JPanel{
+	
+	private JLabel playerName;
+	private JLabel playerImage;
+
+	private String []  attributeNames= {"games", "pps", "stamina", "value", "salary", "contract"};
+	
+
+	public PlayerPanel(){
+		
+		initPlayerPanel();
+		this.add(playerName);
+		this.add(playerImage);
+		
+	}
+
+
+	private void initPlayerPanel() {
+		playerImage = new JLabel();
+		playerName = new JLabel();
+		
+	}
+
+}

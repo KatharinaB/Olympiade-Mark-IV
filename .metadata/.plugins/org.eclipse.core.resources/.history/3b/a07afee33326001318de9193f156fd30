@@ -1,0 +1,142 @@
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+
+public class MainPanel extends JPanel{
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private JLabel teamnameLabel;
+	private JButton button;
+	private JPanel navigationPanel;
+	private JButton [] buttons;
+	private JComboBox teamChoice;
+	private TickerPanel tickerPanel;
+	private TeamAttributePanel teamAttributePanel;
+	private PlayerPanel playerPanel;
+
+	
+	public MainPanel(){
+		this.setLayout(null);
+		
+		initLabel();
+		initNavigationPanel();
+		initTeamChoiceComboBox();
+		initTickerPanel();
+		initTeamViewPanels();
+		initPlayerPanel();
+		
+		this.add(teamnameLabel);
+		this.add(navigationPanel);
+		this.add(teamChoice);
+		
+		this.add(teamAttributePanel);
+		this.add(tickerPanel);
+		
+		this.add(playerPanel);
+		
+
+	}
+	
+	private void initPlayerPanel(){
+		playerPanel = new PlayerPanel();
+		playerPanel.setBounds(300,50,320,160);
+		playerPanel.setBackground(Color.yellow);
+	}
+	
+	private void initTickerPanel() {
+		tickerPanel =  new TickerPanel();
+		tickerPanel.setBounds(1010, 100, 250, 800);
+	}
+
+	private void initTeamViewPanels() {
+		teamAttributePanel = new TeamAttributePanel();
+		teamAttributePanel = new TeamAttributePanel();
+		teamAttributePanel.setBounds(100, 50, 240, 600);
+	}
+
+	
+	
+	private void initTeamChoiceComboBox() {
+		String [] teams = {"DummyTeam 1", "dummyTeam2 ", "dummyTeam3"}; // TODO: aus Datenbank
+		
+		teamChoice = new JComboBox(teams);
+		teamChoice.setSelectedIndex(0);
+		teamChoice.setBackground(Color.PINK);
+		teamChoice.setBounds(1010,50,250,30);
+		teamChoice.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				teamnameLabel.setText((String) teamChoice.getSelectedItem());			
+			}
+
+		});
+		
+	}
+	
+	
+
+	private void initNavigationPanel(){
+		navigationPanel = new JPanel();
+		navigationPanel.setVisible(true);
+	
+		navigationPanel.setBounds(0,50,150,800);
+		navigationPanel.setBackground(Color.GREEN);
+		
+		buttons = initNavigationButtons();
+		
+		for(int i = 0; i < 12; i++){
+			buttons[i].setPreferredSize(new Dimension(140,30));
+			navigationPanel.add(buttons[i]);
+		}
+
+	}
+	
+	private JButton[] initNavigationButtons(){
+		JButton [] buttons = new JButton[12];
+		
+		buttons[0] = new JButton("Overview");
+		buttons[1] = new JButton("next Round");
+		buttons[2] = new JButton("Team");
+		buttons[3] = new JButton("Training-Camp");
+		buttons[4] = new JButton("Standings");
+		buttons[5] = new JButton("Top Players");
+		buttons[6] = new JButton("News");
+		buttons[7] = new JButton("Transfers");
+		buttons[8] = new JButton("Rumors");
+		buttons[9] = new JButton("Prize-Money");
+		buttons[10] = new JButton("Spellbook");
+		buttons[11] = new JButton("Sponsors");
+
+		return buttons;
+		
+	}
+	
+	private void initLabel(){
+		teamnameLabel = new JLabel("Teamname");
+		teamnameLabel.setText("Teamname");
+		teamnameLabel.setSize(200, 50);	
+		teamnameLabel.setBounds(400, 10, 200, 30);
+		teamnameLabel.setBorder(new LineBorder(Color.BLACK));
+		Font myFont = new Font("ARIAL", Font.BOLD, 36);
+		teamnameLabel.setFont(myFont);
+		teamnameLabel.setVisible(true);
+		
+		
+	}
+
+}

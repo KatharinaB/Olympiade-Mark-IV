@@ -1,0 +1,28 @@
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+public class TotalPanel extends JPanel{
+	
+	private JLabel totalLabel;
+	private JLabel totalVarLabel;
+	
+	public TotalPanel(){
+		this.setBackground(Color.GRAY);
+
+		this.setPreferredSize(new Dimension(150,30));
+		initTotalPanel();
+	}
+
+	
+	public void initTotalPanel(){
+		totalLabel = new JLabel("Total:");
+		totalVarLabel = new JLabel("dddd"); //TODO aus DB
+		
+		this.add(totalLabel);
+		this.add(totalVarLabel);
+	}
+}

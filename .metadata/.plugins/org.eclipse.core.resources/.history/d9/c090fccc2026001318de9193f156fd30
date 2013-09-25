@@ -1,0 +1,13 @@
+import java.awt.Color;
+
+import javax.swing.JPanel;
+
+
+public class TeamPanel extends JPanel{
+	
+	public TeamPanel(){
+		this.setBackground(Color.GRAY);
+		this.setBounds(110, 50, 900,900);
+	}
+
+}

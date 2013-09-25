@@ -1,0 +1,14 @@
+
+public class DisciplinePanel {
+	
+	public DisciplinePanel(){
+		
+		initDisciplinePanel();
+	}
+
+	private void initDisciplinePanel() {
+		
+		
+	}
+
+}

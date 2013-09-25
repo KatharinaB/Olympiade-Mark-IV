@@ -1,0 +1,31 @@
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+
+
+public class DisciplinePanel {
+	
+	public DisciplinePanel(){
+		
+		initDisciplinePanel();
+	}
+
+	private void initDisciplinePanel() {
+		//, "Tennis:","Mini DM", "Battlefield",
+		"Time Trial:", "Bastketball:", "Spurt:", "TDM:", "Showcase:", "Football:", "Staffel:"
+		String [] attributesNames = {"Tennis:","Mini DM", "Battlefield","Time Trial:", "Bastketball:", "Spurt:", "TDM:", "Showcase:", "Football:", "Staffel:"};
+		JLabel [] attributes = new JLabel [7];
+		JLabel [] attributesVars = new JLabel [7];
+		
+		for(int i = 0; i < 17; i++){
+			attributes[i] = new JLabel(attributesNames[i]);
+			attributesVars[i] = new JLabel("dfgbhj"); //TODO aus DB
+			attributes[i].setPreferredSize(new Dimension(100,30));
+			this.add(attributes[i]);
+			this.add(attributesVars[i]);
+			
+		}
+		
+	}
+
+}

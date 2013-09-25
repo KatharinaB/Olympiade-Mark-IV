@@ -1,0 +1,14 @@
+import java.awt.Color;
+
+import javax.swing.JPanel;
+
+
+public class TotalPanel extends JPanel{
+	
+	public TotalPanel(){
+		this.setBackground(Color.GRAY);
+		this.setBounds(150, 700, 150, 270);
+		
+	}
+
+}

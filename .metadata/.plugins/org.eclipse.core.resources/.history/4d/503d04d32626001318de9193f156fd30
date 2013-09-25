@@ -1,0 +1,17 @@
+import javax.swing.JPanel;
+
+
+public class TeamAttributePanel extends JPanel{
+	
+	private TeamPanel teamPanel;
+	private DisciplinePanel disciplinePanel;
+	private TotalPanel totalPanel;
+	
+	public TeamAttributePanel(){
+		this.add(teamPanel);
+		this.add(disciplinePanel);
+		this.add(totalLabel);
+		this.add(totalVarLabel);
+	}
+
+}

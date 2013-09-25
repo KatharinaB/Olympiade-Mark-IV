@@ -1,0 +1,24 @@
+import javax.swing.JLabel;
+
+
+public class PlayerPanel {
+	
+	private JLabel playername;
+	private JLabel playerImage;
+
+	private String []  attributeNames= {"games", "pps", "stamina", "value", "salary", "contract"};
+	
+
+	public PlayerPanel(){
+		
+		initPlayerPanel();
+		
+	}
+
+
+	private void initPlayerPanel() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

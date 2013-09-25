@@ -27,6 +27,7 @@ public class MainPanel extends JPanel{
 	private TickerPanel tickerPanel;
 	private TeamAttributePanel teamAttributePanel;
 	private PlayerPanel playerPanel;
+	private PlayerPanel playerPanel2;
 
 	
 	public MainPanel(){
@@ -47,14 +48,25 @@ public class MainPanel extends JPanel{
 		this.add(tickerPanel);
 		
 		this.add(playerPanel);
+		this.add(playerPanel2);
 		
-
+		playerPanel.setVisible(false);
+		playerPanel2.setVisible(false);
+		teamAttributePanel.setVisible(false);
+		
+		
+		
+		
 	}
 	
 	private void initPlayerPanel(){
 		playerPanel = new PlayerPanel();
-		//playerPanel.setBounds(350,50,800,400);
+		playerPanel.setBounds(320,50,320,160);
 		playerPanel.setBackground(Color.yellow);
+		
+		playerPanel2 = new PlayerPanel();
+		playerPanel2.setBounds(650,50,320,160);
+		playerPanel2.setBackground(Color.BLUE);
 	}
 	
 	private void initTickerPanel() {
@@ -65,7 +77,7 @@ public class MainPanel extends JPanel{
 	private void initTeamViewPanels() {
 		teamAttributePanel = new TeamAttributePanel();
 		teamAttributePanel = new TeamAttributePanel();
-		teamAttributePanel.setBounds(100, 50, 250, 1000);
+		teamAttributePanel.setBounds(150, 50, 160, 560);
 	}
 
 	
@@ -81,7 +93,12 @@ public class MainPanel extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				teamnameLabel.setText((String) teamChoice.getSelectedItem());			
+				teamnameLabel.setText((String) teamChoice.getSelectedItem());	
+				playerPanel.setVisible(true);
+				playerPanel2.setVisible(true);
+				teamAttributePanel.setVisible(true);
+				
+				tickerPanel.setVisible(false);
 			}
 
 		});

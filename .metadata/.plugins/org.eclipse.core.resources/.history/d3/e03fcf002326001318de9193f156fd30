@@ -1,0 +1,26 @@
+import java.awt.Color;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+public class TeamPanel extends JPanel{
+	
+	private JLabel [] attributePanels;
+	
+	public TeamPanel(){
+		this.setBackground(Color.GRAY);
+		this.setBounds(110, 50, 300, 800);
+		
+		initAttributePanels();
+	}
+
+	private void initAttributePanels() {
+		JLabel [] attributes = {"Budget:", "Income:", "Salaries:", "Transfers:", "Bonus:", "Prize Money:", "Forecast:","", "Tennis:","Mini DM", "Battlefield",
+				"Time Trial:", "Bastketball:", "Spurt:", "TDM:", "Showcase:", "Football:", "Staffel:"};
+		
+		
+	}
+	
+
+}

@@ -1,0 +1,32 @@
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+
+public class TickerPanel extends JPanel{
+	
+	private JTextArea newsticker;
+	private JTextArea transferticker;
+	
+	public TickerPanel(){
+		
+		initTransferticker();
+		initNewsticker();
+		
+		
+	}
+	
+	private void initTransferticker() {
+		transferticker = new JTextArea("newsticker (Anzeige der letzten News)");
+		transferticker.setPreferredSize(new Dimension(250, 100));
+		
+	}
+	
+	private void initNewsticker() {
+		newsticker = new JTextArea("Transferticker (Anzeige der letzten Transfers)");
+		newsticker.setPreferredSize(new Dimension(250, 100));
+	}
+
+
+}
