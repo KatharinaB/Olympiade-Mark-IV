@@ -1,0 +1,36 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+import javax.swing.JFrame;
+
+
+public class main {
+
+	
+	private static JFrame mainframe;
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+		
+		
+		mainframe = new JFrame();
+		mainframe.setVisible(true);
+		mainpanel = new MainPanel();
+		
+		mainframe.setBackground(Color.YELLOW);
+		
+		mainframe.setSize(1280,960);
+		mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		mainframe.setTitle("Oly");
+		
+		mainframe.add(mainpanel);
+		mainframe.setVisible(true);
+		
+
+	}
+
+}

@@ -1,15 +1,17 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 
-public class MainPanel extends JLayeredPane{
+public class MainPanel extends JPanel{
 	
 	
 	/**
@@ -21,34 +23,90 @@ public class MainPanel extends JLayeredPane{
 	private JButton button;
 	private JPanel navigationPanel;
 	private JButton [] buttons;
+	private JComboBox teamChoice;
+	private TickerPanel tickerPanel;
+	private TeamAttributePanel teamAttributePanel;
+	private PlayerPanel playerPanel;
+
 	
 	public MainPanel(){
-		initMainPanel();
+		this.setLayout(null);
 		
-		teamnameLabel = new JLabel("Teamname");
-		initLabel(teamnameLabel);
-		this.add(teamnameLabel, new Integer(1), 0);
-		
+		initLabel();
 		initNavigationPanel();
-		this.add(navigationPanel,  new Integer(1), 0);
+		initTeamChoiceComboBox();
+		initTickerPanel();
+		initTeamViewPanels();
+		initPlayerPanel();
+		
+		this.add(teamnameLabel);
+		this.add(navigationPanel);
+		this.add(teamChoice);
+		
+		this.add(teamAttributePanel);
+		this.add(tickerPanel);
+		
+		this.add(playerPanel);
+		
+
 	}
 	
-	public void initNavigationPanel(){
+	private void initPlayerPanel(){
+		playerPanel = new PlayerPanel();
+		//playerPanel.setBounds(350,50,800,400);
+		playerPanel.setBackground(Color.yellow);
+	}
+	
+	private void initTickerPanel() {
+		tickerPanel =  new TickerPanel();
+		tickerPanel.setBounds(1010, 100, 250, 800);
+	}
+
+	private void initTeamViewPanels() {
+		teamAttributePanel = new TeamAttributePanel();
+		teamAttributePanel = new TeamAttributePanel();
+		teamAttributePanel.setBounds(100, 50, 250, 1000);
+	}
+
+	
+	
+	private void initTeamChoiceComboBox() {
+		String [] teams = {"DummyTeam 1", "dummyTeam2 ", "dummyTeam3"}; // TODO: aus Datenbank
+		
+		teamChoice = new JComboBox(teams);
+		teamChoice.setSelectedIndex(0);
+		teamChoice.setBackground(Color.PINK);
+		teamChoice.setBounds(1010,50,250,30);
+		teamChoice.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				teamnameLabel.setText((String) teamChoice.getSelectedItem());			
+			}
+
+		});
+		
+	}
+	
+	
+
+	private void initNavigationPanel(){
 		navigationPanel = new JPanel();
 		navigationPanel.setVisible(true);
+	
+		navigationPanel.setBounds(0,50,150,800);
+		navigationPanel.setBackground(Color.GREEN);
 		
 		buttons = initNavigationButtons();
 		
 		for(int i = 0; i < 12; i++){
+			buttons[i].setPreferredSize(new Dimension(140,30));
 			navigationPanel.add(buttons[i]);
 		}
-		
-		
-		
-		
+
 	}
 	
-	public JButton[] initNavigationButtons(){
+	private JButton[] initNavigationButtons(){
 		JButton [] buttons = new JButton[12];
 		
 		buttons[0] = new JButton("Overview");
@@ -68,21 +126,17 @@ public class MainPanel extends JLayeredPane{
 		
 	}
 	
-	public void initLabel(JLabel teamnameLabel){
+	private void initLabel(){
+		teamnameLabel = new JLabel("Teamname");
 		teamnameLabel.setText("Teamname");
 		teamnameLabel.setSize(200, 50);	
 		teamnameLabel.setBounds(400, 10, 200, 30);
 		teamnameLabel.setBorder(new LineBorder(Color.BLACK));
+		Font myFont = new Font("ARIAL", Font.BOLD, 36);
+		teamnameLabel.setFont(myFont);
 		teamnameLabel.setVisible(true);
-
-	}
-	
-	public void initMainPanel(){
-		this.setBackground(Color.BLACK);
-		this.setSize(1000,1000);
-		this.setVisible(true);
-		this.setBounds(100,100,100,100);
-
+		
+		
 	}
 
 }

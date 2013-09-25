@@ -1,0 +1,84 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+
+public class MainPanel extends JPanel{
+	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private JLabel teamnameLabel;
+	private JButton button;
+	private JPanel navigationPanel;
+	private JButton [] buttons;
+	
+	public MainPanel(){
+		
+		
+		teamnameLabel = new JLabel("Teamname");
+		initLabel(teamnameLabel);
+		this.add(teamnameLabel);
+		
+		initNavigationPanel();
+		this.add(navigationPanel);
+	}
+	
+	public void initNavigationPanel(){
+		navigationPanel = new JPanel();
+		navigationPanel.setVisible(true);
+		navigationPanel.setSize(0, 800);
+		navigationPanel.setBounds(100,100,200,800);
+		navigationPanel.setBackground(Color.GREEN);
+		
+		buttons = initNavigationButtons();
+		
+		for(int i = 0; i < 12; i++){
+			navigationPanel.add(buttons[i]);
+		}
+		
+		
+		
+		
+	}
+	
+	public JButton[] initNavigationButtons(){
+		JButton [] buttons = new JButton[12];
+		
+		buttons[0] = new JButton("Overview");
+		buttons[1] = new JButton("next Round");
+		buttons[2] = new JButton("Team");
+		buttons[3] = new JButton("Training-Camp");
+		buttons[4] = new JButton("Standings");
+		buttons[5] = new JButton("Top Players");
+		buttons[6] = new JButton("News");
+		buttons[7] = new JButton("Transfers");
+		buttons[8] = new JButton("Rumors");
+		buttons[9] = new JButton("Prize-Money");
+		buttons[10] = new JButton("Spellbook");
+		buttons[11] = new JButton("Sponsors");
+
+		return buttons;
+		
+	}
+	
+	public void initLabel(JLabel teamnameLabel){
+		teamnameLabel.setText("Teamname");
+		teamnameLabel.setSize(200, 50);	
+		teamnameLabel.setBounds(400, 10, 200, 30);
+		teamnameLabel.setBorder(new LineBorder(Color.BLACK));
+		teamnameLabel.setVisible(true);
+
+	}
+
+}
