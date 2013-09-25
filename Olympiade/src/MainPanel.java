@@ -10,7 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-
+/**
+ * Hält alle Panels für die Mainsite und die Teamansicht
+ * @author Katy
+ *
+ */
 public class MainPanel extends JPanel{
 	
 	
@@ -19,18 +23,19 @@ public class MainPanel extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private JLabel teamnameLabel;
+	private JLabel teamnameLabel;//Teamname
 	private JButton button;
-	private JPanel navigationPanel;
+	private JPanel navigationPanel;//Navigationsleiste
 	private JButton [] buttons;
-	private JComboBox teamChoice;
-	private TickerPanel tickerPanel;
-	private TeamAttributePanel teamAttributePanel;
+	private JComboBox teamChoice;//Teamauswahlbox
+	private TickerPanel tickerPanel;//Enthält News und Transferticker
+	private TeamAttributePanel teamAttributePanel;//Enthält für die Teamansicht die Attribute
 	private PlayerPanel playerPanel;
 	private PlayerPanel playerPanel2;
 
 	
 	public MainPanel(){
+		//null-Layout -  alle Elemente sind frei positionierbar
 		this.setLayout(null);
 		
 		initLabel();
@@ -44,9 +49,10 @@ public class MainPanel extends JPanel{
 		this.add(navigationPanel);
 		this.add(teamChoice);
 		
+		//TODO die Teamübersicht in ein Panel packen
+		
 		this.add(teamAttributePanel);
 		this.add(tickerPanel);
-		
 		this.add(playerPanel);
 		this.add(playerPanel2);
 		
@@ -59,6 +65,9 @@ public class MainPanel extends JPanel{
 		
 	}
 	
+	/**
+	 * Initialisiert (die) Playerpanel mit Bild, Name und Attributen
+	 */
 	private void initPlayerPanel(){
 		playerPanel = new PlayerPanel();
 		playerPanel.setBounds(320,50,320,160);
@@ -69,11 +78,17 @@ public class MainPanel extends JPanel{
 		playerPanel2.setBackground(Color.BLUE);
 	}
 	
+	/**
+	 * Initialisiert die Tickerpanel mit News- und Transferticker
+	 */
 	private void initTickerPanel() {
 		tickerPanel =  new TickerPanel();
 		tickerPanel.setBounds(1010, 100, 250, 800);
 	}
 
+	/**
+	 * Initialisiert das TeamattributPanel
+	 */
 	private void initTeamViewPanels() {
 		teamAttributePanel = new TeamAttributePanel();
 		teamAttributePanel = new TeamAttributePanel();
@@ -81,7 +96,9 @@ public class MainPanel extends JPanel{
 	}
 
 	
-	
+	/**
+	 * Initialisiert die Teamauswahlbox
+	 */
 	private void initTeamChoiceComboBox() {
 		String [] teams = {"DummyTeam 1", "dummyTeam2 ", "dummyTeam3"}; // TODO: aus Datenbank
 		
@@ -91,6 +108,10 @@ public class MainPanel extends JPanel{
 		teamChoice.setBounds(1010,50,250,30);
 		teamChoice.addActionListener(new ActionListener() {
 			
+			
+			/**
+			 * Aktiviert durch Auswählen eines Teams, die Teamansicht
+			 */
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				teamnameLabel.setText((String) teamChoice.getSelectedItem());	
@@ -106,7 +127,10 @@ public class MainPanel extends JPanel{
 	}
 	
 	
-
+	//TODO ActionListener für Buttons + Funktionen
+	/**
+	 * Initialisiert die Navigationsleiste 
+	 */
 	private void initNavigationPanel(){
 		navigationPanel = new JPanel();
 		navigationPanel.setVisible(true);
@@ -123,6 +147,10 @@ public class MainPanel extends JPanel{
 
 	}
 	
+	/**
+	 * Erstellt die Buttons für die Navigation
+	 * @return
+	 */
 	private JButton[] initNavigationButtons(){
 		JButton [] buttons = new JButton[12];
 		
@@ -143,14 +171,16 @@ public class MainPanel extends JPanel{
 		
 	}
 	
+	/**
+	 * Erstellt das Label und passt es an 
+	 */
 	private void initLabel(){
 		teamnameLabel = new JLabel("Teamname");
-		teamnameLabel.setText("Teamname");
 		teamnameLabel.setSize(200, 50);	
 		teamnameLabel.setBounds(400, 10, 200, 30);
 		teamnameLabel.setBorder(new LineBorder(Color.BLACK));
-		Font myFont = new Font("ARIAL", Font.BOLD, 36);
-		teamnameLabel.setFont(myFont);
+
+		teamnameLabel.setFont(new Font("Arial", Font.BOLD, 36));
 		teamnameLabel.setVisible(true);
 		
 		

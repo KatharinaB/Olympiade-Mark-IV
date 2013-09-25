@@ -10,6 +10,7 @@ public class main {
 	private static JFrame mainframe;
 	private static MainPanel mainpanel;
 	/**
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {

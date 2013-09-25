@@ -4,7 +4,11 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+/**
+ * Hält die Summe der Teamattribute
+ * @author Katy
+ *
+ */
 public class TotalPanel extends JPanel{
 	
 	private JLabel totalLabel;
@@ -17,7 +21,6 @@ public class TotalPanel extends JPanel{
 		initTotalPanel();
 	}
 
-	
 	public void initTotalPanel(){
 		totalLabel = new JLabel("Total:");
 		totalVarLabel = new JLabel("dummy"); //TODO aus DB

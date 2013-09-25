@@ -11,16 +11,18 @@ public class TeamAttributePanel extends JPanel{
 	private DisciplinePanel disciplinePanel;
 	private TotalPanel totalPanel;
 	
+	/**
+	 * Fasst alle AttributPanel des Teams zu einem Panel zusammen
+	 */
 	public TeamAttributePanel(){
 		teamPanel = new TeamPanel();
 		disciplinePanel = new DisciplinePanel();
 		totalPanel = new TotalPanel();
 
-		this.add(teamPanel);
-		this.add(disciplinePanel);
-		this.add(totalPanel);
 		
-		this.setBorder(new LineBorder(Color.BLUE));
+		this.add(teamPanel);//Hält die allgemeinen Infos
+		this.add(disciplinePanel);//Hält Infos zu den Disziplinen
+		this.add(totalPanel);//Für den Gesamtwert
 		
 	}
 

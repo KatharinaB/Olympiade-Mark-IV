@@ -3,7 +3,11 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-
+/**
+ * Hält Newsticker und Transferticker
+ * @author Katy
+ *
+ */
 public class TickerPanel extends JPanel{
 	
 	private JTextArea newsticker;

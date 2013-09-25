@@ -6,22 +6,27 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
 
+/**
+ * Hält die Spielerdaten
+ * @author Katy
+ *
+ */
 public class PlayerPanel extends JPanel{
 	
 	private JLabel playerName;
 	private JLabel playerImage;
-	private JPanel statsPanel;
-	private JPanel profilPanel;
-	private JLabel [] attributes;
-	private JLabel [] attributesVars;
+	private JPanel statsPanel;	//Enthält die Attribute und Werte
+	private JPanel profilPanel; //Enthält Profilname und Foto
+	private JLabel [] attributes; //Attribut Namen
+	private JLabel [] attributesVars;//Platzhalter für die Werte der Attribute
 	
 	private String []  attributeNames= {"games", "pps", "stamina", "value", "salary", "contract"};
 	
-
+	/**
+	 * Enthält alle Infos zu einem Spieler
+	 */
 	public PlayerPanel(){
-		
 		initPlayerPanel();
-		
 		initStatsPanel();
 		initProfilPanel();
 		
@@ -29,20 +34,18 @@ public class PlayerPanel extends JPanel{
 		this.add(statsPanel);
 		
 		this.setPreferredSize(new Dimension(0,0));
-		
-		
-		this.setBorder(new LineBorder(Color.BLACK));
-		
 	}
 
-
+	/**
+	 * Initialisiert das ProfilPanel
+	 */
 	private void initProfilPanel() {
 		profilPanel = new JPanel();
 		
-		playerImage = new JLabel("dummybild");
+		playerImage = new JLabel("dummybild"); //TODO Aus DB
 		playerImage.setPreferredSize(new Dimension(100,100));
 		
-		playerName = new JLabel("dummyspieler");
+		playerName = new JLabel("dummyspieler"); //TODO Aus DB
 		playerName.setPreferredSize(new Dimension(100,20));
 		
 		profilPanel.add(playerName);
@@ -51,10 +54,18 @@ public class PlayerPanel extends JPanel{
 	}
 
 
+	/**
+	 * Erstellt das StatsPanel mit den Spielerattributen
+	 */
 	private void initStatsPanel() {
 		statsPanel = new JPanel();
 		statsPanel.setPreferredSize(new Dimension(200,150));
 		
+		
+		/*Um jeweils erst 3 Werte aus der einen Liste zu bekommen
+		*dann 3 aus der zweiten Liste, dann wieder 3 aus der ersten 
+		*und zum Schluss 3 aus der zweiten, dienen diese 3 Schleifen
+		*/
 		int j = 0;
 		for(int i = 0; i < attributeNames.length; i++){
 			statsPanel.add(attributes[i]);
@@ -75,7 +86,9 @@ public class PlayerPanel extends JPanel{
 		
 	}
 
-
+	/**
+	 * Erstellt alle Labels für die Stats des Players und setzt sie auf die richtige Größe
+	 */
 	private void initPlayerPanel() {
 		attributes = new JLabel[6];
 		attributesVars = new JLabel[6];

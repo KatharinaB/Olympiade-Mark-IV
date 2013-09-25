@@ -4,7 +4,11 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+/**
+ * Hält die Disziplin Informationen eines Teams
+ * @author Katy
+ *
+ */
 public class DisciplinePanel extends JPanel{
 	
 	private String [] attributesNames = {"Tennis:","Mini DM", "Battlefield","Time Trial:", "Bastketball:", "Spurt:", "TDM:", "Showcase:", "Football:", "Staffel:"};

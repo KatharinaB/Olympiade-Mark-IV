@@ -4,7 +4,11 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-
+/**
+ * Hält Teaminformationen
+ * @author Katy
+ *
+ */
 public class TeamPanel extends JPanel{
 	
 	private String [] attributesNames = {"Budget:", "Income:", "Salaries:", "Transfers:", "Bonus:", "Prize Money:", "Forecast:"};
