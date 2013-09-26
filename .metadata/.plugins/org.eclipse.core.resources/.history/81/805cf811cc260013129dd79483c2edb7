@@ -1,0 +1,9 @@
+package ui;
+
+public class PlayerImage {
+
+	public PlayerImage() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

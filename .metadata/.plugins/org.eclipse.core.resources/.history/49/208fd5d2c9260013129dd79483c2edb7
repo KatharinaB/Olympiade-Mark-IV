@@ -1,0 +1,14 @@
+package ui;
+
+/**
+ * Hält alle näheren Informationen zum Player
+ * @author Katy
+ *
+ */
+public class PlayerDetailPanel {
+
+	public PlayerDetailPanel() {
+		
+	}
+
+}

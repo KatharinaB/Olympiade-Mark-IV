@@ -1,0 +1,14 @@
+package ui;
+
+/**
+ * Hält Die Stats mit Ihren Bildchen und Werten
+ * @author Katy
+ *
+ */
+public class IconStatPanel {
+	
+	public IconStatPanel(){
+		initStats();
+	}
+
+}

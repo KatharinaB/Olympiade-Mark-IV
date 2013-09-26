@@ -1,0 +1,22 @@
+package ui;
+
+import javax.swing.JLabel;
+
+
+//TODO Alle Daten as DB
+public class PlayerView {
+	
+	private JLabel playerImage;
+	
+	public PlayerView(){
+		
+		initPlayerViewComponents();
+		
+	}
+
+	private void initPlayerViewComponents() {
+		playerImage = new JLabel("DummyBild"); 
+		
+	}
+
+}

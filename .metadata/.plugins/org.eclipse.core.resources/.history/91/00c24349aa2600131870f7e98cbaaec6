@@ -1,0 +1,11 @@
+
+public class Main {
+	
+	private MainView mainView;
+	
+	public static void main(String[] args) {
+		
+		mainView = new MainView();
+	}
+
+}

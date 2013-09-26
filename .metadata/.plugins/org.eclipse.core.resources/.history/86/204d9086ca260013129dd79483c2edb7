@@ -1,0 +1,25 @@
+package ui;
+
+import javax.swing.JLabel;
+
+public class TeamHistoryPanel {
+	
+	
+	private JLabel [] teamHistoryNames;
+	private JLabel [] teamHistoryValues;
+	private JLabel team;
+	private JLabel season;
+	private JLabel assignment;
+	private JLabel pps;
+	private JLabel value;
+	
+	public TeamHistoryPanel(){
+		initPanel();
+	}
+
+	private void initPanel() {
+		teamHistoryNames = {"team", "season", "assignment", "pps", "value"}
+		
+	}
+
+}

@@ -1,0 +1,13 @@
+package ui;
+
+import java.awt.event.MouseListener;
+
+import javax.swing.JLabel;
+
+public class PlayerImage extends JLabel implements MouseListener{
+
+	public PlayerImage() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

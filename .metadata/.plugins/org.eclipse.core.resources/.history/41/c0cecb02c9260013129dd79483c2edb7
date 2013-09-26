@@ -1,0 +1,20 @@
+package ui;
+
+import javax.swing.JLabel;
+
+public class PlayerView {
+	
+	private JLabel playerImage;
+	
+	public PlayerView(){
+		
+		initPlayerViewComponents();
+		
+	}
+
+	private void initPlayerViewComponents() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+package ui;
+
+/**
+ * Dient dafür, das auf Events gehört werden kann
+ * @author Katy
+ *
+ */
+public interface UiEventDispatcher {
+
+	//Fügt Listener hinzu
+	public void addListener();
+	//Entfernt Listener
+	public void removeListener();
+	
+	public void dispatch();
+}

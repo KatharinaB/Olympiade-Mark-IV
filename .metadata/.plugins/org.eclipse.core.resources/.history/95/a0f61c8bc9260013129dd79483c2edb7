@@ -1,0 +1,9 @@
+package ui;
+
+public class PlayerDetailPanel {
+
+	public PlayerDetailPanel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

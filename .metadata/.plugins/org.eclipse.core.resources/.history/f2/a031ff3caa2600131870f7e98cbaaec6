@@ -1,0 +1,10 @@
+
+public class Main {
+	
+	private Mainview mainview;
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

@@ -1,0 +1,8 @@
+package ui;
+
+public interface UiEventDispatcher {
+
+	public void addListener();
+	
+	public void dispatch();
+}

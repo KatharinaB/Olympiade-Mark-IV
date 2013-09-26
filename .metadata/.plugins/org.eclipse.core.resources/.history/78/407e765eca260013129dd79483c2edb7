@@ -1,0 +1,17 @@
+package ui;
+
+import javax.swing.JLabel;
+
+public class TeamHistoryPanel {
+	
+	private JLabel team;
+	private JLabel season;
+	private JLabel stakes;
+	private JLabel pps;
+	private JLabel value;
+	
+	public TeamHistoryPanel(){
+		
+	}
+
+}

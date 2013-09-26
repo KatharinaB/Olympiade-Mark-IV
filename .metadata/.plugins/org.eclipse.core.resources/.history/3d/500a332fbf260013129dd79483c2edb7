@@ -1,0 +1,64 @@
+package ui;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+
+/**
+ * Hält alles zusammen was für die Teamansicht gebraucht wird
+ * @author Katy
+ *
+ */
+public class TeamViewPanel extends JPanel{
+	
+	private JPanel teamAttributePanel;//Enthält für die Teamansicht die Attribute
+	private TeamInformationPanel teamPanel;
+	private DisciplinePanel disciplinePanel;
+	private TotalPanel totalPanel;
+	
+	private PlayerPanel playerPanel;
+	private PlayerPanel playerPanel2;
+	
+	public TeamViewPanel(){
+		
+		initTeamViewPanels();
+		initPlayerPanel();
+		initTeamAttributePanel();
+		
+		this.add(teamAttributePanel);
+		
+		this.add(playerPanel);
+		this.add(playerPanel2);
+		
+		this.setBorder(new LineBorder(Color.BLACK));
+		this.setBounds(150, 50, 860, 800);		
+	}
+	
+	private void initTeamAttributePanel() {
+		teamPanel = new TeamInformationPanel();
+		disciplinePanel = new DisciplinePanel();
+		totalPanel = new TotalPanel();
+		
+		teamAttributePanel.add(teamPanel);//Hält die allgemeinen Infos
+		teamAttributePanel.add(disciplinePanel);//Hält Infos zu den Disziplinen
+		teamAttributePanel.add(totalPanel);//Für den Gesamtwert
+		
+		teamAttributePanel.setPreferredSize(new Dimension(150,650));
+		teamAttributePanel.setBorder(new LineBorder(Color.GREEN));
+		
+	}
+
+	/**
+	 * Initialisiert (die) Playerpanel mit Bild, Name und Attributen
+	 */
+	private void initPlayerPanel(){
+		playerPanel = new PlayerPanel();
+		playerPanel2 = new PlayerPanel();
+		
+	}
+	
+
+}

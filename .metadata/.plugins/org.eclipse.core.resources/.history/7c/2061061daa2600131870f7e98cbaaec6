@@ -1,0 +1,43 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+import javax.swing.JFrame;
+
+import ui.MainPanel;
+
+
+public class MainView {
+
+	
+	private static JFrame mainframe;
+	private static MainPanel mainpanel;
+	/**
+	 * 
+	 * @param args
+	 */
+	
+	public MainView(){
+		
+		
+		initMainFrame();
+		
+		
+		
+		mainpanel = new MainPanel();
+		mainframe.add(mainpanel, BorderLayout.CENTER);
+		
+
+	}
+	private void initMainFrame() {
+		mainframe = new JFrame();
+		mainframe.setVisible(true);
+		mainframe.setBackground(Color.YELLOW);
+		mainframe.setSize(1280,960);
+		mainframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainframe.setTitle("Olympiade");
+		mainframe.setLayout(new BorderLayout());
+		mainframe.setVisible(true);
+		
+	}
+
+}

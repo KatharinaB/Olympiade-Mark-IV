@@ -1,0 +1,9 @@
+package ui;
+
+public interface UiEventDispatcher {
+
+	//Fügt Liestener hinzu
+	public void addListener();
+	
+	public void dispatch();
+}

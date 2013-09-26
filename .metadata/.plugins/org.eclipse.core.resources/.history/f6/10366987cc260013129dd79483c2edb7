@@ -1,0 +1,7 @@
+package ui;
+
+public interface IUiEventListenern {
+	
+	public void onUieventFired();
+
+}

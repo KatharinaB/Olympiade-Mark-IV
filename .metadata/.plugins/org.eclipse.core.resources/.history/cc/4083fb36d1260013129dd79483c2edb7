@@ -1,0 +1,12 @@
+package ui;
+
+import java.awt.Event;
+import java.util.EventListener;
+
+public interface UiEventListener extends EventListener{
+	
+	public void addListener();
+	
+	public void onUiEventFired();
+
+}
