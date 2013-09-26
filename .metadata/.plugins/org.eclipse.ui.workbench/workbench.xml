@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="62" version="2.0">
+<workbench progressCount="65" version="2.0">
 <workbenchAdvisor/>
 <window height="1010" maximized="true" width="1436" x="244" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -40,52 +40,28 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-<part id="7"/>
-<part id="8"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.internal.EditorStack@1c9499b3" ratio="0.5" ratioLeft="693" ratioRight="693" relationship="2" relative="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" partName="Main.java" path="C:/Users/Katy/Documents/GitHub/Olympiade-Mark-IV/Olympiade/src/Main.java" title="Main.java" tooltip="Olympiade/src/Main.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Olympiade/src/Main.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="172" selectionTopPixel="0"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainPanelController.java" partName="MainPanelController.java" path="C:/Users/Katy/Documents/GitHub/Olympiade-Mark-IV/Olympiade/src/ui/MainPanelController.java" title="MainPanelController.java" tooltip="Olympiade/src/ui/MainPanelController.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Olympiade/src/ui/MainPanelController.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="520" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainFrame.java" partName="MainFrame.java" path="C:/Users/Katy/Documents/GitHub/Olympiade-Mark-IV/Olympiade/src/ui/MainFrame.java" title="MainFrame.java" tooltip="Olympiade/src/ui/MainFrame.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Olympiade/src/ui/MainFrame.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerPanelController.java" partName="PlayerPanelController.java" path="C:/Users/Katy/Documents/GitHub/Olympiade-Mark-IV/Olympiade/src/ui/TeamView/PlayerPanelController.java" title="PlayerPanelController.java" tooltip="Olympiade/src/ui/TeamView/PlayerPanelController.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Olympiade/src/ui/TeamView/PlayerPanelController.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="143" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainPanel.java" partName="MainPanel.java" path="C:/Users/Katy/Documents/GitHub/Olympiade-Mark-IV/Olympiade/src/ui/MainPanel.java" title="MainPanel.java" tooltip="Olympiade/src/ui/MainPanel.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Olympiade/src/ui/MainPanel.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4709" selectionTopPixel="2091"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IconStatPanel.java" partName="IconStatPanel.java" path="C:/Users/Katy/Documents/GitHub/Olympiade-Mark-IV/Olympiade/src/ui/IconStatPanel.java" title="IconStatPanel.java" tooltip="Olympiade/src/ui/IconStatPanel.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Olympiade/src/ui/IconStatPanel.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="9" selectionOffset="156" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerDetailPanel.java" partName="PlayerDetailPanel.java" path="C:/Users/Katy/Documents/GitHub/Olympiade-Mark-IV/Olympiade/src/ui/PlayerDetailPanel.java" title="PlayerDetailPanel.java" tooltip="Olympiade/src/ui/PlayerDetailPanel.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Olympiade/src/ui/PlayerDetailPanel.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="263" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TeamHistoryPanel.java" partName="TeamHistoryPanel.java" path="C:/Users/Katy/Documents/GitHub/Olympiade-Mark-IV/Olympiade/src/ui/TeamHistoryPanel.java" title="TeamHistoryPanel.java" tooltip="Olympiade/src/ui/TeamHistoryPanel.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Olympiade/src/ui/TeamHistoryPanel.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="881" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerPanel.java" partName="PlayerPanel.java" path="C:/Users/Katy/Documents/GitHub/Olympiade-Mark-IV/Olympiade/src/ui/PlayerPanel.java" title="PlayerPanel.java" tooltip="Olympiade/src/ui/PlayerPanel.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Olympiade/src/ui/PlayerPanel.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3696" selectionTopPixel="1896"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UiEventListener.java" partName="UiEventListener.java" path="C:/Users/Katy/Documents/GitHub/Olympiade-Mark-IV/Olympiade/src/ui/UiEventListener.java" title="UiEventListener.java" tooltip="Olympiade/src/ui/UiEventListener.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Olympiade/src/ui/UiEventListener.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="117" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UiEventDispatcher.java" partName="UiEventDispatcher.java" path="C:/Users/Katy/Documents/GitHub/Olympiade-Mark-IV/Olympiade/src/ui/UiEventDispatcher.java" title="UiEventDispatcher.java" tooltip="Olympiade/src/ui/UiEventDispatcher.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Olympiade/src/ui/UiEventDispatcher.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="392" selectionTopPixel="0"/>
+<editor focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerPanel.java" partName="PlayerPanel.java" path="C:/Users/Katy/Documents/GitHub/Olympiade-Mark-IV/Olympiade/src/ui/TeamView/PlayerPanel.java" title="PlayerPanel.java" tooltip="Olympiade/src/ui/TeamView/PlayerPanel.java" workbook="org.eclipse.ui.internal.EditorStack@1c9499b3">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Olympiade/src/ui/TeamView/PlayerPanel.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3926" selectionTopPixel="1860"/>
 </editor>
 </editors>
 <views>
@@ -124,7 +100,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (19 items)"/>
+<category IMemento.internal.id="Warnings (32 items)"/>
 <category IMemento.internal.id="Warnings"/>
 <category IMemento.internal.id="Errors"/>
 </expanded>
@@ -520,160 +496,169 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/MainPanel.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/PlayerView.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/MainPanelController.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/PlayerPanel.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/TeamChoiceBox.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/TeamNameLabel.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/NavigationPanel.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/UiEvent.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/UiEventListener.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/UiEventDispatcher.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/MainFrame.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/Main.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/PlayerPanelController.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/TeamView/PlayerPanel.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/TeamView/PlayerPanelController.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Olympiade/src/ui/PlayerView/TeamHistoryPanel.java"/>
 </editors>
-<item historyLabel="UiEventDispatcher.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="MainPanelController.java" index="1">
+<position info="not_deleted" x="698" y="0"/>
 </item>
-<item historyLabel="UiEventListener.java" index="3">
+<item historyLabel="TeamChoiceBox.java" index="3">
+<position info="not_deleted" x="887" y="0"/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
 <position/>
 </item>
-<item historyLabel="UiEventDispatcher.java" index="4">
+<item historyLabel="MainPanelController.java" index="1">
+<position/>
+</item>
+<item historyLabel="TeamChoiceBox.java" index="3">
+<position info="not_deleted" x="1264" y="0"/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
+<position/>
+</item>
+<item historyLabel="TeamChoiceBox.java" index="3">
+<position info="not_deleted" x="1005" y="0"/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
+<position/>
+</item>
+<item historyLabel="TeamChoiceBox.java" index="3">
+<position info="not_deleted" x="1038" y="11"/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
+<position info="not_deleted" x="859" y="0"/>
+</item>
+<item historyLabel="TeamChoiceBox.java" index="3">
+<position info="not_deleted" x="1093" y="0"/>
+</item>
+<item historyLabel="TeamChoiceBox.java" index="3">
+<position info="not_deleted" x="1304" y="0"/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
+<position/>
+</item>
+<item historyLabel="TeamChoiceBox.java" index="3">
+<position info="not_deleted" x="1304" y="0"/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
+<position/>
+</item>
+<item historyLabel="PlayerPanel.java" index="2">
+<position info="not_deleted" x="3795" y="0"/>
+</item>
+<item historyLabel="NavigationPanel.java" index="5">
+<position info="not_deleted" x="1358" y="0"/>
+</item>
+<item historyLabel="MainPanel.java" index="0">
+<position info="not_deleted" x="767" y="0"/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
+<position/>
+</item>
+<item historyLabel="MainPanel.java" index="0">
+<position info="not_deleted" x="774" y="0"/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
+<position/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
+<position/>
+</item>
+<item historyLabel="MainPanel.java" index="0">
+<position info="not_deleted" x="478" y="0"/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
+<position/>
+</item>
+<item historyLabel="NavigationPanel.java" index="5">
+<position info="not_deleted" x="1358" y="0"/>
+</item>
+<item historyLabel="PlayerPanel.java" index="2">
+<position info="not_deleted" x="3795" y="0"/>
+</item>
+<item historyLabel="NavigationPanel.java" index="5">
+<position info="not_deleted" x="1358" y="0"/>
+</item>
+<item historyLabel="PlayerPanel.java" index="2">
+<position info="not_deleted" x="3795" y="0"/>
+</item>
+<item historyLabel="MainPanel.java" index="0">
+<position info="not_deleted" x="478" y="0"/>
+</item>
+<item historyLabel="PlayerPanel.java" index="2">
+<position info="not_deleted" x="3795" y="0"/>
+</item>
+<item historyLabel="TeamNameLabel.java" index="4">
+<position info="not_deleted" x="364" y="0"/>
+</item>
+<item historyLabel="PlayerPanel.java" index="2">
+<position info="not_deleted" x="3795" y="0"/>
+</item>
+<item historyLabel="UiEvent.java" index="6">
+<position info="not_deleted" x="159" y="0"/>
+</item>
+<item historyLabel="PlayerPanel.java" index="2">
+<position info="not_deleted" x="3795" y="0"/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
+<position/>
+</item>
+<item historyLabel="UiEventListener.java" index="7">
+<position info="not_deleted" x="257" y="0"/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
+<position/>
+</item>
+<item historyLabel="MainFrame.java" index="8">
+<position info="not_deleted" x="645" y="0"/>
+</item>
+<item historyLabel="Main.java" index="9">
+<position info="not_deleted" x="183" y="0"/>
+</item>
+<item historyLabel="MainFrame.java" index="8">
+<position info="not_deleted" x="645" y="0"/>
+</item>
+<item historyLabel="MainPanelController.java" index="1">
+<position/>
+</item>
+<item historyLabel="PlayerPanelController.java" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="UiEventDispatcher.java" index="4">
-<position info="not_deleted" x="395" y="0"/>
+<item historyLabel="PlayerPanelController.java" index="10">
+<position info="not_deleted" x="117" y="0"/>
 </item>
-<item historyLabel="UiEventListener.java" index="3">
+<item historyLabel="PlayerPanel.java" index="11">
+<position info="not_deleted" x="3917" y="0"/>
+</item>
+<item historyLabel="PlayerPanel.java" index="11">
+<position info="not_deleted" x="3926" y="0"/>
+</item>
+<item historyLabel="PlayerPanelController.java" index="12">
+<position info="not_deleted" x="123" y="0"/>
+</item>
+<item historyLabel="PlayerPanelController.java" index="12">
 <position info="not_deleted" x="132" y="0"/>
 </item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="371" y="0"/>
+<item historyLabel="TeamHistoryPanel.java" index="13">
+<position info="not_deleted" x="589" y="0"/>
 </item>
-<item historyLabel="MainPanel.java" index="0">
-<position info="not_deleted" x="4615" y="0"/>
-</item>
-<item historyLabel="UiEventListener.java" index="3">
+<item historyLabel="PlayerPanelController.java" index="12">
 <position info="not_deleted" x="143" y="0"/>
 </item>
-<item historyLabel="UiEventDispatcher.java" index="4">
-<position info="not_deleted" x="120" y="0"/>
-</item>
-<item historyLabel="UiEventListener.java" index="3">
-<position info="not_deleted" x="117" y="0"/>
-</item>
-<item historyLabel="UiEventDispatcher.java" index="4">
-<position info="not_deleted" x="120" y="0"/>
-</item>
-<item historyLabel="UiEventListener.java" index="3">
-<position info="not_deleted" x="117" y="0"/>
-</item>
-<item historyLabel="UiEventDispatcher.java" index="4">
-<position info="not_deleted" x="363" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="3850" y="0"/>
-</item>
-<item historyLabel="MainPanel.java" index="0">
-<position info="not_deleted" x="4648" y="14"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="3850" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="3850" y="0"/>
-</item>
-<item historyLabel="MainPanel.java" index="0">
-<position info="not_deleted" x="4648" y="14"/>
-</item>
-<item historyLabel="PlayerView.java" index="1">
-<position info="not_deleted" x="306" y="0"/>
-</item>
-<item historyLabel="MainPanel.java" index="0">
-<position info="not_deleted" x="4855" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="3850" y="0"/>
-</item>
-<item historyLabel="UiEventListener.java" index="3">
-<position info="not_deleted" x="117" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="3850" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="3615" y="0"/>
-</item>
-<item historyLabel="UiEventDispatcher.java" index="4">
-<position info="not_deleted" x="313" y="0"/>
-</item>
-<item historyLabel="UiEventListener.java" index="3">
-<position info="not_deleted" x="117" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="3877" y="0"/>
-</item>
-<item historyLabel="PlayerView.java" index="1">
-<position info="not_deleted" x="306" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="3877" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="2027" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="1460" y="0"/>
-</item>
-<item historyLabel="MainPanel.java" index="0">
-<position info="not_deleted" x="4855" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="1460" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="3740" y="0"/>
-</item>
-<item historyLabel="UiEventDispatcher.java" index="4">
-<position info="not_deleted" x="392" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="2025" y="0"/>
-</item>
-<item historyLabel="MainPanel.java" index="0">
-<position info="not_deleted" x="4855" y="0"/>
-</item>
-<item historyLabel="MainPanel.java" index="0">
-<position info="not_deleted" x="4907" y="0"/>
-</item>
-<item historyLabel="PlayerView.java" index="1">
-<position info="not_deleted" x="306" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="1191" y="0"/>
-</item>
-<item historyLabel="MainPanel.java" index="0">
-<position info="not_deleted" x="4907" y="0"/>
-</item>
-<item historyLabel="PlayerView.java" index="1">
-<position info="not_deleted" x="306" y="0"/>
-</item>
-<item historyLabel="MainPanel.java" index="0">
-<position info="not_deleted" x="4907" y="0"/>
-</item>
-<item historyLabel="UiEventDispatcher.java" index="4">
-<position info="not_deleted" x="392" y="0"/>
-</item>
-<item historyLabel="UiEventListener.java" index="3">
-<position info="not_deleted" x="117" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="1191" y="0"/>
-</item>
-<item historyLabel="PlayerPanel.java" index="2">
-<position info="not_deleted" x="3789" y="0"/>
-</item>
-<item historyLabel="MainPanel.java" index="0">
-<position info="not_deleted" x="4907" y="0"/>
-</item>
-<item historyLabel="MainPanel.java" index="0">
-<position info="not_deleted" x="4709" y="0"/>
-</item>
-<item active="true" historyLabel="PlayerPanel.java" index="2">
-<position/>
+<item active="true" historyLabel="MainPanelController.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -696,14 +681,38 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TeamHistoryPanel.java" tooltip="Olympiade/src/ui/PlayerView/TeamHistoryPanel.java">
+<persistable path="/Olympiade/src/ui/PlayerView/TeamHistoryPanel.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerPanelController.java" tooltip="Olympiade/src/ui/PlayerPanelController.java">
+<persistable path="/Olympiade/src/ui/PlayerPanelController.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TeamNameLabel.java" tooltip="Olympiade/src/ui/TeamNameLabel.java">
+<persistable path="/Olympiade/src/ui/TeamNameLabel.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UiEventListener.java" tooltip="Olympiade/src/ui/UiEventListener.java">
+<persistable path="/Olympiade/src/ui/UiEventListener.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UiEvent.java" tooltip="Olympiade/src/ui/UiEvent.java">
+<persistable path="/Olympiade/src/ui/UiEvent.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TeamChoiceBox.java" tooltip="Olympiade/src/ui/TeamChoiceBox.java">
+<persistable path="/Olympiade/src/ui/TeamChoiceBox.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerPanel.java" tooltip="Olympiade/src/ui/PlayerPanel.java">
+<persistable path="/Olympiade/src/ui/PlayerPanel.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="NavigationPanel.java" tooltip="Olympiade/src/ui/NavigationPanel.java">
+<persistable path="/Olympiade/src/ui/NavigationPanel.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainPanelController.java" tooltip="Olympiade/src/ui/MainPanelController.java">
+<persistable path="/Olympiade/src/ui/MainPanelController.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UiEventDispatcher.java" tooltip="Olympiade/src/ui/UiEventDispatcher.java">
 <persistable path="/Olympiade/src/ui/UiEventDispatcher.java"/>
 </file>
 <file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="MouseListener.class" tooltip="java.awt.event.MouseListener">
 <persistable org.eclipse.jdt.ui.ClassFileIdentifier="=Olympiade/C:\/Program Files\/Java\/jre7\/lib\/rt.jar&lt;java.awt.event(MouseListener.class"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UiEventListener.java" tooltip="Olympiade/src/ui/UiEventListener.java">
-<persistable path="/Olympiade/src/ui/UiEventListener.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="uiListener.java" tooltip="Olympiade/src/ui/uiListener.java">
 <persistable path="/Olympiade/src/ui/uiListener.java"/>
@@ -716,30 +725,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerImage.java" tooltip="Olympiade/src/ui/PlayerImage.java">
 <persistable path="/Olympiade/src/ui/PlayerImage.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerPanel.java" tooltip="Olympiade/src/ui/PlayerPanel.java">
-<persistable path="/Olympiade/src/ui/PlayerPanel.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TeamHistoryPanel.java" tooltip="Olympiade/src/ui/TeamHistoryPanel.java">
-<persistable path="/Olympiade/src/ui/TeamHistoryPanel.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerDetailPanel.java" tooltip="Olympiade/src/ui/PlayerDetailPanel.java">
-<persistable path="/Olympiade/src/ui/PlayerDetailPanel.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IconStatPanel.java" tooltip="Olympiade/src/ui/IconStatPanel.java">
-<persistable path="/Olympiade/src/ui/IconStatPanel.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PlayerView.java" tooltip="Olympiade/src/ui/PlayerView.java">
-<persistable path="/Olympiade/src/ui/PlayerView.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainPanel.java" tooltip="Olympiade/src/ui/MainPanel.java">
-<persistable path="/Olympiade/src/ui/MainPanel.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainFrame.java" tooltip="Olympiade/src/ui/MainFrame.java">
-<persistable path="/Olympiade/src/ui/MainFrame.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Main.java" tooltip="Olympiade/src/Main.java">
-<persistable path="/Olympiade/src/Main.java"/>
 </file>
 </mruList>
 </workbench>

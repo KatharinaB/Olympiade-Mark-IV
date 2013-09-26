@@ -1,0 +1,40 @@
+package ui.TeamView;
+
+import java.util.ArrayList;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class PlayerPanelController {
+	
+	
+	private ArrayList <PlayerPanel> playerList = new ArrayList<PlayerPanel>();
+	/*
+	private PlayerPanel view;
+	private JLabel playerName;
+	private JLabel playerImage;
+	private JPanel statsPanel;	//Enthält die Attribute und Werte
+	private JPanel profilPanel; //Enthält Profilname und Foto
+	private JLabel [] attributes; //Attribut Namen
+	private JLabel [] attributesVars;//Platzhalter für die Werte der Attribute*/
+	
+	public PlayerPanelController(){
+
+	}
+	
+	public void addPlayer(){
+		view = new PlayerPanel();
+		
+		view.addElement(profilPanel);
+		view.addElement(statsPanel);
+		
+		
+		return view;
+		
+	}
+	
+	public ArrayList<PlayerPanel> getViewList(){
+		return view;
+	}
+
+}

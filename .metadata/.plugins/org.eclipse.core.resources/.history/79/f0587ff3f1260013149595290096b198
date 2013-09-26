@@ -1,0 +1,11 @@
+package ui.TeamView;
+
+public class PlayerPanelController {
+	
+	private PlayerPanel view;
+	
+	public PlayerPanelController(){
+		
+	}
+
+}

@@ -1,5 +1,6 @@
 package ui;
 
+
 import java.awt.Color;
 import java.awt.Font;
 
@@ -7,11 +8,21 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
+import ui.EventHandling.UiEvent;
+import ui.EventHandling.UiEventListener;
+import ui.MainView.NavigationPanel;
+import ui.MainView.TeamChoiceBox;
+import ui.MainView.TeamNameLabel;
+import ui.MainView.TickerPanel;
+import ui.TeamView.PlayerPanel;
+import ui.TeamView.PlayerPanelController;
+import ui.TeamView.TeamAttributePanel;
+
 public class MainPanelController implements UiEventListener{
 	
 	private MainPanel view;
 	private NavigationPanel navi;
-	private PlayerPanel playerPanel;
+	private PlayerPanelController playerPanelController;
 	private TeamChoiceBox teamChoice;//Teamauswahlbox
 	private TeamNameLabel teamNameLabel;
 	private TickerPanel tickerPanel;//Enthält News und Transferticker
@@ -20,24 +31,23 @@ public class MainPanelController implements UiEventListener{
 	public MainPanelController(){
 		view = new MainPanel();
 		navi = new NavigationPanel();
-		playerPanel = new PlayerPanel();
+		playerPanelController = new PlayerPanelController();
 		teamChoice = new TeamChoiceBox();
 		teamNameLabel = new TeamNameLabel();
 		tickerPanel = new TickerPanel();
 		teamAttributePanel = new TeamAttributePanel();
 		
-		teamChoice.addListener(this);
-		
 		addMainView();
 
-		playerPanel.addListener(this);
-	}
-	
-	
-	private void addPlayerView() {
+		//Der Controller hört auf die Teamauswahl und die Playerpanel zum switchen der View
+		teamChoice.addListener(this);
+		playerPanelController.addListener(this);
 		
+		playerPanelController.addPlayer();
+		playerPanelController.addPlayer();
 	}
-
+	
+	
 	private void addMainView() {
 		view.addElement(navi);
 		view.addElement(teamChoice);
@@ -46,11 +56,17 @@ public class MainPanelController implements UiEventListener{
 	}
 	
 	private void addTeamView() {
-		view.addElement(playerPanel); //HIer dann ne Methode welcher in ner Schleife alle nötigen Player addet
+		view.addElement(playerPanelController.getViewList().get(0)); //HIer dann ne Methode welcher in ner Schleife alle nötigen Player addet
+		view.addElement(playerPanelController.getViewList().get(1)); //HIer dann ne Methode welcher in ner Schleife alle nötigen Player addet
+		
 		view.addElement(teamAttributePanel);
 		teamNameLabel.setText(teamChoice.getTeamname());
 		
 		view.removeElement(tickerPanel);
+	}
+	
+	private void addPlayerView() {
+		
 	}
 
 	public MainPanel getView(){
@@ -67,15 +83,5 @@ public class MainPanelController implements UiEventListener{
 		}else if(event.getMessage() == "activatePlayerView"){
 			addPlayerView();
 		}
-		
-		
-		
 	}
-
-	private void showPlayerView() {
-		navi.hide();
-		
-	}
-	
-
 }

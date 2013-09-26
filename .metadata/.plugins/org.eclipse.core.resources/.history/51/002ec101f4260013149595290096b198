@@ -1,0 +1,82 @@
+package ui.TeamView;
+
+import java.awt.Dimension;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import ui.EventHandling.UiEvent;
+
+public class PlayerPanelController {
+	
+	
+	private ArrayList <PlayerPanel> playerList;
+	/*
+	private JLabel [] attributes; //Attribut Namen
+	private JLabel [] attributesVars;//Platzhalter für die Werte der Attribute*/
+	
+	public PlayerPanelController(){
+		playerList = new ArrayList<PlayerPanel>();
+	}
+	
+	public void addPlayer(){
+		JPanel statsPanel;	//Enthält die Attribute und Werte
+		JPanel profilPanel; //Enthält Profilname und Foto
+		
+		PlayerPanel view = new PlayerPanel();
+		JLabel playerName = new JLabel("dummyspieler"); //TODO Aus DB
+		JLabel playerImage = new JLabel("dummyimage"); //TODO Aus DB
+		playerImage = initPlayerImage(playerImage);
+		view.addElement(profilPanel);
+		view.addElement(statsPanel);
+		
+		
+		return view;
+		
+	}
+	
+	private void initPlayerImage(JLabel playerImage) {
+		playerImage.setPreferredSize(new Dimension(100,100));
+		playerImage.addMouseListener( new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispatch(new UiEvent("mh"));
+				System.out.println("clicked");
+			}
+		});
+		
+	}
+
+	public ArrayList<PlayerPanel> getViewList(){
+		return playerList;
+	}
+
+}
