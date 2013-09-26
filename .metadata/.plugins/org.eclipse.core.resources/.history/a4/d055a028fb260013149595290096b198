@@ -1,6 +1,5 @@
 package ui.TeamView;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -8,7 +7,6 @@ import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
 
 import ui.EventHandling.UiEvent;
 import ui.EventHandling.UiEventDispatcher;
@@ -24,12 +22,10 @@ public class PlayerPanelController implements UiEventDispatcher{
 	
 	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
 	private ArrayList <PlayerPanel> playerList;
-	private JPanel allPlayers = new JPanel();
+	
 	
 	public PlayerPanelController(){
 		playerList = new ArrayList<PlayerPanel>();
-		allPlayers.setBounds(310,50,700,1500);
-		allPlayers.setBorder(new LineBorder(Color.BLUE));
 	}
 	
 	public void addPlayer(){
@@ -54,7 +50,6 @@ public class PlayerPanelController implements UiEventDispatcher{
 		view.addElement(statsPanel);
 		
 		playerList.add(view);
-		allPlayers.add(view);
 	}
 	
 	private JPanel initProfilPanel(JPanel profilPanel) {
@@ -103,9 +98,6 @@ public class PlayerPanelController implements UiEventDispatcher{
 		return playerList;
 	}
 	
-	public JPanel getPanel(){
-		return allPlayers;
-	}
 	
 	private JPanel initStatsPanel(JPanel statsPanel) {
 		JLabel [] attributes = new JLabel[6];//Attribut Namen

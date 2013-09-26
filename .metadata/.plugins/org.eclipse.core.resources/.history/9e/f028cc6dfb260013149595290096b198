@@ -56,9 +56,8 @@ public class MainPanelController implements UiEventListener{
 	}
 	
 	private void addTeamView() {
-		//view.addElement(playerPanelController.getViewList().get(0)); //HIer dann ne Methode welcher in ner Schleife alle nötigen Player addet
-		//view.addElement(playerPanelController.getViewList().get(1)); //HIer dann ne Methode welcher in ner Schleife alle nötigen Player addet
-		view.addElement(playerPanelController.getPanel());
+		view.addElement(playerPanelController.getViewList().get(0)); //HIer dann ne Methode welcher in ner Schleife alle nötigen Player addet
+		view.addElement(playerPanelController.getViewList().get(1)); //HIer dann ne Methode welcher in ner Schleife alle nötigen Player addet
 		
 		view.addElement(teamAttributePanel);
 		teamNameLabel.setText(teamChoice.getTeamname());

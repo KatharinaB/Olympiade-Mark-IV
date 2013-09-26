@@ -28,7 +28,7 @@ public class PlayerPanelController implements UiEventDispatcher{
 	
 	public PlayerPanelController(){
 		playerList = new ArrayList<PlayerPanel>();
-		allPlayers.setBounds(310,50,700,1500);
+		allPlayers.setBounds(310,50,1000,1000);
 		allPlayers.setBorder(new LineBorder(Color.BLUE));
 	}
 	

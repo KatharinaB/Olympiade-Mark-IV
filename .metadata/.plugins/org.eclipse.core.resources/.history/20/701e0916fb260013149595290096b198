@@ -36,6 +36,7 @@ public class PlayerPanel extends JPanel{
 	public PlayerPanel(){
 		this.setBackground(Color.blue);
 		this.setVisible(true);
+		this.setBounds(310,50,320,160);
 		this.setPreferredSize(new Dimension(320,120));
 	}
 
