@@ -13,6 +13,7 @@ public interface UiEventListener extends EventListener{
 	/**
 	 * Wird bei einem Event aufgerufen
 	 */
-	public void onUiEventFired();
+
+	void onUiEventFired(UiEvent event);
 
 }

@@ -1,0 +1,12 @@
+package ui;
+
+public class MainPanelController {
+	
+	private MainPanel view;
+	
+	public MainPanelController(){
+		view = new MainPanel();
+		
+	}
+
+}

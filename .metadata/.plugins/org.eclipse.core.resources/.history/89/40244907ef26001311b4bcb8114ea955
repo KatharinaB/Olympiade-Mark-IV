@@ -1,0 +1,67 @@
+package ui;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.ComboBoxModel;
+import javax.swing.JComboBox;
+
+public class TeamChoiceBox extends JComboBox<String> implements UiEventDispatcher{
+	
+	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
+	private String selectedItem;
+	private static String [] teams = {"dummy 1", "dummy 2", "dummy3"}; //TODO aus DB
+	
+	public TeamChoiceBox(){
+		super(teams);
+		this.setSelectedIndex(0);
+		this.setBackground(Color.PINK);
+		this.setBounds(1010,50,250,30);
+		this.setVisible(true);
+		
+		this.addActionListener(new ActionListener() {
+	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setTeamname();
+				dispatch();
+				
+			}
+		});
+		
+		
+	}
+	
+	private void setTeamname() {
+		selectedItem =  (String) this.getSelectedItem();
+		
+	}
+	
+	private String getTeamname(){
+		return selectedItem;
+	}
+
+	@Override
+	public void addListener(UiEventListener listener) {
+		listeners.add(listener);
+		
+	}
+
+	@Override
+	public void removeListener(UiEventListener listener) {
+		listeners.remove(listener);
+		
+	}
+
+	@Override
+	public void dispatch() {
+		for(UiEventListener lis: listeners){
+			lis.onUiEventFired(new UiEvent("activateTeamView"));
+		}
+		
+	}
+	
+
+}

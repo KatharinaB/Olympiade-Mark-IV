@@ -42,6 +42,9 @@ public class PlayerPanel extends JPanel implements UiEventDispatcher{
 		this.add(statsPanel);
 		
 		this.setBackground(Color.blue);
+		this.setVisible(true);
+		
+		this.setBounds(310,50,320,160);
 	}
 	
 
@@ -146,22 +149,26 @@ public class PlayerPanel extends JPanel implements UiEventDispatcher{
 		
 	}
 	
+	
+	//Fügt alle Interessanten an Events zu einer Liste hinzu
 	@Override
 	public void addListener(UiEventListener listener){
 		listeners.add(listener);
 	}
 
-
+	
+	//Informmiert alle Interessenten
 	@Override
 	public void dispatch() {
 		System.out.println("dispatcht");
 		for(UiEventListener lis: listeners){
-			lis.onUiEventFired();
+			lis.onUiEventFired(new UiEvent("activatePlayerView"));
 			
 		}
 		
 	}
 
+	//Löscht aus der Interessentenliste
 	@Override
 	public void removeListener(UiEventListener listener) {
 		listeners.remove(listener);

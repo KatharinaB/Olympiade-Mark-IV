@@ -1,0 +1,197 @@
+package ui;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.EventListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+
+
+/**
+ * Hält alle Panels für die Mainsite und die Teamansicht
+ * @author Katy
+ *
+ */
+public class MainPanel extends JPanel implements UiEventListener{
+
+	private JLabel teamnameLabel;//Teamname
+	private JButton button;
+	private NavigationPanel navigationPanel;//Navigationsleiste
+	private JButton [] buttons;
+	private JComboBox teamChoice;//Teamauswahlbox
+	private TickerPanel tickerPanel;//Enthält News und Transferticker
+	private TeamAttributePanel teamAttributePanel;
+	
+	private PlayerPanel playerPanel;
+	private PlayerPanel playerPanel2;
+
+	
+	public MainPanel(){
+		//null-Layout -  alle Elemente sind frei positionierbar
+		this.setLayout(null);
+		
+		initLabel();
+		initNavigationPanel();
+		initTeamChoiceComboBox();
+		initTickerPanel();
+		initPlayerPanel();
+		initTeamAttributePanel();
+		
+		this.add(teamnameLabel);
+		this.add(navigationPanel);
+		this.add(teamChoice);
+		this.add(tickerPanel);
+		this.add(teamAttributePanel);	
+		
+		this.add(playerPanel);
+		this.add(playerPanel2);
+		
+		playerPanel.setVisible(false);
+		playerPanel2.setVisible(false);
+		teamAttributePanel.setVisible(false);
+		
+	}
+	
+	private void initTeamAttributePanel() {
+		teamAttributePanel = new TeamAttributePanel();
+		
+	}
+
+	/**
+	 * Initialisiert (die) Playerpanel mit Bild, Name und Attributen
+	 */
+	private void initPlayerPanel(){
+		playerPanel = new PlayerPanel();
+		playerPanel2 = new PlayerPanel();
+		
+		playerPanel.setBounds(310,50,320,160);
+		playerPanel2.setBounds(640,50,320,160);
+		
+		playerPanel.addListener(this);
+	}
+	
+	/**
+	 * Initialisiert die Tickerpanel mit News- und Transferticker
+	 */
+	private void initTickerPanel() {
+		tickerPanel =  new TickerPanel();
+	}
+
+	/**
+	 * Initialisiert die Teamview
+	 */
+	private void initTeamViewPanels() {
+		teamAttributePanel = new TeamAttributePanel();
+	}
+
+	
+	/**
+	 * Initialisiert die Teamauswahlbox
+	 */
+	private void initTeamChoiceComboBox() {
+		String [] teams = {"DummyTeam 1", "dummyTeam2 ", "dummyTeam3"}; // TODO: aus Datenbank
+		
+		teamChoice = new JComboBox(teams);
+		teamChoice.setSelectedIndex(0);
+		teamChoice.setBackground(Color.PINK);
+		teamChoice.setBounds(1010,50,250,30);
+		teamChoice.addActionListener(new ActionListener() {
+			
+			
+			/**
+			 * Aktiviert durch Auswählen eines Teams, die Teamansicht
+			 */
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				teamnameLabel.setText((String) teamChoice.getSelectedItem());	
+				tickerPanel.setVisible(false);		
+				playerPanel.setVisible(true);
+				playerPanel2.setVisible(true);
+				teamAttributePanel.setVisible(true);
+			}
+
+		});
+		
+	}
+	
+	
+	//TODO ActionListener für Buttons + Funktionen
+	/**
+	 * Initialisiert die Navigationsleiste 
+	 */
+	private void initNavigationPanel(){
+		navigationPanel = new JPanel();
+		navigationPanel.setVisible(true);
+	
+		navigationPanel.setBounds(0,50,150,800);
+		navigationPanel.setBackground(Color.GREEN);
+		
+		buttons = initNavigationButtons();
+		
+		for(int i = 0; i < 12; i++){
+			buttons[i].setPreferredSize(new Dimension(140,30));
+			navigationPanel.add(buttons[i]);
+		}
+
+	}
+	
+	/**
+	 * Erstellt die Buttons für die Navigation
+	 * @return
+	 */
+	private JButton[] initNavigationButtons(){
+		JButton [] buttons = new JButton[12];
+		
+		buttons[0] = new JButton("Overview");
+		buttons[1] = new JButton("next Round");
+		buttons[2] = new JButton("Team");
+		buttons[3] = new JButton("Training-Camp");
+		buttons[4] = new JButton("Standings");
+		buttons[5] = new JButton("Top Players");
+		buttons[6] = new JButton("News");
+		buttons[7] = new JButton("Transfers");
+		buttons[8] = new JButton("Rumors");
+		buttons[9] = new JButton("Prize-Money");
+		buttons[10] = new JButton("Spellbook");
+		buttons[11] = new JButton("Sponsors");
+
+		return buttons;
+		
+	}
+	
+	/**
+	 * Erstellt das Label und passt es an 
+	 */
+	private void initLabel(){
+		teamnameLabel = new JLabel("Teamname");
+		teamnameLabel.setSize(200, 50);	
+		teamnameLabel.setBounds(400, 10, 200, 30);
+		teamnameLabel.setBorder(new LineBorder(Color.BLACK));
+
+		teamnameLabel.setFont(new Font("Arial", Font.BOLD, 36));
+		teamnameLabel.setVisible(true);	
+	}
+
+
+	/**
+	 * Hört auf Events und verarbeitet diese hier
+	 */
+	@Override
+	public void onUiEventFired() {
+		System.out.println("Alles ausblenden");
+		tickerPanel.setVisible(false);		
+		playerPanel.setVisible(false);
+		playerPanel2.setVisible(false);
+		teamAttributePanel.setVisible(false);
+		navigationPanel.setVisible(false);
+		teamChoice.setVisible(false);
+	}
+
+}

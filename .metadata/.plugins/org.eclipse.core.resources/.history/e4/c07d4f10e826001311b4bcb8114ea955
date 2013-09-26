@@ -1,0 +1,43 @@
+package ui;
+
+import javax.swing.JComboBox;
+
+public class MainPanelController implements UiEventListener{
+	
+	private MainPanel view;
+	private NavigationPanel navi;
+	private PlayerPanel playerPanel;
+	private JComboBox<String> teamChoice;//Teamauswahlbox
+	
+	public MainPanelController(){
+		view = new MainPanel();
+		navi = new NavigationPanel();
+		playerPanel = new PlayerPanel();
+		
+		view.addNavigation(navi);
+		view.addPlayer(playerPanel); //HIer dann ne Methode welcher in ner Schleife alle nötigen Player addet
+		view.addTeamChoice();
+		
+		
+		playerPanel.addListener(this);
+	}
+	
+	public MainPanel getView(){
+		return view;
+	}
+
+	@Override
+	public void onUiEventFired() {
+		
+		showPlayerView();
+		
+		
+	}
+
+	private void showPlayerView() {
+		navi.hide();
+		
+	}
+	
+
+}

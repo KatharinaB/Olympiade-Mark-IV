@@ -1,0 +1,21 @@
+package ui;
+
+public class MainPanelController implements UiEventListener{
+	
+	private MainPanel view;
+	private NavigationPanel navi;
+	
+	public MainPanelController(){
+		view = new MainPanel();
+		navi = new NavigationPanel();
+		
+		view.addNavigation(navi);
+		
+	}
+	
+	public MainPanel getView(){
+		return view;
+	}
+	
+
+}

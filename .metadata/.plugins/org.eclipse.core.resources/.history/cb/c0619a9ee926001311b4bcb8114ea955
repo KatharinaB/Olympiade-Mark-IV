@@ -1,0 +1,35 @@
+package ui;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JComboBox;
+
+public class TeamChoiceBox extends JComboBox<String>{
+	
+	
+	public TeamChoiceBox(){
+		teamChoice.setSelectedIndex(0);
+		teamChoice.setBackground(Color.PINK);
+		teamChoice.setBounds(1010,50,250,30);
+		teamChoice.addActionListener(new ActionListener() {
+			
+			
+			/**
+			 * Aktiviert durch Auswählen eines Teams, die Teamansicht
+			 */
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				teamnameLabel.setText((String) teamChoice.getSelectedItem());	
+				tickerPanel.setVisible(false);		
+				playerPanel.setVisible(true);
+				playerPanel2.setVisible(true);
+				teamAttributePanel.setVisible(true);
+			}
+
+		});
+	}
+	
+
+}

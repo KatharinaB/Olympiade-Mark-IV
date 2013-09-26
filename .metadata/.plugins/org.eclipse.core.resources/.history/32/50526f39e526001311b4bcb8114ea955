@@ -1,0 +1,15 @@
+package ui;
+
+import java.awt.Color;
+
+import javax.swing.JPanel;
+
+public class NavigationPanel extends JPanel{
+	
+	public NavigationPanel(){
+		this.setVisible(true);
+		this.setBounds(0,50,150,800);
+		this.setBackground(Color.GREEN);
+	}
+
+}

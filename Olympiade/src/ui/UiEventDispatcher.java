@@ -2,6 +2,8 @@ package ui;
 
 import java.awt.Event;
 
+//TODO noch ne Eventklasse anlegen sobald wir mehrere/verschiedene Events haben
+
 /**
  * Dient dafür, das auf Events gehört werden kann (für den "Abzuhörenden")
  * @author Katy

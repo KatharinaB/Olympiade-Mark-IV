@@ -1,0 +1,9 @@
+package ui;
+
+public class TeamNameLabel {
+
+	public TeamNameLabel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

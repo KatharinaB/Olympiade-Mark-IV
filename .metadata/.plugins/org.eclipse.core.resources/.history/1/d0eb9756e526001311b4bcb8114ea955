@@ -1,0 +1,28 @@
+package ui;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class NavigationPanel extends JPanel{
+	
+	private JButton [] buttons;
+	
+	public NavigationPanel(){
+		this.setVisible(true);
+		this.setBounds(0,50,150,800);
+		this.setBackground(Color.GREEN);
+	}
+	
+	public createNavigation(){
+		buttons = initNavigationButtons();
+		
+		for(int i = 0; i < 12; i++){
+			buttons[i].setPreferredSize(new Dimension(140,30));
+			this.add(buttons[i]);
+		}
+	}
+
+}

@@ -1,0 +1,76 @@
+package ui;
+
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
+
+public class MainPanelController implements UiEventListener{
+	
+	private MainPanel view;
+	private NavigationPanel navi;
+	private PlayerPanel playerPanel;
+	private JComboBox<String> teamChoice;//Teamauswahlbox
+	private String [] teams = { "", "DummyTeam 1", "dummyTeam2 ", "dummyTeam3"}; // TODO: aus Datenbank
+	private TeamNameLabel teamNameLabel;
+	private TickerPanel tickerPanel;//Enthält News und Transferticker
+	private TeamAttributePanel teamAttributePanel;
+	
+	public MainPanelController(){
+		view = new MainPanel();
+		navi = new NavigationPanel();
+		playerPanel = new PlayerPanel();
+		teamChoice = new JComboBox<String>(teams);
+		teamNameLabel = new TeamNameLabel();
+		tickerPanel = new TickerPanel();
+		teamAttributePanel = new TeamAttributePanel();
+		
+		addMainView();
+		//addTeamView();
+		//addPlayerView();
+		
+		
+		
+		
+		playerPanel.addListener(this);
+	}
+	
+	
+	private void addMainView() {
+		view.addElement(navi);
+		view.addElement(teamChoice);
+		view.addElement(teamNameLabel);
+		view.addElement(tickerPanel);
+	}
+	
+	private void addTeamView() {
+		view.addElement(playerPanel); //HIer dann ne Methode welcher in ner Schleife alle nötigen Player addet
+		view.addElement(teamAttributePanel);
+	}
+
+	public MainPanel getView(){
+		return view;
+	}
+
+	//TODO nochmal anders lösen, nicht mit diesen Strings
+	@Override
+	public void onUiEventFired(UiEvent event) {
+		if(event.getMessage() == "activateTeamView"){
+			addTeamView();
+		}else if(event.getMessage() == "activatePlayerView"){
+			showPlayerView();
+		}
+		
+		
+		
+	}
+
+	private void showPlayerView() {
+		navi.hide();
+		
+	}
+	
+
+}

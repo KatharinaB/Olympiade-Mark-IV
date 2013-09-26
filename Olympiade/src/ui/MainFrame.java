@@ -8,26 +8,23 @@ import javax.swing.JFrame;
 public class MainFrame extends JFrame{
 	
 	private MainPanel mainpanel;
+	private MainPanelController mainController;
 	
-	public MainFrame(){
+	public MainFrame(int height, int width){
 		
-		initMainPanel();
-		initMainFrame();
+		mainController = new MainPanelController();
+		mainpanel = mainController.getView();
+		initMainFrame(height, width);
 		
 		this.add(mainpanel);
-		this.setVisible(true);
-	}
-	
-	private void initMainFrame() {
-		this.setBackground(Color.YELLOW);
-		this.setSize(1280,960);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Olympiade");
 		
 	}
-
-	private void initMainPanel() {
-		mainpanel = new MainPanel();
+	
+	private void initMainFrame(int height, int width) {
+		this.setBackground(Color.YELLOW);
+		this.setSize(height,width);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("Olympiade");
+		this.setVisible(true);
 	}
-
 }
