@@ -23,91 +23,53 @@ import ui.EventHandling.UiEventListener;
 public class PlayerPanelController implements UiEventDispatcher{
 	
 	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
-	private ArrayList <PlayerPanel> playerList;
 	private JPanel allPlayers = new JPanel();
 	
 	public PlayerPanelController(){
-		playerList = new ArrayList<PlayerPanel>();
 		allPlayers.setBounds(310,50,700,1500);
 		allPlayers.setBorder(new LineBorder(Color.BLUE));
+		allPlayers.setBackground(Color.ORANGE);
 	}
 	
 	public void addPlayer(){
-		JPanel statsPanel = new JPanel();	//Enthält die Attribute und Werte
-		JPanel profilPanel = new JPanel();
-		profilPanel = initProfilPanel(profilPanel); //Enthält Profilname und Foto
-		
-		
 		PlayerPanel view = new PlayerPanel();
-		JLabel playerName = new JLabel("dummyspieler"); //TODO Aus DB
-		playerName.setPreferredSize(new Dimension(100,20));
 		
-		JLabel playerImage = new JLabel("dummyimage"); //TODO Aus DB
-		playerImage = initPlayerImage(playerImage);
-		profilPanel = initProfilPanel(profilPanel);
-		statsPanel = initStatsPanel(statsPanel);
+		JPanel statsPanel = initStatsPanel();	//Enthält die Attribute und Werte
+		JLabel playerName = initPlayerNameLabel();
+		JLabel playerImage = initPlayerImage();
+		JPanel profilPanel = initProfilPanel(playerImage, playerName); //Enthält Profilname und Foto
+
+		view.addProfilPanel(profilPanel);
+		view.addStatsPanel(statsPanel);
 		
-		profilPanel.add(playerName);
-		profilPanel.add(playerImage);
-		
-		view.addElement(profilPanel);
-		view.addElement(statsPanel);
-		
-		playerList.add(view);
 		allPlayers.add(view);
 	}
 	
-	private JPanel initProfilPanel(JPanel profilPanel) {
-		profilPanel.setPreferredSize(new Dimension(100,150));
+
+	private JPanel initProfilPanel(JLabel playerImage, JLabel playerName) {
+		JPanel profilPanel = new JPanel();
+		playerName.setPreferredSize(new Dimension(100,20));
+		profilPanel.add(playerName);
+		profilPanel.add(playerImage);
 		return profilPanel;
 	}
 
-	private JLabel initPlayerImage(JLabel playerImage) {
-		playerImage.setPreferredSize(new Dimension(100,100));
-		playerImage.addMouseListener( new MouseListener() {
-			
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				dispatch();
-				System.out.println("clicked");
-			}
-		});
-		return playerImage;
+	private JLabel initPlayerImage() {
+		//Image aus DB
+		return new JLabel("dummyImage");
 	}
 
-	public ArrayList<PlayerPanel> getViewList(){
-		return playerList;
+	private JLabel initPlayerNameLabel() {
+		//String name = //aus DB
+		return new JLabel("dummyspieler");// new JLabel(name);
 	}
 	
 	public JPanel getPanel(){
 		return allPlayers;
 	}
 	
-	private JPanel initStatsPanel(JPanel statsPanel) {
+	private JPanel initStatsPanel() {
+		JPanel statsPanel = new JPanel();
 		JLabel [] attributes = new JLabel[6];//Attribut Namen
 		JLabel [] attributesVars = new JLabel[6];;//Platzhalter für die Werte der Attribute
 		String []  attributeNames= {"games", "pps", "stamina", "value", "salary", "contract"};
@@ -120,8 +82,6 @@ public class PlayerPanelController implements UiEventDispatcher{
 			attributes[i].setPreferredSize(new Dimension(50,30));
 			attributesVars[i].setPreferredSize(new Dimension(50,30));
 		}
-		
-		statsPanel.setPreferredSize(new Dimension(200,150));
 		
 		
 		/*Um jeweils erst 3 Werte aus der einen Liste zu bekommen
@@ -173,6 +133,43 @@ public class PlayerPanelController implements UiEventDispatcher{
 			listeners.remove(listener);
 			
 			
+		}
+		
+		private JLabel initPlayerImage(JLabel playerImage) {
+			playerImage.setPreferredSize(new Dimension(100,100));
+			playerImage.addMouseListener( new MouseListener() {
+				
+				@Override
+				public void mouseReleased(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mousePressed(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mouseExited(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					// TODO Auto-generated method stub
+					
+				}
+				
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					dispatch();
+					System.out.println("clicked");
+				}
+			});
+			return playerImage;
 		}
 
 }

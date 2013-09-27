@@ -14,8 +14,6 @@
 <fullyQualifiedTypeName name="TickerPanel"/>
 <fullyQualifiedTypeName name="TeamAttributePanel"/>
 <fullyQualifiedTypeName name="PlayerPanel"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
-<fullyQualifiedTypeName name="javax.swing.border.LineBorder"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="ui.TeamViewPanel"/>
 <fullyQualifiedTypeName name="ui.TeamAttributePanel"/>
@@ -23,7 +21,6 @@
 <fullyQualifiedTypeName name="ui.TeamHistoryPanel"/>
 <fullyQualifiedTypeName name="java.awt.Dimension"/>
 <fullyQualifiedTypeName name="java.util.EventListener"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="ui.UiEventDispatcher"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
 <fullyQualifiedTypeName name="java.awt.Event"/>
@@ -32,7 +29,6 @@
 <fullyQualifiedTypeName name="ui.PlayerPanel"/>
 <fullyQualifiedTypeName name="ui.MainPanel"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
-<fullyQualifiedTypeName name="javax.swing.JComponent"/>
 <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
 <fullyQualifiedTypeName name="ui.UiEventListener"/>
 <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
@@ -41,4 +37,11 @@
 <fullyQualifiedTypeName name="ui.TickerPanel"/>
 <fullyQualifiedTypeName name="ui.UiEvent"/>
 <fullyQualifiedTypeName name="ui.TeamChoiceBox"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="ui.EventHandling.UiEvent"/>
+<fullyQualifiedTypeName name="ui.EventHandling.UiEventDispatcher"/>
+<fullyQualifiedTypeName name="javax.swing.JComponent"/>
+<fullyQualifiedTypeName name="ui.TeamView.PlayerPanelController"/>
+<fullyQualifiedTypeName name="javax.swing.border.LineBorder"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
 </qualifiedTypeNameHistroy>

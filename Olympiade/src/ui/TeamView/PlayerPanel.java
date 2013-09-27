@@ -36,119 +36,20 @@ public class PlayerPanel extends JPanel{
 	public PlayerPanel(){
 		this.setBackground(Color.blue);
 		this.setVisible(true);
-		this.setPreferredSize(new Dimension(320,120));
+		this.setPreferredSize(new Dimension(320,160));
+	}
+	
+	
+	public void addProfilPanel(JPanel profilPanel){
+		this.add(profilPanel);
+		profilPanel.setBackground(Color.MAGENTA);
+		profilPanel.setPreferredSize(new Dimension(100,150));
 	}
 
-	public void addElement(JComponent comp) {
-		this.add(comp);
+	public void addStatsPanel(JPanel statsPanel) {
+		statsPanel.setPreferredSize(new Dimension(200,150));
+		this.add(statsPanel);
 		
 	}
 	
-
-	
-
-//	/**
-//	 * Initialisiert das ProfilPanel
-//	 */
-//	private void initProfilPanel() {
-//		profilPanel = new JPanel();
-//		
-//		playerImage = new JLabel("dummyimage"); //TODO Aus DB
-//		playerImage.setPreferredSize(new Dimension(100,100));
-//		playerImage.addMouseListener( new MouseListener() {
-//			
-//			@Override
-//			public void mouseReleased(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//			
-//			@Override
-//			public void mousePressed(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//			
-//			@Override
-//			public void mouseExited(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//			
-//			@Override
-//			public void mouseEntered(MouseEvent e) {
-//				// TODO Auto-generated method stub
-//				
-//			}
-//			
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				dispatch();
-//				System.out.println("clicked");
-//			}
-//		});
-//		
-//	
-//		playerName = new JLabel("dummyspieler"); //TODO Aus DB
-//		
-//		
-//		profilPanel.add(playerName);
-//		profilPanel.add(playerImage);
-//		profilPanel.setPreferredSize(new Dimension(100,150));
-//	}
-//
-//
-//	/**
-//	 * Erstellt das StatsPanel mit den Spielerattributen
-//	 */
-//	private void initStatsPanel() {
-//		statsPanel = new JPanel();
-//		statsPanel.setPreferredSize(new Dimension(200,150));
-//		
-//		
-//		/*Um jeweils erst 3 Werte aus der einen Liste zu bekommen
-//		*dann 3 aus der zweiten Liste, dann wieder 3 aus der ersten 
-//		*und zum Schluss 3 aus der zweiten, dienen diese 3 Schleifen
-//		*/
-//		int j = 0;
-//		for(int i = 0; i < attributeNames.length; i++){
-//			statsPanel.add(attributes[i]);
-//			if(i == 2){
-//				for(; j < attributeNames.length; j++){
-//					statsPanel.add(attributesVars[j]);
-//					if(j == 3){
-//						break;
-//					}
-//				}
-//				
-//			}
-//			
-//		}
-//		for(; j < attributeNames.length; j++){
-//			statsPanel.add(attributesVars[j]);
-//		}
-//		
-//	}
-//
-//	/**
-//	 * Erstellt alle Labels für die Stats des Players und setzt sie auf die richtige Größe
-//	 */
-//	private void initPlayerPanel() {
-//		attributes = new JLabel[6];
-//		attributesVars = new JLabel[6];
-//		
-//		
-//		for(int i = 0; i < attributeNames.length; i++){
-//			attributes[i] = new JLabel(attributeNames[i]); 
-//			attributesVars[i] = new JLabel("dummy"); //TODO aus der DB
-//			
-//			attributes[i].setPreferredSize(new Dimension(50,30));
-//			attributesVars[i].setPreferredSize(new Dimension(50,30));
-//		}
-//		
-//	}
-//	
-	
-
-
 }

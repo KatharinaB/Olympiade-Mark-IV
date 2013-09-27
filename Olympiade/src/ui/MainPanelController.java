@@ -14,6 +14,7 @@ import ui.MainView.NavigationPanel;
 import ui.MainView.TeamChoiceBox;
 import ui.MainView.TeamNameLabel;
 import ui.MainView.TickerPanel;
+import ui.PlayerView.TeamHistoryPanel;
 import ui.TeamView.PlayerPanel;
 import ui.TeamView.PlayerPanelController;
 import ui.TeamView.TeamAttributePanel;
@@ -27,6 +28,7 @@ public class MainPanelController implements UiEventListener{
 	private TeamNameLabel teamNameLabel;
 	private TickerPanel tickerPanel;//Enthält News und Transferticker
 	private TeamAttributePanel teamAttributePanel;
+	private TeamHistoryPanel teamHistoryPanel;
 	
 	public MainPanelController(){
 		view = new MainPanel();
@@ -36,6 +38,7 @@ public class MainPanelController implements UiEventListener{
 		teamNameLabel = new TeamNameLabel();
 		tickerPanel = new TickerPanel();
 		teamAttributePanel = new TeamAttributePanel();
+		teamHistoryPanel = new TeamHistoryPanel();
 		
 		addMainView();
 
@@ -43,8 +46,9 @@ public class MainPanelController implements UiEventListener{
 		teamChoice.addListener(this);
 		playerPanelController.addListener(this);
 		
+		//Hier schleife, je nachdem wieviele playe rgebraucht werden
 		playerPanelController.addPlayer();
-		playerPanelController.addPlayer();
+		
 	}
 	
 	
@@ -56,8 +60,6 @@ public class MainPanelController implements UiEventListener{
 	}
 	
 	private void addTeamView() {
-		//view.addElement(playerPanelController.getViewList().get(0)); //HIer dann ne Methode welcher in ner Schleife alle nötigen Player addet
-		//view.addElement(playerPanelController.getViewList().get(1)); //HIer dann ne Methode welcher in ner Schleife alle nötigen Player addet
 		view.addElement(playerPanelController.getPanel());
 		
 		view.addElement(teamAttributePanel);
@@ -67,7 +69,7 @@ public class MainPanelController implements UiEventListener{
 	}
 	
 	private void addPlayerView() {
-		
+		view.add(teamHistoryPanel);
 	}
 
 	public MainPanel getView(){
