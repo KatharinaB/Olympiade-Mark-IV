@@ -6,7 +6,6 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import ui.PlayerView.TeamInformationPanel;
 
 
 /**
@@ -26,12 +25,10 @@ public class TeamAttributePanel extends JPanel{
 		initTeamAttributePanel();
 
 		this.setBorder(new LineBorder(Color.BLACK));
-		this.setBounds(150, 50, 150, 650);		
+		this.setBounds(150, 50, 150, 650);	
 	}
 	
 	private void initTeamAttributePanel() {
-	
-		
 		teamPanel = new TeamInformationPanel();
 		disciplinePanel = new DisciplinePanel();
 		totalPanel = new TotalPanel();
@@ -39,13 +36,5 @@ public class TeamAttributePanel extends JPanel{
 		this.add(teamPanel);//Hält die allgemeinen Infos
 		this.add(disciplinePanel);//Hält Infos zu den Disziplinen
 		this.add(totalPanel);//Für den Gesamtwert
-		
-		this.setPreferredSize(new Dimension(150,650));
-		this.setBorder(new LineBorder(Color.GREEN));
-		
 	}
-
-	
-	
-
 }

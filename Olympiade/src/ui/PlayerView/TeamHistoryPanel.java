@@ -1,10 +1,13 @@
 package ui.PlayerView;
 
 
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class TeamHistoryPanel extends JPanel{
 	
@@ -14,19 +17,24 @@ public class TeamHistoryPanel extends JPanel{
 	private JLabel [] teamHistoryValues;
 	
 	public TeamHistoryPanel(){
+		this.setBounds(600,500,480,60);
+		this.setBorder(new LineBorder(Color.RED));
 		initPanel();
 		
-		this.setPreferredSize(new Dimension(300,80));
-		this.setBounds(400,200,300,80);
 	}
 
+	
 	private void initPanel() {
-		for(int i = 0; i < teamHistoryNames.length;i++){
+		teamHistoryLabels = new JLabel[5];
+		teamHistoryValues = new JLabel[5]; //TODO aus DB
+		
+		for(int i = 0; i < teamHistoryNames.length; i++){
 			teamHistoryLabels[i] = new JLabel(teamHistoryNames[i]);
-			teamHistoryValues[i] = new JLabel("dummy"); //TODO aus DB
+			teamHistoryValues[i] = new JLabel("dummy"); 
 			
-			teamHistoryLabels[i].setPreferredSize(new Dimension(80,30));
-			teamHistoryValues[i].setPreferredSize(new Dimension(80,30));
+			teamHistoryLabels[i].setPreferredSize(new Dimension(90, 20));
+			teamHistoryValues[i].setPreferredSize(new Dimension(90, 20));
+			
 		}
 		
 		for(int i = 0; i < teamHistoryNames.length; i++){
@@ -35,8 +43,5 @@ public class TeamHistoryPanel extends JPanel{
 		for(int i = 0; i < teamHistoryNames.length; i++){
 			this.add(teamHistoryValues[i]);
 		}
-		
-		
 	}
-
 }

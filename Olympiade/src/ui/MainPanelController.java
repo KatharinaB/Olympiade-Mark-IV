@@ -37,8 +37,8 @@ public class MainPanelController implements UiEventListener{
 		teamChoice = new TeamChoiceBox();
 		teamNameLabel = new TeamNameLabel();
 		tickerPanel = new TickerPanel();
-		teamAttributePanel = new TeamAttributePanel();
-		teamHistoryPanel = new TeamHistoryPanel();
+		
+		
 		
 		addMainView();
 
@@ -57,19 +57,32 @@ public class MainPanelController implements UiEventListener{
 		view.addElement(teamChoice);
 		view.addElement(teamNameLabel);
 		view.addElement(tickerPanel);
+		view.revalidate();
+		view.repaint();
 	}
 	
 	private void addTeamView() {
-		view.addElement(playerPanelController.getPanel());
-		
-		view.addElement(teamAttributePanel);
+		teamAttributePanel = new TeamAttributePanel();
 		teamNameLabel.setText(teamChoice.getTeamname());
 		
+		view.addElement(playerPanelController.getPanel());
+		view.addElement(teamAttributePanel);
 		view.removeElement(tickerPanel);
+		view.revalidate();
+		view.repaint();
 	}
 	
 	private void addPlayerView() {
+		teamHistoryPanel = new TeamHistoryPanel();
+		
+		view.removeElement(teamAttributePanel);
+		view.removeElement(playerPanelController.getPanel());
+		view.removeElement(teamChoice);
+		view.removeElement(teamNameLabel);
+		
 		view.add(teamHistoryPanel);
+		view.revalidate();
+		view.repaint();
 	}
 
 	public MainPanel getView(){
@@ -82,7 +95,6 @@ public class MainPanelController implements UiEventListener{
 		
 		if(event.getMessage() == "activateTeamView"){
 			addTeamView();
-			System.out.println("teamview");
 		}else if(event.getMessage() == "activatePlayerView"){
 			addPlayerView();
 		}

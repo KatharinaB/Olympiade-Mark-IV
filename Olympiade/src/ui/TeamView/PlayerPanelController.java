@@ -61,7 +61,40 @@ public class PlayerPanelController implements UiEventDispatcher{
 
 	private JLabel initPlayerNameLabel() {
 		//String name = //aus DB
-		return new JLabel("dummyspieler");// new JLabel(name);
+		JLabel label = new JLabel("dummyspieler");// new JLabel(name);
+		label.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispatch();
+				
+			}
+		});
+		return label;
 	}
 	
 	public JPanel getPanel(){
@@ -119,7 +152,6 @@ public class PlayerPanelController implements UiEventDispatcher{
 		//Informmiert alle Interessenten
 		@Override
 		public void dispatch() {
-			System.out.println("dispatcht");
 			for(UiEventListener lis: listeners){
 				lis.onUiEventFired(new UiEvent("activatePlayerView"));
 				
@@ -137,38 +169,6 @@ public class PlayerPanelController implements UiEventDispatcher{
 		
 		private JLabel initPlayerImage(JLabel playerImage) {
 			playerImage.setPreferredSize(new Dimension(100,100));
-			playerImage.addMouseListener( new MouseListener() {
-				
-				@Override
-				public void mouseReleased(MouseEvent e) {
-					// TODO Auto-generated method stub
-					
-				}
-				
-				@Override
-				public void mousePressed(MouseEvent e) {
-					// TODO Auto-generated method stub
-					
-				}
-				
-				@Override
-				public void mouseExited(MouseEvent e) {
-					// TODO Auto-generated method stub
-					
-				}
-				
-				@Override
-				public void mouseEntered(MouseEvent e) {
-					// TODO Auto-generated method stub
-					
-				}
-				
-				@Override
-				public void mouseClicked(MouseEvent e) {
-					dispatch();
-					System.out.println("clicked");
-				}
-			});
 			return playerImage;
 		}
 
