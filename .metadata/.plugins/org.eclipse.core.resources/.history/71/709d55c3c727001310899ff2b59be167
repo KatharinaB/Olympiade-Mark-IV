@@ -1,0 +1,25 @@
+package ui.PlayerView;
+
+import javax.swing.JLabel;
+
+public class IconStatElement {
+	
+	private JLabel iconLabels;
+	private JLabel statLabels;
+	private JLabel skillPointsLabel;
+	
+	public IconStatElement(){
+		initIconStatElement();
+	}
+
+	private void initIconStatElement() {
+		iconLabels = new JLabel();
+		statLabels = new JLabel();
+		skillPointsLabel = new JLabel();
+	}
+	
+	private void modIconLabel(){
+		
+	}
+
+}

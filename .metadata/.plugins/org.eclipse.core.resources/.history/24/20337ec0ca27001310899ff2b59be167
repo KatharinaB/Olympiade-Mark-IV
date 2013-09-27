@@ -1,0 +1,45 @@
+package ui.PlayerView;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+/**
+ * Packt Skillicon, skillwert, und skillupmöglichkeit zusammen
+ * @author Katy
+ *
+ */
+public class IconStatElement {
+	
+	private JLabel iconLabel;
+	private JLabel statLabel;
+	private JLabel skillPointLabel;
+	
+	public IconStatElement(){
+		initIconStatElement();
+	}
+
+	private void initIconStatElement() {
+		iconLabel = new JLabel();
+		statLabel = new JLabel();
+		skillPointLabel = new JLabel();
+		
+		setIconLabel();
+		setstatLabels();
+		skillPointsLabel();
+	}
+	
+	//Weiß nich ob der Typ ImageIcon für uns funktioniert, dann mal testen
+	private void setIconLabel(ImageIcon icon){
+		iconLabel.setText("icon");
+	}
+	
+	private void setstatLabels(int value){
+		iconLabel.setText(Integer.toString(42));
+	}
+
+	private void skillPointsLabel(ImageIcon icon, boolean bool){
+		iconLabel.setText("lvl up");
+		iconLabel.setVisible(true);
+	}
+
+}

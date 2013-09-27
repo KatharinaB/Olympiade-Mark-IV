@@ -1,0 +1,21 @@
+package ui.PlayerView;
+
+/**
+ * Hält Die Stats mit Ihren Bildchen und Werten
+ * @author Katy
+ *
+ */
+public class IconStatPanel {
+	
+	public IconStatPanel(){
+		initStats();
+	}
+
+	private void initStats() {
+		for(int i = 0; i < 6; i++){
+			
+		}
+		
+	}
+
+}

@@ -1,18 +1,27 @@
 package ui.PlayerView;
 
+import java.awt.Color;
+
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
 /**
  * Hält Die Stats mit Ihren Bildchen und Werten
  * @author Katy
  *
  */
-public class IconStatPanel {
+public class IconStatPanel extends JPanel{
 	
 	public IconStatPanel(){
 		initStats();
+		this.setBounds(200,50,320,160);
+		this.setBorder(new LineBorder(Color.MAGENTA));
 	}
 
 	private void initStats() {
-		// TODO Auto-generated method stub
+		for(int i = 0; i < 12; i++){
+			this.add(new IconStatElement());
+		}
 		
 	}
 

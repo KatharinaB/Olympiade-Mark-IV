@@ -1,0 +1,14 @@
+package ui.PlayerView;
+
+import javax.swing.JLabel;
+
+public class IconStatElement {
+	
+	private JLabel [] iconLabels;
+	private JLabel [] statLabels;
+	
+	public IconStatElement(){
+		
+	}
+
+}
