@@ -1,0 +1,34 @@
+package ui.MainView;
+
+import ui.EventHandling.UiEvent;
+import ui.EventHandling.UiEventListener;
+import ui.TeamView.PlayerPanelController;
+
+public class MainViewManager implements UiEventListener{
+
+	private PlayerPanelController playerPanelController;
+	private TeamChoiceBox teamChoice;//Teamauswahlbox
+	private TeamNameLabel teamNameLabel;
+	private TickerPanel tickerPanel;//Enthält News und Transferticker
+	
+	public void MainViewManager(){
+		playerPanelController = new PlayerPanelController();
+		teamChoice = new TeamChoiceBox();
+		teamNameLabel = new TeamNameLabel();
+		tickerPanel = new TickerPanel();
+		
+		
+		
+		playerPanelController.addListener(this);
+		
+		//Hier schleife, je nachdem wieviele playe rgebraucht werden
+		playerPanelController.addPlayer();
+	}
+	
+	@Override
+	public void onUiEventFired(UiEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

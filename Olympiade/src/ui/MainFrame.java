@@ -16,6 +16,7 @@ public class MainFrame extends JFrame{
 		mainpanel = mainController.getView();
 		initMainFrame(height, width);
 		
+
 		this.add(mainpanel);
 		
 	}

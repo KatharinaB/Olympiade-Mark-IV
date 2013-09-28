@@ -1,0 +1,11 @@
+package ui.TeamView;
+
+public class TeamViewManager {
+	
+	private TeamAttributePanel teamAttributePanel;
+	
+	public TeamViewManager(){
+		teamAttributePanel = new TeamAttributePanel();
+	}
+
+}

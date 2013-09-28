@@ -1,0 +1,18 @@
+package ui.MainView;
+
+import ui.EventHandling.UiEvent;
+import ui.EventHandling.UiEventListener;
+
+public class MainViewManager implements UiEventListener{
+
+	public MainViewManager(){
+		
+	}
+	
+	@Override
+	public void onUiEventFired(UiEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

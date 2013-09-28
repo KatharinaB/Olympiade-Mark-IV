@@ -19,7 +19,7 @@ public class TeamNameLabel extends JLabel{
 	}
 	
 	public void initTeamname(){ // TODO Hier dann zb mit der Datenbankklasse reden
-		//this.setText(arg0)
+		//this.setText(name)
 		this.setText("dummyteam");
 	}
 

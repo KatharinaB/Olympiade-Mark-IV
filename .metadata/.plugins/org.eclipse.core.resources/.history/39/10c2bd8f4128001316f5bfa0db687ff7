@@ -1,0 +1,96 @@
+package ui;
+
+
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
+
+import ui.EventHandling.UiEvent;
+import ui.EventHandling.UiEventListener;
+import ui.MainView.MainViewManager;
+import ui.MainView.NavigationPanel;
+import ui.MainView.TeamChoiceBox;
+import ui.MainView.TeamNameLabel;
+import ui.MainView.TickerPanel;
+import ui.PlayerView.IconStatPanel;
+import ui.PlayerView.IconStatPanelController;
+import ui.PlayerView.PlayerViewManager;
+import ui.PlayerView.TeamHistoryPanel;
+import ui.TeamView.PlayerPanel;
+import ui.TeamView.PlayerPanelController;
+import ui.TeamView.TeamAttributePanel;
+import ui.TeamView.TeamViewManager;
+
+public class MainPanelController implements UiEventListener{
+	
+	private MainPanel view;
+	private NavigationPanel navi;
+	
+	
+	
+	private TeamHistoryPanel teamHistoryPanel;
+	private IconStatPanelController iconStatPanelController;
+	
+	private MainViewManager mainViewManager;
+	private TeamViewManager teamViewManager;
+	private PlayerViewManager playerViewManager;
+	
+	public MainPanelController(){
+		view = new MainPanel();
+		navi = new NavigationPanel();//Immer sichtbar
+
+	}
+	
+	
+	public void addMainView() {
+		mainViewManager = new MainViewManager(view);
+		view = mainViewManager.getView();
+		view.addElement(navi);
+		view.revalidate();
+		view.repaint();
+	}
+	
+	private void addTeamView() {
+		
+		teamNameLabel.setText(teamChoice.getTeamname());
+		
+		view.addElement(playerPanelController.getPanel());
+		view.addElement(teamAttributePanel);
+		view.removeElement(tickerPanel);
+		view.revalidate();
+		view.repaint();
+	}
+	
+	private void addPlayerView() {
+		teamHistoryPanel = new TeamHistoryPanel();
+		iconStatPanelController = new IconStatPanelController();
+		
+		view.removeElement(teamAttributePanel);
+		view.removeElement(playerPanelController.getPanel());
+		view.removeElement(teamChoice);
+		view.removeElement(teamNameLabel);
+		
+		view.add(teamHistoryPanel);
+		view.add(iconStatPanelController.getView());
+		view.revalidate();
+		view.repaint();
+	}
+
+	public MainPanel getView(){
+		return view;
+	}
+
+	//TODO nochmal anders lösen, nicht mit diesen Strings
+	@Override
+	public void onUiEventFired(UiEvent event) {
+		
+		if(event.getMessage() == "activateTeamView"){
+			addTeamView();
+		}else if(event.getMessage() == "activatePlayerView"){
+			addPlayerView();
+		}
+	}
+}

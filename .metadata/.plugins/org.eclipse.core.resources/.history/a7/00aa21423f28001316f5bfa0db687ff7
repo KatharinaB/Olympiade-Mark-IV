@@ -1,0 +1,9 @@
+package ui.TeamView;
+
+public class TeamViewManager {
+	
+	public void TeamViewManager(){
+		
+	}
+
+}

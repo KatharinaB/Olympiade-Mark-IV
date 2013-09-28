@@ -1,0 +1,9 @@
+package ui.PlayerView;
+
+public class PlayerStoryTextArea {
+
+	public PlayerStoryTextArea() {
+		
+	}
+
+}

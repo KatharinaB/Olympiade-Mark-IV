@@ -14,7 +14,7 @@ import javax.swing.border.LineBorder;
 public class IconStatPanel extends JPanel{
 	
 	public IconStatPanel(){
-		this.setBounds(200,50,400,160);
+		this.setBounds(160,350,400,160);
 		this.setBorder(new LineBorder(Color.MAGENTA));
 	}
 

@@ -1,0 +1,32 @@
+package ui.PlayerView;
+
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+
+
+
+//TODO Alle Daten aus DB
+/**
+ * Stellt die Playerdetailansicht dar
+ * @author Katy
+ *
+ */
+public class PlayerImageLabel extends JLabel{
+	
+	
+	
+	public PlayerImageLabel(){
+		super("dummy");
+		this.setBounds(150,50295,295);
+		
+		initPlayerImage();
+	}
+
+	//Holt aus der Db und setzt das Bild
+	private void initPlayerImage() {
+	
+		
+	}
+
+}

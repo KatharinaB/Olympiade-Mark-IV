@@ -1,0 +1,30 @@
+package ui.TeamView;
+
+import ui.EventHandling.UiEvent;
+import ui.EventHandling.UiEventListener;
+
+public class TeamViewManager implements UiEventListener{
+	
+	private TeamAttributePanel teamAttributePanel;
+	private PlayerPanelController playerPanelController;
+	
+	public TeamViewManager(){
+		teamAttributePanel = new TeamAttributePanel();
+		playerPanelController = new PlayerPanelController();
+		
+		playerPanelController.addListener(this);
+	}
+	
+	private void addPlayer() {
+		//Hier schleife, je nachdem wieviele playe rgebraucht werden
+		playerPanelController.addPlayer(); //Der PlayerpnaelController muss mit der Db reden, nich hier
+		
+	}
+
+	@Override
+	public void onUiEventFired(UiEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

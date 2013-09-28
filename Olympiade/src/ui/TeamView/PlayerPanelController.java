@@ -31,6 +31,10 @@ public class PlayerPanelController implements UiEventDispatcher{
 		allPlayers.setBackground(Color.ORANGE);
 	}
 	
+	/**
+	 * Initialisiert die verschiebenen Panel und Label für die Spieleransicht
+	 * und addet diese auf ein gesamt Panel
+	 */
 	public void addPlayer(){
 		PlayerPanel view = new PlayerPanel();
 		
@@ -42,11 +46,17 @@ public class PlayerPanelController implements UiEventDispatcher{
 		view.addProfilPanel(profilPanel);
 		view.addStatsPanel(statsPanel);
 		
+		//Hält alle Player
 		allPlayers.add(view);
 	}
 	
-
-	private JPanel initProfilPanel(JLabel playerImage, JLabel playerName) {
+	/**
+	 * Erstellt Spielernamen und Image und packt es auf ein "Profil"Panel
+	 * @param playerImage Spielerbild
+	 * @param playerName Spielername
+	 * @return profilPanel
+	 */
+	public JPanel initProfilPanel(JLabel playerImage, JLabel playerName) {
 		JPanel profilPanel = new JPanel();
 		playerName.setPreferredSize(new Dimension(100,20));
 		profilPanel.add(playerName);
@@ -54,12 +64,20 @@ public class PlayerPanelController implements UiEventDispatcher{
 		return profilPanel;
 	}
 
-	private JLabel initPlayerImage() {
+	/**
+	 * Setzt das Spielerbild
+	 * @return
+	 */
+	public JLabel initPlayerImage() {
 		//Image aus DB
 		return new JLabel("dummyImage");
 	}
 
-	private JLabel initPlayerNameLabel() {
+	/**
+	 * Initialisiert den Spielernamen und addet einen MouseListener der auf Klicken achtet
+	 * @return
+	 */
+	public JLabel initPlayerNameLabel() {
 		//String name = //aus DB
 		JLabel label = new JLabel("dummyspieler");// new JLabel(name);
 		label.addMouseListener(new MouseListener() {
@@ -91,17 +109,15 @@ public class PlayerPanelController implements UiEventDispatcher{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dispatch();
-				
 			}
 		});
 		return label;
 	}
 	
-	public JPanel getPanel(){
-		return allPlayers;
-	}
-	
-	private JPanel initStatsPanel() {
+	/**
+	 * Fügt die Attribute eines Players in das StatPanel
+	 */
+	public JPanel initStatsPanel() {
 		JPanel statsPanel = new JPanel();
 		JLabel [] attributes = new JLabel[6];//Attribut Namen
 		JLabel [] attributesVars = new JLabel[6];;//Platzhalter für die Werte der Attribute
@@ -141,6 +157,9 @@ public class PlayerPanelController implements UiEventDispatcher{
 		return statsPanel;
 	}
 
+	public JPanel getPanel(){
+		return allPlayers;
+	}
 	
 	//Fügt alle Interessanten an Events zu einer Liste hinzu
 		@Override

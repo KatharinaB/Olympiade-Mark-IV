@@ -1,0 +1,11 @@
+package ui.PlayerView;
+
+import javax.swing.JTextArea;
+
+public class PlayerStoryTextArea extends JTextArea{
+
+	public PlayerStoryTextArea() {
+		this.setB
+	}
+
+}

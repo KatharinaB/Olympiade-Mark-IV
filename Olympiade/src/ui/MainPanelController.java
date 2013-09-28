@@ -1,12 +1,7 @@
 package ui;
 
 
-import java.awt.Color;
-import java.awt.Font;
-
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.border.LineBorder;
+import javax.swing.JTextArea;
 
 import ui.EventHandling.UiEvent;
 import ui.EventHandling.UiEventListener;
@@ -14,10 +9,10 @@ import ui.MainView.NavigationPanel;
 import ui.MainView.TeamChoiceBox;
 import ui.MainView.TeamNameLabel;
 import ui.MainView.TickerPanel;
-import ui.PlayerView.IconStatPanel;
 import ui.PlayerView.IconStatPanelController;
+import ui.PlayerView.PlayerImageLabel;
+import ui.PlayerView.PlayerStoryTextArea;
 import ui.PlayerView.TeamHistoryPanel;
-import ui.TeamView.PlayerPanel;
 import ui.TeamView.PlayerPanelController;
 import ui.TeamView.TeamAttributePanel;
 
@@ -32,7 +27,8 @@ public class MainPanelController implements UiEventListener{
 	private TeamAttributePanel teamAttributePanel;
 	private TeamHistoryPanel teamHistoryPanel;
 	private IconStatPanelController iconStatPanelController;
-	
+	private PlayerStoryTextArea playerStory;
+	private PlayerImageLabel playerImageLabel;
 	
 	public MainPanelController(){
 		view = new MainPanel();
@@ -79,14 +75,18 @@ public class MainPanelController implements UiEventListener{
 	private void addPlayerView() {
 		teamHistoryPanel = new TeamHistoryPanel();
 		iconStatPanelController = new IconStatPanelController();
+		playerStory = new PlayerStoryTextArea();
+		playerImageLabel = new PlayerImageLabel();
 		
 		view.removeElement(teamAttributePanel);
 		view.removeElement(playerPanelController.getPanel());
 		view.removeElement(teamChoice);
 		view.removeElement(teamNameLabel);
 		
+		view.add(playerStory);
 		view.add(teamHistoryPanel);
 		view.add(iconStatPanelController.getView());
+		view.add(playerImageLabel);
 		view.revalidate();
 		view.repaint();
 	}

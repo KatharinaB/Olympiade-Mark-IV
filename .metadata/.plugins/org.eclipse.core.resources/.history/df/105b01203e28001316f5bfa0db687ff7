@@ -1,0 +1,58 @@
+package ui.MainView;
+
+import ui.MainPanel;
+import ui.EventHandling.UiEvent;
+import ui.EventHandling.UiEventListener;
+import ui.TeamView.PlayerPanelController;
+
+/**
+ * Initialisiert und addet alle MainView Elemente zur mitgegebenen View und gibt diese auf Anfrage zurück
+ * @author Katy
+ *
+ */
+public class MainViewManager implements UiEventListener{
+
+	private PlayerPanelController playerPanelController;
+	private TeamChoiceBox teamChoice;//Teamauswahlbox
+	private TeamNameLabel teamNameLabel;
+	private TickerPanel tickerPanel;//Enthält News und Transferticker
+	private MainPanel view;
+	
+	public MainViewManager(MainPanel view) {
+		this.view = view;
+		
+		playerPanelController = new PlayerPanelController();
+		teamChoice = new TeamChoiceBox();
+		teamNameLabel = new TeamNameLabel();
+		tickerPanel = new TickerPanel();
+		
+		
+		//Der Controller hört auf die Teamauswahl und die Playerpanel zum switchen der View
+		teamChoice.addListener(this);
+		playerPanelController.addListener(this);
+		
+		addPlayer();
+		//Hier schleife, je nachdem wieviele playe rgebraucht werden
+		playerPanelController.addPlayer();
+	}
+	
+	public MainPanel getView(){
+		view.addElement(teamChoice);
+		view.addElement(teamNameLabel);
+		view.addElement(tickerPanel);
+		
+		return view;
+	}
+
+	
+	//TODO nochmal anders lösen, nicht mit diesen Strings
+		@Override
+		public void onUiEventFired(UiEvent event) {
+			
+			if(event.getMessage() == "activateTeamView"){
+				addTeamView();
+			}else if(event.getMessage() == "activatePlayerView"){
+				addPlayerView();
+			}
+		}
+}
