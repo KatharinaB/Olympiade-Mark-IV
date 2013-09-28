@@ -1,0 +1,17 @@
+package ui.TeamView;
+
+public class TeamViewPanel {
+	
+	private TeamAttributePanel teamAttributePanel;
+	private PlayerPanelController playerPanelController;
+	
+	public TeamViewPanel(){
+		playerPanelController = new PlayerPanelController();
+		
+playerPanelController.addListener(this);
+		
+		//Hier schleife, je nachdem wieviele playe rgebraucht werden
+		playerPanelController.addPlayer();
+	}
+
+}

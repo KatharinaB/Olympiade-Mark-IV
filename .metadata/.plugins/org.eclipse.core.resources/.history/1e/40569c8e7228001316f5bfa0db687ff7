@@ -1,0 +1,13 @@
+package ui.PlayerView.Elements;
+
+import javax.swing.JLabel;
+
+public class PlayerPointPanel extends JPanel{
+
+	private JLabel [] pointLabels;
+	
+	public PlayerPointPanel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

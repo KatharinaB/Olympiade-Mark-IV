@@ -1,0 +1,27 @@
+package ui.PlayerView.Elements;
+
+import java.awt.Color;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+public class StaminaPanel extends JPanel{
+	
+	private JLabel classLabel;
+	private JLabel alignmentVarLabel;
+	private JLabel classVarLabel;
+	
+	public StaminaPanel(){
+		this.setBounds(150,550,400,100);
+		this.setBorder(new LineBorder(Color.MAGENTA));
+		
+		initLabels();
+	}
+
+	private void initLabels() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -9,46 +9,43 @@ import ui.MainView.NavigationPanel;
 import ui.MainView.TeamChoiceBox;
 import ui.MainView.TeamNameLabel;
 import ui.MainView.TickerPanel;
-import ui.PlayerView.IconStatPanelController;
-import ui.PlayerView.PlayerImageLabel;
-import ui.PlayerView.PlayerStoryTextArea;
-import ui.PlayerView.TeamHistoryPanel;
-import ui.TeamView.PlayerPanelController;
-import ui.TeamView.TeamAttributePanel;
+import ui.PlayerView.PlayerViewPanel;
+import ui.PlayerView.Elements.IconStatPanelController;
+import ui.PlayerView.Elements.PlayerImageLabel;
+import ui.PlayerView.Elements.PlayerStoryTextArea;
+import ui.PlayerView.Elements.TeamHistoryPanel;
+import ui.TeamView.TeamViewPanel;
+import ui.TeamView.Elements.PlayerPanelController;
+import ui.TeamView.Elements.TeamAttributePanel;
 
 public class MainPanelController implements UiEventListener{
 	
 	private MainPanel view;
+	
+	//Werden nicht nur in einer Sicht gebraucht
 	private NavigationPanel navi;
-	private PlayerPanelController playerPanelController;
 	private TeamChoiceBox teamChoice;//Teamauswahlbox
 	private TeamNameLabel teamNameLabel;
-	private TickerPanel tickerPanel;//Enthält News und Transferticker
-	private TeamAttributePanel teamAttributePanel;
-	private TeamHistoryPanel teamHistoryPanel;
-	private IconStatPanelController iconStatPanelController;
-	private PlayerStoryTextArea playerStory;
-	private PlayerImageLabel playerImageLabel;
+	
+	private TickerPanel tickerPanel;
+	
+	private TeamViewPanel teamViewPanel;
+	private PlayerViewPanel playerViewPanel;
+	
+	
 	
 	public MainPanelController(){
 		view = new MainPanel();
 		navi = new NavigationPanel();
-		playerPanelController = new PlayerPanelController();
+		
 		teamChoice = new TeamChoiceBox();
 		teamNameLabel = new TeamNameLabel();
 		tickerPanel = new TickerPanel();
-		
-		
-		
+
 		addMainView();
 
 		//Der Controller hört auf die Teamauswahl und die Playerpanel zum switchen der View
 		teamChoice.addListener(this);
-		playerPanelController.addListener(this);
-		
-		//Hier schleife, je nachdem wieviele playe rgebraucht werden
-		playerPanelController.addPlayer();
-		
 	}
 	
 	
@@ -57,38 +54,30 @@ public class MainPanelController implements UiEventListener{
 		view.addElement(teamChoice);
 		view.addElement(teamNameLabel);
 		view.addElement(tickerPanel);
-		view.revalidate();
-		view.repaint();
+		updateView();
 	}
 	
 	private void addTeamView() {
-		teamAttributePanel = new TeamAttributePanel();
+		teamViewPanel = new TeamViewPanel();
+		teamViewPanel.addListener(this);
+		
 		teamNameLabel.setText(teamChoice.getTeamname());
 		
-		view.addElement(playerPanelController.getPanel());
-		view.addElement(teamAttributePanel);
 		view.removeElement(tickerPanel);
-		view.revalidate();
-		view.repaint();
+		view.add(teamViewPanel);
+		
+		updateView();
 	}
 	
 	private void addPlayerView() {
-		teamHistoryPanel = new TeamHistoryPanel();
-		iconStatPanelController = new IconStatPanelController();
-		playerStory = new PlayerStoryTextArea();
-		playerImageLabel = new PlayerImageLabel();
+		playerViewPanel = new PlayerViewPanel();
 		
-		view.removeElement(teamAttributePanel);
-		view.removeElement(playerPanelController.getPanel());
+		view.remove(teamViewPanel);
 		view.removeElement(teamChoice);
 		view.removeElement(teamNameLabel);
+		view.add(playerViewPanel);
 		
-		view.add(playerStory);
-		view.add(teamHistoryPanel);
-		view.add(iconStatPanelController.getView());
-		view.add(playerImageLabel);
-		view.revalidate();
-		view.repaint();
+		updateView();
 	}
 
 	public MainPanel getView(){
@@ -104,5 +93,11 @@ public class MainPanelController implements UiEventListener{
 		}else if(event.getMessage() == "activatePlayerView"){
 			addPlayerView();
 		}
+	}
+	
+
+	public void updateView(){
+		view.revalidate();
+		view.repaint();
 	}
 }

@@ -1,0 +1,63 @@
+package ui.PlayerView;
+
+import java.awt.Color;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+import ui.PlayerView.Elements.IconStatPanelController;
+import ui.PlayerView.Elements.PlayerImageLabel;
+import ui.PlayerView.Elements.PlayerStoryTextArea;
+import ui.PlayerView.Elements.TeamHistoryPanel;
+
+public class PlayerViewPanel extends JPanel{
+	
+	private TeamHistoryPanel teamHistoryPanel;
+	private IconStatPanelController iconStatPanelController;
+	private PlayerStoryTextArea playerStory;
+	private PlayerImageLabel playerImageLabel;
+	private JLabel nameLabel;
+	private JLabel teamLabel;
+	
+	public PlayerViewPanel(){
+		this.setLayout(null);
+		this.setBorder(new LineBorder(Color.YELLOW));
+		this.setBounds(160,50,1100,800);
+		
+		initElements();
+		
+	}
+
+	private void initElements() {
+		teamHistoryPanel = new TeamHistoryPanel();
+		iconStatPanelController = new IconStatPanelController();
+		playerStory = new PlayerStoryTextArea();
+		playerImageLabel = new PlayerImageLabel();
+		nameLabel = new JLabel("playername");
+		teamLabel = new JLabel("teamname");
+		
+		initTeamLabel();
+		initName();
+		
+		this.add(playerStory);
+		this.add(teamHistoryPanel);
+		this.add(iconStatPanelController.getView());
+		this.add(playerImageLabel);
+		this.add(teamLabel);
+		this.add(nameLabel);
+	}
+
+	private void initTeamLabel() {
+		nameLabel.setBounds(350,0,80,20);
+		nameLabel.setBackground(Color.GREEN);
+		
+	}
+	
+	private void initName() {
+		//nameLabel.setText(); aus Db
+		teamLabel.setBounds(350,30,80,20);
+		teamLabel.setBackground(Color.BLUE);
+	}
+
+}

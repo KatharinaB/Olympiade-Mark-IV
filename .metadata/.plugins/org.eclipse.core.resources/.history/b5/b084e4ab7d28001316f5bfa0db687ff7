@@ -1,0 +1,16 @@
+package ui.PlayerView.Elements;
+
+import javax.swing.JLabel;
+
+public class PlayerClassPanel {
+	
+	private JLabel alignmentLabel;
+	private JLabel classLabel;
+	private JLabel alignmentVarLabel;
+	private JLabel classVarLabel;
+	
+	public PlayerClassPanel(){
+		
+	}
+
+}

@@ -1,0 +1,39 @@
+package ui.PlayerView.Elements;
+
+import java.awt.Color;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+public class PlayerTrophiesPanel extends JPanel{
+	
+	private JLabel [] trophyLabels;
+	private String [] trophyLabelText;
+	
+	public PlayerTrophiesPanel(){
+		this.setBounds(330,200,290,60);
+		this.setBorder(new LineBorder(Color.CYAN));
+		
+		initlabelTexts();
+		initTrophyLabels();
+			
+	}
+
+	private void initTrophyLabels() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void initlabelTexts() {
+pointLabelText = new String [14];
+		
+		pointLabelText[0] = "PlayerPoints:";
+		pointLabelText[1] = "Season/var"; //TODO aus DB
+		pointLabelText[2] = "all Time/Var";//TODO aus DB
+		pointLabelText[3] = "Skill Points:";
+		pointLabelText[4] = "var";//TODO aus DB
+		
+	}
+
+}

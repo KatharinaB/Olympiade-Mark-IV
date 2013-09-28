@@ -1,0 +1,27 @@
+package ui.PlayerView;
+
+import java.awt.Color;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+public class PlayerRelationshipPanel extends JPanel{
+	
+	private JLabel relationshipTypeLabel;
+	private JLabel relationshipMembersLabel;
+	
+	public PlayerRelationshipPanel() {
+		this.setBounds(330,250,390,100);
+		this.setBorder(new LineBorder(Color.DARK_GRAY));
+		
+		initLabels();
+		
+	}
+
+	private void initRelationShipLabel() {
+		
+		
+	}
+
+}

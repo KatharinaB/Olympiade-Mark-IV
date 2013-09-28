@@ -1,0 +1,9 @@
+package ui.PlayerView;
+
+public class PlayerValue extends JPanel{
+
+	public PlayerValue() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

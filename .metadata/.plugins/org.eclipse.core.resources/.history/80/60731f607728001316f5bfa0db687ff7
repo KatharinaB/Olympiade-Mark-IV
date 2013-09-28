@@ -1,0 +1,7 @@
+package ui.PlayerView.Elements;
+
+import javax.swing.JPanel;
+
+public class PlayerTrophiesPanel extends JPanel{
+
+}

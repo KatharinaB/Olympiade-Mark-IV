@@ -30,7 +30,7 @@ public class TeamChoiceBox extends JComboBox<String> implements UiEventDispatche
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setTeamname();
-				dispatch();
+				dispatch(new UiEvent("activateTeamView"));
 				
 			}
 		});
@@ -60,9 +60,9 @@ public class TeamChoiceBox extends JComboBox<String> implements UiEventDispatche
 	}
 
 	@Override
-	public void dispatch() {
+	public void dispatch(UiEvent event) {
 		for(UiEventListener lis: listeners){
-			lis.onUiEventFired(new UiEvent("activateTeamView"));
+			lis.onUiEventFired(event);
 		}
 		
 	}

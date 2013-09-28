@@ -1,0 +1,42 @@
+package ui.PlayerView;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class PlayerValue extends JPanel{
+
+	private JLabel valueLabel;
+	private JLabel salaryLabel;
+	private JLabel contractLabel;
+	
+	private JLabel valueVarLabel;
+	private JLabel salaryVarLabel;
+	private JLabel contractVarLabel;
+	
+	private JLabel valueCurrencyLabel;
+	private JLabel salaryCurrencyLabel;
+	private JLabel contractCurrencyLabel;
+	
+	public PlayerValue() {
+		
+		
+		initLabels();
+		
+	}
+
+	private void initLabels() {
+		valueLabel = new JLabel("Value");
+		salaryLabel = new JLabel("Salary");
+		contractLabel = new JLabel("Contract");
+		
+		valueLabel = new JLabel();
+		salaryLabel = new JLabel();
+		contractLabel = new JLabel();
+		
+		valueLabel = new JLabel("Mio");
+		salaryLabel = new JLabel("Mio");
+		contractLabel = new JLabel("Games");
+		
+	}
+
+}

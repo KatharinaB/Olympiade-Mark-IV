@@ -1,0 +1,26 @@
+package ui.PlayerView.Elements;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class PlayerPointPanel extends JPanel{
+
+	private JLabel [] pointLabels;
+	private String [] pointLabelText();
+	
+	public PlayerPointPanel() {
+		this.setBounds(400,100,120,80);
+		
+		initPointLabel();
+	}
+
+	private void initPointLabel() {
+		pointLabels = new JLabel [5];
+		
+		for(int i = 0; i < pointLabels.length; i++){
+			pointLabels = new JLabel();
+		}
+		
+	}
+
+}

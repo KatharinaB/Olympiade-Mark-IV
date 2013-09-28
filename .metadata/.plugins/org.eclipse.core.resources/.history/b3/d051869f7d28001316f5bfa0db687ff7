@@ -1,0 +1,9 @@
+package ui.PlayerView.Elements;
+
+public class PlayerClassPanel {
+	
+	public PlayerClassPanel(){
+		
+	}
+
+}

@@ -1,0 +1,11 @@
+package ui.PlayerView.Elements;
+
+import javax.swing.JLabel;
+
+public class PlayerteamNameLabel extends JLabel{
+
+	public PlayerteamNameLabel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

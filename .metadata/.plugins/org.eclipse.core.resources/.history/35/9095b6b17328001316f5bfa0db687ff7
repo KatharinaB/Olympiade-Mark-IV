@@ -1,0 +1,42 @@
+package ui.PlayerView.Elements;
+
+import java.awt.Color;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+public class PlayerPointPanel extends JPanel{
+
+	private JLabel [] pointLabels;
+	private String [] pointLabelText;
+	
+	public PlayerPointPanel() {
+		this.setBounds(350,180,120,80);
+		this.setBorder(new LineBorder(Color.BLACK));
+		initPointLabelText();
+		initPointLabel();
+	}
+
+	private void initPointLabelText() {
+		pointLabelText = new String [5];
+		
+		pointLabelText[0] = "PlayerPoints";
+		pointLabelText[1] = "Season/var"; //TODO aus DB
+		pointLabelText[2] = "all Time/Var";//TODO aus DB
+		pointLabelText[3] = "Skill Points";
+		pointLabelText[4] = "var";//TODO aus DB
+		
+	}
+
+	private void initPointLabel() {
+		pointLabels = new JLabel [5];
+		
+		for(int i = 0; i < pointLabels.length; i++){
+			pointLabels[i] = new JLabel(pointLabelText[i]);
+			this.add(pointLabels[i]);
+		}
+		
+	}
+
+}

@@ -1,0 +1,34 @@
+package ui.PlayerView;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
+
+
+
+//TODO Alle Daten aus DB
+/**
+ * Stellt die Playerdetailansicht dar
+ * @author Katy
+ *
+ */
+public class PlayerImageLabel extends JLabel{
+	
+	
+	
+	public PlayerImageLabel(){
+		super("dummy");
+		this.setBounds(160,50,295,295);
+		this.setBorder(new LineBorder(Color.PINK));
+		initPlayerImage();
+	}
+
+	//Holt aus der Db und setzt das Bild
+	private void initPlayerImage() {
+	
+		
+	}
+
+}

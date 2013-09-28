@@ -1,6 +1,7 @@
 package ui.EventHandling;
 
 import java.awt.Event;
+import java.util.ArrayList;
 
 
 //TODO noch ne Eventklasse anlegen sobald wir mehrere/verschiedene Events haben
@@ -11,13 +12,15 @@ import java.awt.Event;
  *
  */
 public interface UiEventDispatcher {
+	
+	ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
 
 	//Fügt Listener hinzu
 	public void addListener(UiEventListener listener);
 	//Entfernt Listener
 	public void removeListener(UiEventListener listener);
 	//Gibt Event weiter
-	public void dispatch();
+	public void dispatch(UiEvent event);
 	
 	
 }

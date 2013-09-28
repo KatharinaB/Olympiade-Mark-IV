@@ -1,0 +1,9 @@
+package ui.PlayerView.Elements;
+
+public class PlayerPointLabel extends JLabel{
+
+	public PlayerPointLabel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

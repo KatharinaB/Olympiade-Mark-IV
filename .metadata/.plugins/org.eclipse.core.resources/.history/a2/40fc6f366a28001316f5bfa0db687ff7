@@ -1,0 +1,79 @@
+package ui.PlayerView;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+public class PlayerValue extends JPanel{
+
+	private JLabel valueLabel;
+	private JLabel salaryLabel;
+	private JLabel contractLabel;
+	
+	private JLabel valueVarLabel;
+	private JLabel salaryVarLabel;
+	private JLabel contractVarLabel;
+	
+	private JLabel valueCurrencyLabel;
+	private JLabel salaryCurrencyLabel;
+	private JLabel contractCurrencyLabel;
+	
+	public PlayerValue() {
+		this.setBounds(330,80,150,250);
+		this.setBorder(new LineBorder(Color.GREEN));
+		
+		initLabels();
+		initVars();
+		
+		this.add(valueLabel);
+		this.add(valueVarLabel);
+		this.add(valueSalaryCurrencyLabel);
+		
+		this.add(salaryLabel);
+		this.add(salaryVarLabel);
+		this.add(salaryCurrencyLabel);
+		
+		this.add(contractLabel);
+		this.add(contractVarLabel);
+		this.add(contractCurrencyLabel);
+		
+	}
+
+	/**
+	 * Setzt mit Daten aus DB
+	 */
+	private void initVars() {
+		valueVarLabel.setText("bla");
+		salaryVarLabel.setText("bla");
+		contractVarLabel.setText("bla");
+		
+	}
+
+	private void initLabels() {
+		valueLabel = new JLabel("Value");
+		salaryLabel = new JLabel("Salary");
+		contractLabel = new JLabel("Contract");
+		
+		valueVarLabel = new JLabel();
+		salaryVarLabel = new JLabel();
+		contractVarLabel = new JLabel();
+		
+		valueSalaryCurrencyLabel = new JLabel("Mio");
+		contractCurrencyLabel = new JLabel("Games");
+		
+		valueLabel.setPreferredSize(new Dimension(70,15));
+		salaryLabel.setPreferredSize(new Dimension(70,15));
+		contractLabel.setPreferredSize(new Dimension(70,15));
+		
+		valueVarLabel.setPreferredSize(new Dimension(70,15));
+		salaryVarLabel.setPreferredSize(new Dimension(70,15));
+		contractVarLabel.setPreferredSize(new Dimension(70,15));
+		
+		valueSalaryCurrencyLabel.setPreferredSize(new Dimension(70,15));
+		contractCurrencyLabel.setPreferredSize(new Dimension(70,15));
+	}
+
+}

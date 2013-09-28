@@ -1,0 +1,19 @@
+package ui.PlayerView.Elements;
+
+import java.awt.Color;
+
+import javax.swing.JTextArea;
+
+public class PlayerStoryTextArea extends JTextArea{
+
+	public PlayerStoryTextArea() {
+		this.setBounds(650,0,400,350);
+		this.setBorder(new LinewBorder(Color.CYAN));
+		this.setText("blablabla BLA bla bLAbLA");
+	}
+	
+	public void initText(){
+		//this.setText();
+		//mit Dbklasse sprechen
+	}
+}

@@ -1,0 +1,9 @@
+package ui.MainView;
+
+public class MainViewPanel {
+	
+	public MainViewPanel(){
+		
+	}
+
+}

@@ -10,7 +10,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		mainFrame = new MainFrame(1280,960);
+		mainFrame = new MainFrame(1280,1024);
 		
 	}
 

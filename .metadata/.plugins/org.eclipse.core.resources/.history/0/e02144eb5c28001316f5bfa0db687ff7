@@ -1,0 +1,23 @@
+package ui.EventHandling;
+
+import java.awt.Event;
+
+
+//TODO noch ne Eventklasse anlegen sobald wir mehrere/verschiedene Events haben
+
+/**
+ * Dient dafür, das auf Events gehört werden kann (für den "Abzuhörenden")
+ * @author Katy
+ *
+ */
+public interface UiEventDispatcher {
+
+	//Fügt Listener hinzu
+	public void addListener(UiEventListener listener);
+	//Entfernt Listener
+	public void removeListener(UiEventListener listener);
+	//Gibt Event weiter
+	public void dispatch();
+	
+	
+}

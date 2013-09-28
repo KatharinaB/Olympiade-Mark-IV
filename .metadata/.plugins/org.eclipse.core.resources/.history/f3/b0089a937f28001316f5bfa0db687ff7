@@ -1,0 +1,14 @@
+package ui.PlayerView.Elements;
+
+import java.awt.Color;
+
+import javax.swing.border.LineBorder;
+
+public class StaminaPanel {
+	
+	public StaminaPanel(){
+		this.setBounds(150,550,400,100);
+		this.setBorder(new LineBorder(Color.MAGENTA));
+	}
+
+}

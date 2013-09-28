@@ -1,0 +1,19 @@
+package ui.PlayerView;
+
+import ui.PlayerView.Elements.IconStatPanelController;
+import ui.PlayerView.Elements.PlayerImageLabel;
+import ui.PlayerView.Elements.PlayerStoryTextArea;
+import ui.PlayerView.Elements.TeamHistoryPanel;
+
+public class PlayerViewPanel {
+	
+	private TeamHistoryPanel teamHistoryPanel;
+	private IconStatPanelController iconStatPanelController;
+	private PlayerStoryTextArea playerStory;
+	private PlayerImageLabel playerImageLabel;
+	
+	public PlayerViewPanel(){
+		
+	}
+
+}
