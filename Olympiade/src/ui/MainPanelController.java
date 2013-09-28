@@ -15,6 +15,7 @@ import ui.MainView.TeamChoiceBox;
 import ui.MainView.TeamNameLabel;
 import ui.MainView.TickerPanel;
 import ui.PlayerView.IconStatPanel;
+import ui.PlayerView.IconStatPanelController;
 import ui.PlayerView.TeamHistoryPanel;
 import ui.TeamView.PlayerPanel;
 import ui.TeamView.PlayerPanelController;
@@ -30,7 +31,7 @@ public class MainPanelController implements UiEventListener{
 	private TickerPanel tickerPanel;//Enthält News und Transferticker
 	private TeamAttributePanel teamAttributePanel;
 	private TeamHistoryPanel teamHistoryPanel;
-	private IconStatPanel iconStatPanel;
+	private IconStatPanelController iconStatPanelController;
 	
 	
 	public MainPanelController(){
@@ -77,7 +78,7 @@ public class MainPanelController implements UiEventListener{
 	
 	private void addPlayerView() {
 		teamHistoryPanel = new TeamHistoryPanel();
-		iconStatPanel = new IconStatPanel();
+		iconStatPanelController = new IconStatPanelController();
 		
 		view.removeElement(teamAttributePanel);
 		view.removeElement(playerPanelController.getPanel());
@@ -85,7 +86,7 @@ public class MainPanelController implements UiEventListener{
 		view.removeElement(teamNameLabel);
 		
 		view.add(teamHistoryPanel);
-		view.add(iconStatPanel);
+		view.add(iconStatPanelController.getView());
 		view.revalidate();
 		view.repaint();
 	}

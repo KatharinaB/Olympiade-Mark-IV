@@ -1,9 +1,0 @@
-package ui;
-
-public class TeamHistoryPanel {
-	
-	public TeamHistoryPanel(){
-		
-	}
-
-}

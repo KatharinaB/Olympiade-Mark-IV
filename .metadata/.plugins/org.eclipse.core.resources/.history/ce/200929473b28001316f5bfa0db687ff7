@@ -1,0 +1,26 @@
+package ui.PlayerView;
+
+import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
+
+public class IconStatPanelController {
+
+	//Ka ob IconImage für uns taugt
+	//private ArrayList <ImageIcon> iconlist = new ArrayList<IconImage>();
+	//private JButton skillUpButton();
+	//private ArrayList <Integer> statList = new ArrayList<Integer>();
+	
+	public IconStatPanelController() {
+		//getIconsFromDB();
+		//getStatsFromDB();
+	}
+
+	private void getIconsFromDB() {
+		//Spricht mit der Db Klasse
+		
+	}
+	
+	
+
+}

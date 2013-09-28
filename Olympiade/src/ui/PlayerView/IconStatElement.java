@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
@@ -17,7 +18,7 @@ public class IconStatElement extends JPanel{
 	
 	private JLabel iconLabel;
 	private JLabel statLabel;
-	private JLabel skillPointLabel;
+	private JButton skillPointLabel;
 	
 	public IconStatElement(){
 		initIconStatElement();
@@ -26,37 +27,41 @@ public class IconStatElement extends JPanel{
 	private void initIconStatElement() {
 		iconLabel = new JLabel();
 		statLabel = new JLabel();
-		skillPointLabel = new JLabel();
+		skillPointLabel = new JButton();
 		
-		//über Controller aufrufen, mit db infos füttern
+		//über iconStatPanel aufrufen, mit db infos füttern
 		setIconLabel(null);
 		setstatLabels(42);
-		skillPointsLabel(null,true);
+		setSkillPointButton();
 		//
 		
 		this.add(iconLabel);
 		this.add(statLabel);
 		this.add(skillPointLabel);
-		this.setPreferredSize(new Dimension(150,20));
+		this.setPreferredSize(new Dimension(180,20));
 		this.setBorder(new LineBorder(Color.ORANGE));
 		
 	}
 	
 	//Weiß nich ob der Typ ImageIcon für uns funktioniert, dann mal testen
-	private void setIconLabel(ImageIcon icon){
+	public void setIconLabel(ImageIcon icon){
 		iconLabel.setText("icon");
 		iconLabel.setPreferredSize(new Dimension(40,15));
 	}
 	
-	private void setstatLabels(int value){
+	public void setstatLabels(int value){
 		statLabel.setText(Integer.toString(value));
 		statLabel.setPreferredSize(new Dimension(40,15));
 	}
 
-	private void skillPointsLabel(ImageIcon icon, boolean bool){
+	public void setSkillPointButton(){
 		skillPointLabel.setText("lvl up");
+		//skillPointLabel.setVisible(false);
+		skillPointLabel.setPreferredSize(new Dimension(80,15));
+	}
+	
+	public void changeSkillUpVisibility(Boolean bool){
 		skillPointLabel.setVisible(bool);
-		skillPointLabel.setPreferredSize(new Dimension(40,15));
 	}
 
 }

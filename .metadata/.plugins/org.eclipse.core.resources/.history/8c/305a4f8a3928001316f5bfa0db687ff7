@@ -1,0 +1,62 @@
+package ui.PlayerView;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+/**
+ * Packt Skillicon, skillwert, und skillupmöglichkeit zusammen
+ * @author Katy
+ *
+ */
+public class IconStatElement extends JPanel{
+	
+	private JLabel iconLabel;
+	private JLabel statLabel;
+	private JLabel skillPointLabel;
+	
+	public IconStatElement(){
+		initIconStatElement();
+	}
+
+	private void initIconStatElement() {
+		iconLabel = new JLabel();
+		statLabel = new JLabel();
+		skillPointLabel = new JLabel();
+		
+		//über Controller aufrufen, mit db infos füttern
+		setIconLabel(null);
+		setstatLabels(42);
+		setSkillPointsLabel(null,true);
+		//
+		
+		this.add(iconLabel);
+		this.add(statLabel);
+		this.add(skillPointLabel);
+		this.setPreferredSize(new Dimension(150,20));
+		this.setBorder(new LineBorder(Color.ORANGE));
+		
+	}
+	
+	//Weiß nich ob der Typ ImageIcon für uns funktioniert, dann mal testen
+	public void setIconLabel(ImageIcon icon){
+		iconLabel.setText("icon");
+		iconLabel.setPreferredSize(new Dimension(40,15));
+	}
+	
+	public void setstatLabels(int value){
+		statLabel.setText(Integer.toString(value));
+		statLabel.setPreferredSize(new Dimension(40,15));
+	}
+
+	public void setSkillPointsLabel(ImageIcon icon, boolean bool){
+		skillPointLabel.setText("lvl up");
+		skillPointLabel.setVisible(bool);
+		skillPointLabel.setPreferredSize(new Dimension(40,15));
+	}
+
+}

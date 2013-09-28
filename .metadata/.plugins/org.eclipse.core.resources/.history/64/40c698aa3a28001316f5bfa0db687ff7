@@ -1,0 +1,9 @@
+package ui.PlayerView;
+
+public class IconStatPanelController {
+
+	public IconStatPanelController() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
