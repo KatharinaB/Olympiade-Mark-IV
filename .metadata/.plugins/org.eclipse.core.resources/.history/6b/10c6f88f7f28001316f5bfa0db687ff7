@@ -1,9 +1,0 @@
-package ui.PlayerView.Elements;
-
-public class StaminaPanel {
-	
-	public StaminaPanel(){
-		
-	}
-
-}

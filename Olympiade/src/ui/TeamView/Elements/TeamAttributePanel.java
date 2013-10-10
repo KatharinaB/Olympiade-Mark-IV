@@ -1,4 +1,4 @@
-package ui.TeamView.Elements;
+package ui.TeamView.elements;
 
 import java.awt.Color;
 import java.awt.Dimension;

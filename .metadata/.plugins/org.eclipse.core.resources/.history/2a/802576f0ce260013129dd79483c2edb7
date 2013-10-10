@@ -1,7 +1,0 @@
-package ui;
-
-public interface UiEventListener {
-	
-	public void onUiEventFired(UiEvent event);
-
-}

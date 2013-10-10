@@ -1,4 +1,4 @@
-package ui.EventHandling;
+package ui.eventHandling;
 
 public class UiEvent {
 	

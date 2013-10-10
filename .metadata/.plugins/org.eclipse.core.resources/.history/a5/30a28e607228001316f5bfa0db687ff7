@@ -1,9 +1,0 @@
-package ui.PlayerView.Elements;
-
-public class PlayerPointLabel {
-
-	public PlayerPointLabel() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

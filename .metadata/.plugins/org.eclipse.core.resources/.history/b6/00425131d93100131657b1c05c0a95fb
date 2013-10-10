@@ -1,0 +1,11 @@
+package ui.loginView;
+
+public class LoginPanelController {
+	
+	private LoginPanel loginPanel;
+	
+	public LoginPanel(){
+		
+	}
+
+}

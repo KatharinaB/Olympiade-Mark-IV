@@ -1,18 +1,22 @@
 package ui.TeamView;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import ui.EventHandling.UiEvent;
-import ui.EventHandling.UiEventDispatcher;
-import ui.EventHandling.UiEventListener;
-import ui.TeamView.Elements.PlayerPanelController;
-import ui.TeamView.Elements.TeamAttributePanel;
+import ui.TeamView.elements.PlayerPanelController;
+import ui.TeamView.elements.TeamAttributePanel;
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
 
+/**
+ * Hält alle Elemente für die Teamview
+ * @author Katy
+ *
+ */
 public class TeamViewPanel extends JPanel implements UiEventListener, UiEventDispatcher{
 	
 	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
@@ -20,7 +24,7 @@ public class TeamViewPanel extends JPanel implements UiEventListener, UiEventDis
 	private PlayerPanelController playerPanelController;
 	
 	public TeamViewPanel(){
-		this.setLayout(null);
+		this.setLayout(null); //alle Elemente frei positionierbar
 		this.setBorder(new LineBorder(Color.MAGENTA));
 		this.setBounds(150,50,850,800);
 		

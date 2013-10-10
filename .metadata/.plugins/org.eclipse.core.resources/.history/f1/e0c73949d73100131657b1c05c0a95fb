@@ -1,0 +1,17 @@
+package ui.loginView;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+
+public class LoginPanel extends JPanel{
+	
+	private JPasswordField password;
+	private JLabel username;
+
+	public LoginPanel() {
+		
+		password.setSize(new Dimension(100,20));
+	}
+
+}

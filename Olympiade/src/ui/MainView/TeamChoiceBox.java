@@ -1,4 +1,4 @@
-package ui.MainView;
+package ui.mainView;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import javax.swing.ComboBoxModel;
 import javax.swing.JComboBox;
 
-import ui.EventHandling.UiEvent;
-import ui.EventHandling.UiEventDispatcher;
-import ui.EventHandling.UiEventListener;
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
 
 public class TeamChoiceBox extends JComboBox<String> implements UiEventDispatcher{
 	

@@ -1,9 +1,0 @@
-package ui.PlayerView.Elements;
-
-public class PlayerteamNameLabel extends JLabel{
-
-	public PlayerteamNameLabel() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

@@ -1,0 +1,32 @@
+package ui.loginView;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+
+public class LoginPanel extends JPanel{
+	
+	private JPasswordField password;
+	private JLabel username;
+
+	//TODO eingaben überprüfen
+	public LoginPanel() {
+		this.setLayout(null);
+		
+		
+		password = new JPasswordField();
+		username = new JLabel();
+		
+		this.setBackground(Color.GREEN);
+		
+		
+		password.setBounds(100,20, 300,300);
+		username.setBounds(100,20, 300,330);
+		
+		this.setVisible(true);
+	}
+
+}

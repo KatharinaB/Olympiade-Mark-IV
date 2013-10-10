@@ -1,0 +1,15 @@
+package ui.loginView;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class LoginPanel extends JPanel{
+	
+	private JLabel password;
+	private JLabel username;
+
+	public LoginPanel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

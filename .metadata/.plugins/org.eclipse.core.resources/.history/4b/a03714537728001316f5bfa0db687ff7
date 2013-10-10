@@ -1,5 +1,0 @@
-package ui.PlayerView.Elements;
-
-public class PlayerTrophiesPanel extends JPanel{
-
-}

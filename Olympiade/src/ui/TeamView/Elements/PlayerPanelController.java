@@ -1,4 +1,4 @@
-package ui.TeamView.Elements;
+package ui.TeamView.elements;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,9 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-import ui.EventHandling.UiEvent;
-import ui.EventHandling.UiEventDispatcher;
-import ui.EventHandling.UiEventListener;
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
 
 //TODO nochmal schön machen
 /**

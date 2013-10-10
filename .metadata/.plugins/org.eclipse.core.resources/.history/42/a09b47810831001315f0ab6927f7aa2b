@@ -1,0 +1,15 @@
+package db;
+
+
+public class Database {
+	
+	public Database(){
+		
+	}
+	
+	try {
+		System.out.println("connecte dich...");
+		
+	}
+
+}

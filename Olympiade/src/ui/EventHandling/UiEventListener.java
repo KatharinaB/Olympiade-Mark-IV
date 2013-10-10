@@ -1,4 +1,4 @@
-package ui.EventHandling;
+package ui.eventHandling;
 
 import java.awt.Event;
 import java.util.EventListener;

@@ -1,9 +1,0 @@
-package ui;
-
-public class PlayerImage extends JLabel{
-
-	public PlayerImage() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

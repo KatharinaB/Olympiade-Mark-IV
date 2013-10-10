@@ -1,0 +1,18 @@
+package ui.loginView;
+
+import javax.swing.JComponent;
+
+public class LoginPanelController {
+	
+	private LoginPanel loginPanel;
+	
+	public LoginPanel(){
+		loginPanel = new LoginPanel();
+	}
+
+	public LoginPanel getView() {
+		
+		return loginPanel;
+	}
+
+}

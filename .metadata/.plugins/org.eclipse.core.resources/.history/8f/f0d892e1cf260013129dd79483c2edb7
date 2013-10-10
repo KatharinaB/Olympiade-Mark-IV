@@ -1,9 +1,0 @@
-package ui;
-
-import java.awt.Event;
-
-public interface UiEventListener {
-	
-	public void onUiEventFired(Event event);
-
-}

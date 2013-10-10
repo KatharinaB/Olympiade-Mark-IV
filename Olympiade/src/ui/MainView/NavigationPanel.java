@@ -1,11 +1,18 @@
-package ui.MainView;
+package ui.mainView;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+/**
+ * Enthält das Menü
+ * @author Katy
+ *
+ */
 public class NavigationPanel extends JPanel{
 	
 	private JButton [] buttons;
@@ -28,6 +35,14 @@ public class NavigationPanel extends JPanel{
 		for(int i = 0; i < 12; i++){
 			buttons[i].setPreferredSize(new Dimension(140,30));
 			this.add(buttons[i]);
+			buttons[i].addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
 		}
 	}
 	

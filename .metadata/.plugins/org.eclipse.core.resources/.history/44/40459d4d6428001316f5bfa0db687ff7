@@ -1,9 +1,0 @@
-package ui.PlayerView.Elements;
-
-public class PlayerteamNameLabel {
-
-	public PlayerteamNameLabel() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

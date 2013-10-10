@@ -1,4 +1,4 @@
-package ui.MainView;
+package ui.mainView;
 
 import java.awt.Color;
 import java.awt.Font;

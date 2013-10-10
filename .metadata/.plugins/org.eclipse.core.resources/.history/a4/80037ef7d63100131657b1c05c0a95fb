@@ -1,0 +1,9 @@
+package ui.loginView;
+
+public class LoginPanel {
+
+	public LoginPanel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

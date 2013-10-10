@@ -1,0 +1,11 @@
+package ui.loginView;
+
+import javax.swing.JPanel;
+
+public class LoginPanel extends JPanel{
+
+	public LoginPanel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
