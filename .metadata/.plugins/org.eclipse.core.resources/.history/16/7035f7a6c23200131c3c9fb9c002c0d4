@@ -20,6 +20,7 @@ public class Database {
 	
 	
 	public void initDb(){
+		System.out.println("connecte dich...");
 		conn = null;
 		String url = "jdbc:mysql://db4free.net:3306/";
 		String dbName = "olympiade";
@@ -104,6 +105,7 @@ public class Database {
 			
 				id = rs.getString("ID");
 			}
+			System.out.println(user + " " + id);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -115,6 +117,7 @@ public class Database {
 		
 			while (rs.next()) {
 				names.add(rs.getString("Lang"));
+				System.out.println(rs.getString("Lang"));
 			}
 			
 			

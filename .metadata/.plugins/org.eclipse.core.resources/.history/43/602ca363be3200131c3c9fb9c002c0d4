@@ -82,9 +82,12 @@ public class MainPanelController implements UiEventListener{
 	private void addTeamView() {
 		teamViewPanel = new TeamViewPanel();
 		teamViewPanel.addListener(this);
+		
+		teamNameLabel.setText(teamChoiceController.getTeamname());
+		
 		view.removeElement(tickerPanel);
 		view.add(teamViewPanel);
-		teamNameLabel.setText(teamChoiceController.getTeamname());
+		
 		updateView();
 	}
 	
@@ -112,7 +115,6 @@ public class MainPanelController implements UiEventListener{
 			addPlayerView();
 		}else if(event.getMessage() == "activateMainView"){
 			teamChoiceController.initTeams(loginPanelController.getUser());
-			teamNameLabel.setText(teamChoiceController.getTeamname());
 			addMainView();
 		}else{
 			

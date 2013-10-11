@@ -84,7 +84,7 @@ public class MainPanelController implements UiEventListener{
 		teamViewPanel.addListener(this);
 		view.removeElement(tickerPanel);
 		view.add(teamViewPanel);
-		teamNameLabel.setText(teamChoiceController.getTeamname());
+		
 		updateView();
 	}
 	

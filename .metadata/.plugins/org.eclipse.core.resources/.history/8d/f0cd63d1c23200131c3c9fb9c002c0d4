@@ -20,6 +20,7 @@ public class Database {
 	
 	
 	public void initDb(){
+		System.out.println("connecte dich...");
 		conn = null;
 		String url = "jdbc:mysql://db4free.net:3306/";
 		String dbName = "olympiade";
