@@ -70,4 +70,27 @@ public class Database {
 		}
 	}
 
+
+	public boolean checkLoginData(String username, String inputPW) {
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM user");
+			
+			while (rs.next()) {
+				
+				 String name = rs.getString("Name");
+				 String pw = rs.getString("Passwort");
+				 
+				 if(name.equals(username) && pw.equals(inputPW)){
+
+					 return true;
+				 }
+			}
+			return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }

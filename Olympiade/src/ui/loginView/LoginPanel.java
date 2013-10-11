@@ -5,30 +5,42 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
+import javax.swing.border.LineBorder;
 
-public class LoginPanel extends JPanel{
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
+
+import db.Database;
+
+public class LoginPanel extends JPanel implements UiEventDispatcher{
+	
+	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
 	
 	private JPasswordField password;
 	private JTextArea username;
 	private JLabel usernameLabel;
 	private JLabel passwordLabel;
 	private JButton loginButton;
-	
+	private Database db;
 
 	//TODO eingaben überprüfen
 	//TODO mit tab weiter springen
 	//TODO Fehlermeldung werfen bei falschem PW oder Namen
-	public LoginPanel() {
-		this.setLayout(null);
-		this.setBounds(0,0,1000,800);
+	public LoginPanel(Database db) {
+		this.db = db;
 		
-
+		this.setLayout(null);
+		this.setBounds(500,400,150,130);
+	
+		
 		initFields();
 		initButton();
 		
@@ -43,7 +55,7 @@ public class LoginPanel extends JPanel{
 
 	private void initButton() {
 		loginButton = new JButton("Einloggen");
-		loginButton.setBounds(400,380,150,20);
+		loginButton.setBounds(0,100,150,20);
 		
 		loginButton.addMouseListener(new MouseListener() {
 			
@@ -73,10 +85,32 @@ public class LoginPanel extends JPanel{
 			
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-			
+				String inputPW = getPW(password.getPassword());
+				
+				if(username.getText() != "" && inputPW != "" ){
+					if(db.checkLoginData(username.getText(), inputPW)){
+						dispatch(new UiEvent("activateMainView"));
+					}else{
+						dispatch(new UiEvent("Passwort oder Benutzername falsch"));
+						
+					}
+				}else{
+					dispatch(new UiEvent("bitte beide Fehler ausfüllen"));
+				}
 				
 			}
+
 		});
+	}
+	
+	private String getPW(char[] password) {
+		String pw = "";
+		
+		for(int i = 0; i < password.length; i++){
+			pw += password[i];
+		}
+		
+		return pw;
 	}
 
 	private void initFields() {
@@ -89,11 +123,32 @@ public class LoginPanel extends JPanel{
 		usernameLabel.setLabelFor(username);
 		passwordLabel.setLabelFor(password);
 		
-		usernameLabel.setBounds(400,280,150,20);
-		username.setBounds(400,300,150,20);
-		passwordLabel.setBounds(400,330,150,20);
-		password.setBounds(400,350,150,20);
+		usernameLabel.setBounds(0,0,150,20);
+		username.setBounds(0,20,150,20);
+		passwordLabel.setBounds(0,50,150,20);
+		password.setBounds(0,70,150,20);
 
+	}
+
+
+	@Override
+	public void addListener(UiEventListener listener) {
+		listeners.add(listener);
+		
+	}
+
+	@Override
+	public void removeListener(UiEventListener listener) {
+		listeners.remove(listener);
+		
+	}
+
+	@Override
+	public void dispatch(UiEvent event) {
+		for(UiEventListener lis: listeners){
+			lis.onUiEventFired(event);
+		}
+		
 	}
 	
 

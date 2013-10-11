@@ -1,0 +1,38 @@
+package ui;
+
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventListener;
+
+public class MessagePanel extends JPanel implements UiEventListener{
+
+	private String message;
+	private JButton button;
+	
+	public MessagePanel() {
+		this.setLayout(null);
+		this.setBounds(400,400,600,500);
+		
+		initButton();
+		
+		
+		this.setVisible(false);
+	}
+
+	private void initButton() {
+		button = new JButton("OK");
+		
+	}
+
+	@Override
+	public void onUiEventFired(UiEvent event) {
+		if(event.getMessage() != "activateTeamView" && event.getMessage() != "activatePlayerView" && event.getMessage() != "activateMainView" ){
+			this.message = event.getMessage();
+		}
+		setVisible(true);
+	}
+
+}

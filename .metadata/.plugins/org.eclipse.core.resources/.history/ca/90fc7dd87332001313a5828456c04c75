@@ -1,0 +1,152 @@
+package ui.loginView;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
+
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
+
+import db.Database;
+
+public class LoginPanel extends JPanel implements UiEventDispatcher{
+	
+	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
+	
+	private JPasswordField password;
+	private JTextArea username;
+	private JLabel usernameLabel;
+	private JLabel passwordLabel;
+	private JButton loginButton;
+	private Database db;
+
+	//TODO eingaben überprüfen
+	//TODO mit tab weiter springen
+	//TODO Fehlermeldung werfen bei falschem PW oder Namen
+	public LoginPanel(Database db) {
+		this.db = db;
+		
+		this.setLayout(null);
+		this.setBounds(0,0,1000,800);
+
+		initFields();
+		initButton();
+		
+		this.add(usernameLabel);
+		this.add(passwordLabel);
+		this.add(username);
+		this.add(password);
+		this.add(loginButton);
+		
+		this.setVisible(true);
+	}
+
+	private void initButton() {
+		loginButton = new JButton("Einloggen");
+		loginButton.setBounds(400,380,150,20);
+		
+		loginButton.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				String inputPW = getPW(password.getPassword());
+				
+				if(username.getText() != "" && inputPW != "" ){
+					if(db.checkLoginData(username.getText(), inputPW)){
+						dispatch(new UiEvent("activateMainView"));
+					}else{
+						System.out.println("Passwort oder Username falsch");
+					}
+				}else{
+					System.out.println("bitte beide Fehler ausfüllen");
+				}
+				
+			}
+
+		});
+	}
+	
+	private String getPW(char[] password) {
+		String pw = "";
+		
+		for(int i = 0; i < password.length; i++){
+			pw += password[i];
+		}
+		
+		return pw;
+	}
+
+	private void initFields() {
+	
+		usernameLabel = new JLabel("Username: ");
+		passwordLabel = new JLabel("Password: ");
+		password = new JPasswordField();
+		username = new JTextArea();
+		
+		usernameLabel.setLabelFor(username);
+		passwordLabel.setLabelFor(password);
+		
+		usernameLabel.setBounds(400,280,150,20);
+		username.setBounds(400,300,150,20);
+		passwordLabel.setBounds(400,330,150,20);
+		password.setBounds(400,350,150,20);
+
+	}
+
+
+	@Override
+	public void addListener(UiEventListener listener) {
+		listeners.add(listener);
+		
+	}
+
+	@Override
+	public void removeListener(UiEventListener listener) {
+		listeners.remove(listener);
+		
+	}
+
+	@Override
+	public void dispatch(UiEvent event) {
+		for(UiEventListener lis: listeners){
+			lis.onUiEventFired(event);
+		}
+		
+	}
+	
+
+}

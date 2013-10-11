@@ -1,0 +1,11 @@
+package ui;
+
+import javax.swing.JPanel;
+
+public class MessagePanel extends JPanel{
+
+	public MessagePanel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

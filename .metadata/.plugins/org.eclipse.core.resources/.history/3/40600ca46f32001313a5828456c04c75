@@ -1,0 +1,9 @@
+package ui;
+
+public class MessagePanel {
+
+	public MessagePanel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

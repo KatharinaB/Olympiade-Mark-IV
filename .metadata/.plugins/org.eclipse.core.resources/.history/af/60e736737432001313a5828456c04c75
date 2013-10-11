@@ -1,0 +1,22 @@
+package ui;
+
+import javax.swing.JPanel;
+
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventListener;
+
+public class MessagePanel extends JPanel implements UiEventListener{
+
+	public MessagePanel() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void onUiEventFired(UiEvent event) {
+		if(event.getMessage() != "activateTeamView" &&  != "activatePlayerView" &&  != "activateMainView" ){
+			addTeamView();
+		}
+		
+	}
+
+}

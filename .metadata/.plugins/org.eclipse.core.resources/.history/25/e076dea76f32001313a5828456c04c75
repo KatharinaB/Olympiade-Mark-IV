@@ -1,0 +1,9 @@
+package ui;
+
+public class MessagePanel extends JPanel{
+
+	public MessagePanel() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

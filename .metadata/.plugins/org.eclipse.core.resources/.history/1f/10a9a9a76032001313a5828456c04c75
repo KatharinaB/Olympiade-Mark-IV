@@ -1,0 +1,9 @@
+package gameContent;
+
+public class User {
+	
+	public User(){
+		
+	}
+
+}

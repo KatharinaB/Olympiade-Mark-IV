@@ -1,0 +1,12 @@
+package gameContent;
+
+public class User {
+	
+	private String name;
+	priv
+	
+	public User(){
+		
+	}
+
+}

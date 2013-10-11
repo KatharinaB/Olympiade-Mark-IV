@@ -1,0 +1,16 @@
+package gameContent;
+
+public class Team {
+	
+	private String name;
+	private String shortName;
+	private String id; //TODO schauen ob wir das wirklich brauchen
+	private int salary;
+	private int rank;
+	
+
+	public Team() {
+		
+	}
+
+}

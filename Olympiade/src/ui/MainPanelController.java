@@ -1,6 +1,7 @@
 package ui;
 
 
+import db.Database;
 import ui.PlayerView.PlayerViewPanel;
 import ui.TeamView.TeamViewPanel;
 import ui.eventHandling.UiEvent;
@@ -16,6 +17,7 @@ import ui.mainView.TickerPanel;
  * @author Katy
  *
  */
+//TODO Inputcontroller schreiben
 public class MainPanelController implements UiEventListener{
 	
 	private MainPanel view;
@@ -26,27 +28,36 @@ public class MainPanelController implements UiEventListener{
 	private TeamNameLabel teamNameLabel;
 	
 	private TickerPanel tickerPanel;
-	
 	private TeamViewPanel teamViewPanel;
 	private PlayerViewPanel playerViewPanel;
 	private LoginPanel loginPanel;
 	
+	private MessagePanel messagePanel;
 	
+	private Database db;
 	
 	public MainPanelController(){
+		db = new Database();
+		
 		view = new MainPanel();
 		navi = new NavigationPanel();
 		
 		teamChoice = new TeamChoiceBox();
 		teamNameLabel = new TeamNameLabel();
 		tickerPanel = new TickerPanel();
-		loginPanel = new LoginPanel();
+		loginPanel = new LoginPanel(db);
+		messagePanel = new MessagePanel();
 
 		//addMainView();
 		addLoginView();
 		
 		//Der Controller hört auf die Teamauswahl und die Playerpanel zum switchen der View
 		teamChoice.addListener(this);
+		loginPanel.addListener(this);
+		loginPanel.addListener(messagePanel);
+		
+		
+		view.addElement(messagePanel);
 	}
 	
 	
@@ -57,6 +68,8 @@ public class MainPanelController implements UiEventListener{
 
 
 	private void addMainView() {
+		view.removeElement(loginPanel);
+		
 		view.addElement(navi);
 		view.addElement(teamChoice);
 		view.addElement(teamNameLabel);
@@ -94,11 +107,14 @@ public class MainPanelController implements UiEventListener{
 	//TODO nochmal anders lösen, nicht mit diesen Strings
 	@Override
 	public void onUiEventFired(UiEvent event) {
-		
 		if(event.getMessage() == "activateTeamView"){
 			addTeamView();
 		}else if(event.getMessage() == "activatePlayerView"){
 			addPlayerView();
+		}else if(event.getMessage() == "activateMainView"){
+			addMainView();
+		}else{
+			
 		}
 	}
 	
