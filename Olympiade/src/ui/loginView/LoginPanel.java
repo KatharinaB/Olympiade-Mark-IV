@@ -18,24 +18,20 @@ import ui.eventHandling.UiEvent;
 import ui.eventHandling.UiEventDispatcher;
 import ui.eventHandling.UiEventListener;
 
-import db.Database;
 
-public class LoginPanel extends JPanel implements UiEventDispatcher{
-	
-	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
+public class LoginPanel extends JPanel{
 	
 	private JPasswordField password;
 	private JTextArea username;
 	private JLabel usernameLabel;
 	private JLabel passwordLabel;
 	private JButton loginButton;
-	private Database db;
+	
 
 	//TODO eingaben überprüfen
 	//TODO mit tab weiter springen
 	//TODO Fehlermeldung werfen bei falschem PW oder Namen
-	public LoginPanel(Database db) {
-		this.db = db;
+	public LoginPanel() {
 		
 		this.setLayout(null);
 		this.setBounds(500,400,150,130);
@@ -57,61 +53,10 @@ public class LoginPanel extends JPanel implements UiEventDispatcher{
 		loginButton = new JButton("Einloggen");
 		loginButton.setBounds(0,100,150,20);
 		
-		loginButton.addMouseListener(new MouseListener() {
-			
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				String inputPW = getPW(password.getPassword());
-				
-				if(username.getText() != "" && inputPW != "" ){
-					if(db.checkLoginData(username.getText(), inputPW)){
-						dispatch(new UiEvent("activateMainView"));
-					}else{
-						dispatch(new UiEvent("Passwort oder Benutzername falsch"));
-						
-					}
-				}else{
-					dispatch(new UiEvent("bitte beide Fehler ausfüllen"));
-				}
-				
-			}
-
-		});
+		
 	}
 	
-	private String getPW(char[] password) {
-		String pw = "";
-		
-		for(int i = 0; i < password.length; i++){
-			pw += password[i];
-		}
-		
-		return pw;
-	}
+	
 
 	private void initFields() {
 	
@@ -129,27 +74,25 @@ public class LoginPanel extends JPanel implements UiEventDispatcher{
 		password.setBounds(0,70,150,20);
 
 	}
-
-
-	@Override
-	public void addListener(UiEventListener listener) {
-		listeners.add(listener);
-		
-	}
-
-	@Override
-	public void removeListener(UiEventListener listener) {
-		listeners.remove(listener);
-		
-	}
-
-	@Override
-	public void dispatch(UiEvent event) {
-		for(UiEventListener lis: listeners){
-			lis.onUiEventFired(event);
-		}
-		
-	}
 	
+	public JButton getButton(){
+		return loginButton;
+	}
+
+	public JPasswordField getPW() {
+		return password;
+	}
+
+	public void setPassword(JPasswordField password) {
+		this.password = password;
+	}
+
+	public JTextArea getUsername() {
+		return username;
+	}
+
+	public void setUsername(JTextArea username) {
+		this.username = username;
+	}
 
 }

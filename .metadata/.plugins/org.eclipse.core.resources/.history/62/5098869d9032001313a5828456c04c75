@@ -1,0 +1,30 @@
+package ui.mainView;
+
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
+
+public class TeamChoiceBoxController implements UiEventDispatcher{
+
+	@Override
+	public void addListener(UiEventListener listener) {
+		listeners.add(listener);
+		
+	}
+
+	@Override
+	public void removeListener(UiEventListener listener) {
+		listeners.remove(listener);
+		
+	}
+
+	@Override
+	public void dispatch(UiEvent event) {
+		for(UiEventListener lis: listeners){
+			lis.onUiEventFired(event);
+		}
+		
+	}
+	
+}
+

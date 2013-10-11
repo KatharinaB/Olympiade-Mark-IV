@@ -7,8 +7,10 @@ import ui.TeamView.TeamViewPanel;
 import ui.eventHandling.UiEvent;
 import ui.eventHandling.UiEventListener;
 import ui.loginView.LoginPanel;
+import ui.loginView.LoginPanelController;
 import ui.mainView.NavigationPanel;
 import ui.mainView.TeamChoiceBox;
+import ui.mainView.TeamChoiceBoxController;
 import ui.mainView.TeamNameLabel;
 import ui.mainView.TickerPanel;
 
@@ -24,13 +26,13 @@ public class MainPanelController implements UiEventListener{
 	
 	//Werden nicht nur in einer Sicht gebraucht
 	private NavigationPanel navi;
-	private TeamChoiceBox teamChoice;//Teamauswahlbox
+	private TeamChoiceBoxController teamChoiceController;//Teamauswahlbox
 	private TeamNameLabel teamNameLabel;
 	
 	private TickerPanel tickerPanel;
 	private TeamViewPanel teamViewPanel;
 	private PlayerViewPanel playerViewPanel;
-	private LoginPanel loginPanel;
+	private LoginPanelController loginPanelController;
 	
 	private MessagePanel messagePanel;
 	
@@ -42,19 +44,19 @@ public class MainPanelController implements UiEventListener{
 		view = new MainPanel();
 		navi = new NavigationPanel();
 		
-		teamChoice = new TeamChoiceBox();
+		teamChoiceController = new TeamChoiceBoxController(db);
 		teamNameLabel = new TeamNameLabel();
 		tickerPanel = new TickerPanel();
-		loginPanel = new LoginPanel(db);
+		loginPanelController = new LoginPanelController(db);
 		messagePanel = new MessagePanel();
 
 		//addMainView();
 		addLoginView();
 		
 		//Der Controller hört auf die Teamauswahl und die Playerpanel zum switchen der View
-		teamChoice.addListener(this);
-		loginPanel.addListener(this);
-		loginPanel.addListener(messagePanel);
+		teamChoiceController.addListener(this);
+		loginPanelController.addListener(this);
+		loginPanelController.addListener(messagePanel);
 		
 		
 		view.addElement(messagePanel);
@@ -62,16 +64,16 @@ public class MainPanelController implements UiEventListener{
 	
 	
 	private void addLoginView() {
-		view.addElement(loginPanel);
+		view.addElement(loginPanelController.getView());
 		updateView();
 	}
 
 
 	private void addMainView() {
-		view.removeElement(loginPanel);
+		view.removeElement(loginPanelController.getView());
 		
 		view.addElement(navi);
-		view.addElement(teamChoice);
+		view.addElement(teamChoiceController.getView());
 		view.addElement(teamNameLabel);
 		view.addElement(tickerPanel);
 		updateView();
@@ -81,7 +83,7 @@ public class MainPanelController implements UiEventListener{
 		teamViewPanel = new TeamViewPanel();
 		teamViewPanel.addListener(this);
 		
-		teamNameLabel.setText(teamChoice.getTeamname());
+		teamNameLabel.setText(teamChoiceController.getTeamname());
 		
 		view.removeElement(tickerPanel);
 		view.add(teamViewPanel);
@@ -93,7 +95,7 @@ public class MainPanelController implements UiEventListener{
 		playerViewPanel = new PlayerViewPanel();
 		
 		view.remove(teamViewPanel);
-		view.removeElement(teamChoice);
+		view.removeElement(teamChoiceController.getView());
 		view.removeElement(teamNameLabel);
 		view.add(playerViewPanel);
 		
@@ -112,6 +114,7 @@ public class MainPanelController implements UiEventListener{
 		}else if(event.getMessage() == "activatePlayerView"){
 			addPlayerView();
 		}else if(event.getMessage() == "activateMainView"){
+			teamChoiceController.initTeams(loginPanelController.getUser());
 			addMainView();
 		}else{
 			

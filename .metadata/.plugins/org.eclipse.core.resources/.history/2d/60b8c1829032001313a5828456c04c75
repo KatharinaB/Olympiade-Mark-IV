@@ -1,0 +1,8 @@
+package ui.mainView;
+
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
+
+public class TeamChoiceBoxController implements UiEventDispatcher{
+
+}

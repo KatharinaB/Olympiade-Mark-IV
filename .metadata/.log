@@ -2571,3 +2571,13 @@ org.eclipse.core.internal.resources.ResourceException: A resource exists with a 
 	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
 !SUBENTRY 1 org.eclipse.core.resources 4 275 2013-10-10 20:04:09.298
 !MESSAGE A resource exists with a different case: '/Olympiade/src/ui/PlayerView'.
+!SESSION 2013-10-11 20:47:59.517 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.7.0_04
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_DE
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2013-10-11 20:48:37.431
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.

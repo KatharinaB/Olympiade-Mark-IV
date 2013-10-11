@@ -1,0 +1,22 @@
+package ui.loginView;
+
+import db.Database;
+
+public class LoginPanelController {
+
+	
+	private LoginPanel loginPanel;
+	private Database db;
+	
+	public LoginPanelController(Database db) {
+		this.db = db;
+		
+		loginPanel = new LoginPanel();
+	}
+
+	
+	public LoginPanel getView(){
+		return loginPanel;
+		
+	}
+}

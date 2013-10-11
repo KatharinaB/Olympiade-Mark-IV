@@ -64,8 +64,9 @@ public class MessagePanel extends JPanel implements UiEventListener{
 	public void onUiEventFired(UiEvent event) {
 		if(event.getMessage() != "activateTeamView" && event.getMessage() != "activatePlayerView" && event.getMessage() != "activateMainView" ){
 			area.setText(event.getMessage());
+			setVisible(true);
 		}
-		setVisible(true);
+		
 	}
 
 }

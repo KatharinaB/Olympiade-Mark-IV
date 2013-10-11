@@ -1,0 +1,19 @@
+package ui.loginView;
+
+import db.Database;
+
+public class LoginPanelController {
+
+	
+	private LoginPanel loginPanel;
+	
+	public LoginPanelController(Database db) {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	public LoginPanel getView(){
+		return loginPanel;
+		
+	}
+}

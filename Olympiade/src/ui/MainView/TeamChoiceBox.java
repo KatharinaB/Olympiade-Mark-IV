@@ -12,59 +12,27 @@ import ui.eventHandling.UiEvent;
 import ui.eventHandling.UiEventDispatcher;
 import ui.eventHandling.UiEventListener;
 
-public class TeamChoiceBox extends JComboBox<String> implements UiEventDispatcher{
+public class TeamChoiceBox extends JComboBox<String> {
 	
 	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
 	private String selectedItem;
-	private static String [] teams = {"dummy 1", "dummy 2", "dummy3"}; //TODO aus DB
 	
-	public TeamChoiceBox(){
-		super(teams);
-		this.setSelectedIndex(0);
+	public TeamChoiceBox(String[] teamArray){
+		super(teamArray);
+		this.setSelectedIndex(teamArray.length -1);
 		this.setBackground(Color.PINK);
 		this.setBounds(1010,50,250,30);
+		
+		setTeamname();
 		this.setVisible(true);
-		
-		this.addActionListener(new ActionListener() {
-	
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				setTeamname();
-				dispatch(new UiEvent("activateTeamView"));
-				
-			}
-		});
-		
-		
 	}
 	
-	private void setTeamname() {
-		selectedItem =  (String) this.getSelectedItem();
-		
+	public void setTeamname() {
+		selectedItem =  (String) this.getSelectedItem();		
 	}
 	
 	public String getTeamname(){
 		return selectedItem;
-	}
-
-	@Override
-	public void addListener(UiEventListener listener) {
-		listeners.add(listener);
-		
-	}
-
-	@Override
-	public void removeListener(UiEventListener listener) {
-		listeners.remove(listener);
-		
-	}
-
-	@Override
-	public void dispatch(UiEvent event) {
-		for(UiEventListener lis: listeners){
-			lis.onUiEventFired(event);
-		}
-		
 	}
 	
 
