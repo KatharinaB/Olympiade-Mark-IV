@@ -8,19 +8,24 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
+
 /**
  * Enthält das Menü
  * @author Katy
  *
  */
-public class NavigationPanel extends JPanel{
+public class NavigationPanel extends JPanel implements UiEventDispatcher{
 	
 	private JButton [] buttons;
+	private String [] buttonNames = {"Overview", "Next Round", "Team", "Trainings-Camp", "Standings", "Top Players", "News", "Transfer", "Rumors", "Prize Money"}; 
 	
 	public NavigationPanel(){
 		this.setVisible(true);
-		this.setBounds(0,50,150,800);
-		this.setBackground(Color.GREEN);
+		this.setBounds(0,100,150,800);
+		
 		
 		createNavigation();
 	}
@@ -30,43 +35,41 @@ public class NavigationPanel extends JPanel{
 		 * Initialisiert die Navigationsleiste 
 		 */
 	public void createNavigation(){
-		buttons = initNavigationButtons();
-		
-		for(int i = 0; i < 12; i++){
+
+		for(int i = 0; i < buttonNames.length; i++){
+			buttons[i] = new JButton(buttonNames[i]);
+			
 			buttons[i].setPreferredSize(new Dimension(140,30));
 			this.add(buttons[i]);
-			buttons[i].addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent arg0) {
-					// TODO Auto-generated method stub
-					
-				}
-			});
 		}
+		
+		buttons[0].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				dispatch(new UiEvent("activateMainView"));
+				
+			}
+		});
 	}
 	
-	/**
-	 * Erstellt die Buttons für die Navigation
-	 * @return
-	 */
-	private JButton[] initNavigationButtons(){
-		JButton [] buttons = new JButton[12];
-		
-		buttons[0] = new JButton("Overview");
-		buttons[1] = new JButton("next Round");
-		buttons[2] = new JButton("Team");
-		buttons[3] = new JButton("Training-Camp");
-		buttons[4] = new JButton("Standings");
-		buttons[5] = new JButton("Top Players");
-		buttons[6] = new JButton("News");
-		buttons[7] = new JButton("Transfers");
-		buttons[8] = new JButton("Rumors");
-		buttons[9] = new JButton("Prize-Money");
-		buttons[10] = new JButton("Spellbook");
-		buttons[11] = new JButton("Sponsors");
 
-		return buttons;
+	@Override
+	public void addListener(UiEventListener listener) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeListener(UiEventListener listener) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dispatch(UiEvent event) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

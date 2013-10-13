@@ -1,10 +1,14 @@
 package ui.TeamView;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.util.ArrayList;
 
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
+import db.Database;
 
 import ui.TeamView.elements.PlayerPanelController;
 import ui.TeamView.elements.TeamAttributePanel;
@@ -17,70 +21,27 @@ import ui.eventHandling.UiEventListener;
  * @author Katy
  *
  */
-public class TeamViewPanel extends JPanel implements UiEventListener, UiEventDispatcher{
+public class TeamViewPanel extends JPanel {
 	
 	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
 	private TeamAttributePanel teamAttributePanel;
-	private PlayerPanelController playerPanelController;
+	
 	
 	public TeamViewPanel(){
 		this.setLayout(null); //alle Elemente frei positionierbar
 		this.setBorder(new LineBorder(Color.MAGENTA));
-		this.setBounds(150,50,850,800);
+		this.setBounds(200,100,1300,800);
 		
-		initPlayerPanelController();
 		initTeamView();
 	}
+
 	
-	private void initPlayerPanelController() {
-		playerPanelController = new PlayerPanelController();
-		playerPanelController.addListener(this);
-		
-		//Hier schleife, je nachdem wieviele playe rgebraucht werden
-		playerPanelController.addPlayer();
-		playerPanelController.addPlayer();
-		playerPanelController.addPlayer();
-		playerPanelController.addPlayer();
-		playerPanelController.addPlayer();
-		playerPanelController.addPlayer();
-		
+	public void addPlayerPanel(JComponent playerPanel){
+		this.add(playerPanel);
 	}
 
 	public void initTeamView(){
 		teamAttributePanel = new TeamAttributePanel();
-		this.add(playerPanelController.getPanel());
 		this.add(teamAttributePanel);
 	}
-	
-
-	@Override
-	public void onUiEventFired(UiEvent event) {
-		System.out.println("kam an");
-		dispatch(event);
-		
-	}
-
-	@Override
-	public void addListener(UiEventListener listener) {
-		listeners.add(listener);
-		
-	}
-
-	@Override
-	public void removeListener(UiEventListener listener) {
-		listeners.remove(listener);
-		
-	}
-
-	@Override
-	public void dispatch(UiEvent event) {
-		for(UiEventListener lis: listeners){
-			System.out.println("dispatch");
-			lis.onUiEventFired(event);
-			
-		}
-		
-	}
-	
-
 }

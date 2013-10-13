@@ -1,18 +1,17 @@
 package ui;
 
 
-import db.Database;
 import ui.PlayerView.PlayerViewPanel;
 import ui.TeamView.TeamViewPanel;
+import ui.TeamView.TeamViewPanelController;
 import ui.eventHandling.UiEvent;
 import ui.eventHandling.UiEventListener;
-import ui.loginView.LoginPanel;
 import ui.loginView.LoginPanelController;
 import ui.mainView.NavigationPanel;
-import ui.mainView.TeamChoiceBox;
 import ui.mainView.TeamChoiceBoxController;
 import ui.mainView.TeamNameLabel;
 import ui.mainView.TickerPanel;
+import db.Database;
 
 /**
  * Kontrolliert welche View angezeigt wird und initalisiert sie
@@ -30,7 +29,7 @@ public class MainPanelController implements UiEventListener{
 	private TeamNameLabel teamNameLabel;
 	
 	private TickerPanel tickerPanel;
-	private TeamViewPanel teamViewPanel;
+	private TeamViewPanelController teamViewPanelController;
 	private PlayerViewPanel playerViewPanel;
 	private LoginPanelController loginPanelController;
 	
@@ -49,6 +48,7 @@ public class MainPanelController implements UiEventListener{
 		tickerPanel = new TickerPanel();
 		loginPanelController = new LoginPanelController(db);
 		messagePanel = new MessagePanel();
+		teamViewPanelController = new TeamViewPanelController(db);
 
 		//addMainView();
 		addLoginView();
@@ -80,18 +80,18 @@ public class MainPanelController implements UiEventListener{
 	}
 	
 	private void addTeamView() {
-		teamViewPanel = new TeamViewPanel();
-		teamViewPanel.addListener(this);
+		teamViewPanelController.setTeamName(teamChoiceController.getTeamname());
+		teamViewPanelController.addListener(this);
 		view.removeElement(tickerPanel);
-		view.add(teamViewPanel);
+		view.add(teamViewPanelController.getView());
 		teamNameLabel.setText(teamChoiceController.getTeamname());
+		
 		updateView();
 	}
 	
 	private void addPlayerView() {
 		playerViewPanel = new PlayerViewPanel();
-		
-		view.remove(teamViewPanel);
+		view.remove(teamViewPanelController.getView());
 		view.removeElement(teamChoiceController.getView());
 		view.removeElement(teamNameLabel);
 		view.add(playerViewPanel);

@@ -10,16 +10,16 @@ public class TeamNameLabel extends JLabel{
 
 	public TeamNameLabel() {
 		this.setSize(200, 50);	
-		this.setBounds(350, 10, 200, 30);
-		this.setBorder(new LineBorder(Color.BLACK));
-		this.setFont(new Font("Arial", Font.BOLD, 24));
+		this.setBounds(560, 50, 400, 30);
+		
+		this.setFont(new Font("Verdana", Font.BOLD, 30));
+		this.setHorizontalAlignment(JLabel.CENTER);
 		this.setVisible(true);
 		
 		initTeamname();
 	}
 	
-	public void initTeamname(){ // TODO Hier dann zb mit der Datenbankklasse reden
-		
+	public void initTeamname(){ 
 		this.setText("");
 	}
 

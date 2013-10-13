@@ -12,14 +12,14 @@ import javax.swing.JPanel;
  */
 public class DisciplinePanel extends JPanel{
 	
-	private String [] attributesNames = {"Tennis:","Mini DM", "Battlefield","Time Trial:", "Bastketball:", "Spurt:", "TDM:", "Showcase:", "Football:", "Staffel:"};
+	private String [] attributesNames = {"Tennis","Mini DM", "Battlefield","Time Trial", "Bastketball", "Spurt", "TDM", "Showcase", "Football", "Staffel"};
 	private JLabel [] attributes;
 	private JLabel [] attributesVars;
 	
 	
 	public DisciplinePanel(){
-		this.setBackground(Color.GRAY);
-		this.setPreferredSize(new Dimension(150,350));
+		this.setBackground(Color.LIGHT_GRAY);
+		this.setPreferredSize(new Dimension(150,390));
 		initDisciplinePanel();
 	}
 

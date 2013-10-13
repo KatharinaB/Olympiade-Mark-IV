@@ -1,0 +1,76 @@
+package ui.TeamView;
+
+import java.util.ArrayList;
+
+import db.Database;
+
+import ui.TeamView.elements.PlayerPanelController;
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
+
+public class TeamViewPanelController implements  UiEventDispatcher, UiEventListener{
+
+	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
+	private TeamViewPanel teamViewPanel;
+	private Database db;
+	private PlayerPanelController playerPanelController;
+	
+	
+	public TeamViewPanelController(Database db, String teamname){
+		this.db = db;
+		
+		teamViewPanel = new TeamViewPanel();
+		
+		
+		initPlayerPanelController();
+		teamViewPanel.addPlayerPanel(playerPanelController.getPanel());
+		
+		fillFromDB(teamname);
+	}
+	
+	private void fillFromDB() {
+		db.getPlayers();
+		
+	}
+
+	public TeamViewPanel getView(){
+		return teamViewPanel;
+		
+	}
+	
+	private void initPlayerPanelController() {
+		playerPanelController = new PlayerPanelController();
+		playerPanelController.addListener(this);
+		
+	}
+	
+	@Override
+	public void addListener(UiEventListener listener) {
+		listeners.add(listener);
+		
+	}
+
+	@Override
+	public void removeListener(UiEventListener listener) {
+		listeners.remove(listener);
+		
+	}
+
+	@Override
+	public void dispatch(UiEvent event) {
+		for(UiEventListener lis: listeners){
+			System.out.println("dispatch");
+			lis.onUiEventFired(event);
+			
+		}
+		
+	}
+
+	@Override
+	public void onUiEventFired(UiEvent event) {
+		dispatch(event);
+		
+	}
+
+}

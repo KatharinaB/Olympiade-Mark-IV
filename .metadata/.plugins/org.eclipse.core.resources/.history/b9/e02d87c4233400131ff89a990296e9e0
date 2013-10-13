@@ -1,0 +1,39 @@
+package ui.TeamView;
+
+import java.util.ArrayList;
+
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
+
+public class TeamViewPanelController implements  UiEventDispatcher{
+
+	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
+	
+	public TeamViewPanelController(){
+		
+	}
+	
+	public TeamViewPanel getView(){
+		
+	}
+	
+	@Override
+	public void addListener(UiEventListener listener) {
+		listeners.add(listener);
+		
+	}
+
+	@Override
+	public void removeListener(UiEventListener listener) {
+		listeners.remove(listener);
+		
+	}
+
+	@Override
+	public void dispatch(UiEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

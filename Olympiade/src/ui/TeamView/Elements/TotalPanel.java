@@ -18,7 +18,7 @@ public class TotalPanel extends JPanel{
 	public TotalPanel(){
 		this.setBackground(Color.GRAY);
 
-		this.setPreferredSize(new Dimension(150,30));
+		this.setPreferredSize(new Dimension(180,30));
 		initTotalPanel();
 	}
 

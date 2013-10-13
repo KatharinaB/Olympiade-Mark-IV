@@ -19,9 +19,9 @@ public class TeamChoiceBox extends JComboBox<String> {
 	
 	public TeamChoiceBox(String[] teamArray){
 		super(teamArray);
-		this.setSelectedIndex(teamArray.length -1);
-		this.setBackground(Color.PINK);
-		this.setBounds(1010,50,250,30);
+		this.setSelectedIndex(0);
+		this.setBackground(Color.WHITE);
+		this.setBounds(1400,100,250,30);
 		
 		setTeamname();
 		this.setVisible(true);

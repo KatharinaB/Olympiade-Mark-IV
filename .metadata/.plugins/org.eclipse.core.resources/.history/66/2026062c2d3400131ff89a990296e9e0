@@ -1,0 +1,22 @@
+package gameContent;
+
+import java.util.ArrayList;
+
+public class Player {
+	
+	private int stamina = 0;
+	private int playerpoints = 0;
+	private int games = 0;
+	private int value = 0;
+	private int salaray = 0;
+	private int contract = 0;
+	
+
+	public Player() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+
+}

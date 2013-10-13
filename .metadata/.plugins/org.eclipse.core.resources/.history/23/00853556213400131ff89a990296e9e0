@@ -1,0 +1,16 @@
+package ui.TeamView;
+
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
+
+public class TeamViewPanelController {
+
+	public TeamViewPanelController() {
+		
+	}
+	
+	public void getView(){
+		
+	}
+
+}

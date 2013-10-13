@@ -34,20 +34,19 @@ public class PlayerPanel extends JPanel{
 	 * Enthält alle Infos zu einem Spieler
 	 */
 	public PlayerPanel(){
-		this.setBackground(Color.blue);
+		this.setBorder(new LineBorder(Color.LIGHT_GRAY));
 		this.setVisible(true);
-		this.setPreferredSize(new Dimension(320,160));
+		this.setPreferredSize(new Dimension(440,170));
 	}
 	
 	
 	public void addProfilPanel(JPanel profilPanel){
 		this.add(profilPanel);
-		profilPanel.setBackground(Color.MAGENTA);
-		profilPanel.setPreferredSize(new Dimension(100,150));
+		profilPanel.setPreferredSize(new Dimension(150,160));
 	}
 
 	public void addStatsPanel(JPanel statsPanel) {
-		statsPanel.setPreferredSize(new Dimension(200,150));
+		statsPanel.setPreferredSize(new Dimension(270,150));
 		this.add(statsPanel);
 		
 	}

@@ -1,5 +1,7 @@
 package db;
 
+import gameContent.Player;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -126,4 +128,64 @@ public class Database {
 		return names;
 	}
 
+
+	public ArrayList<Player> getPlayers(String teamname) {
+		
+		String id =  "";
+		ArrayList<Player> players = new ArrayList<Player>();
+		ArrayList<Integer> playerId = new ArrayList<Integer>();
+		
+		//Hol die ID zum Teamnamen
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT ID FROM teams WHERE Lang = '"+teamname+"'");
+		
+			while (rs.next()) {
+				id = rs.getString("ID");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//Hol die ID von Spielern die im Team sind
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT ID FROM spieler WHERE team_ID ='"+id+"'");
+		
+			while (rs.next()) {
+				playerId.add(Integer.parseInt(rs.getString("ID")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//Hol für jeden Spieler die Spielerinformationen
+		for(Integer pl: playerId){
+			players.add(getPlayerOverview(pl));
+		}
+		
+		
+		return players;
+	}
+
+
+	private Player getPlayerOverview(int id) {
+		Player player = new Player();
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM spieler WHERE ID = '"+id+"'");
+		
+			while (rs.next()) { //TODO nicht stamina sondern endurance
+				player.setStamina(Integer.parseInt(rs.getString("Stamina")));
+				player.setPlayerpoints(Integer.parseInt(rs.getString("PlayerPoints")));
+				player.setName(rs.getString("Name"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return player;
+	}
 }

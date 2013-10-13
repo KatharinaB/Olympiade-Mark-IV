@@ -1,0 +1,27 @@
+package ui.TeamView;
+
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
+
+public class TeamViewPanelController implements  UiEventDispatcher{
+
+	@Override
+	public void addListener(UiEventListener listener) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeListener(UiEventListener listener) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dispatch(UiEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,46 @@
+package ui.TeamView;
+
+import java.util.ArrayList;
+
+import db.Database;
+
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
+
+public class TeamViewPanelController implements  UiEventDispatcher{
+
+	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
+	private TeamViewPanel teamViewPanel;
+	private Database db;
+	
+	public TeamViewPanelController(Database db){
+		this.db = db;
+		
+		teamViewPanel = new TeamViewPanel();
+	}
+	
+	public TeamViewPanel getView(){
+		return teamViewPanel;
+		
+	}
+	
+	@Override
+	public void addListener(UiEventListener listener) {
+		listeners.add(listener);
+		
+	}
+
+	@Override
+	public void removeListener(UiEventListener listener) {
+		listeners.remove(listener);
+		
+	}
+
+	@Override
+	public void dispatch(UiEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

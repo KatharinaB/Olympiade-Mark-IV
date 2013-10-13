@@ -1,0 +1,13 @@
+package ui.TeamView;
+
+public class TeamViewPanelController {
+
+	public TeamViewPanelController() {
+		
+	}
+	
+	public void getView(){
+		
+	}
+
+}

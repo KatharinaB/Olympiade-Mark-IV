@@ -1,13 +1,18 @@
 package ui.TeamView.elements;
 
+import gameContent.Player;
+
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.LineBorder;
 
 import ui.eventHandling.UiEvent;
@@ -22,26 +27,31 @@ import ui.eventHandling.UiEventListener;
  */
 public class PlayerPanelController implements UiEventDispatcher{
 	
-	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
+	
 	private JPanel allPlayers = new JPanel();
+	private Player player;
+	private JLabel playerImage; 
+	private JLabel playerName;
+	private JPanel profilPanel;
 	
 	public PlayerPanelController(){
-		allPlayers.setBounds(150,0,700,800);
-		allPlayers.setBorder(new LineBorder(Color.BLUE));
-		allPlayers.setBackground(Color.ORANGE);
+		allPlayers.setBounds(150,0,900,800);
 	}
 	
 	/**
 	 * Initialisiert die verschiebenen Panel und Label für die Spieleransicht
 	 * und addet diese auf ein gesamt Panel
+	 * @param player 
 	 */
-	public void addPlayer(){
+	public void addPlayer(Player player){
+		this.player = player;
+		
 		PlayerPanel view = new PlayerPanel();
 		
 		JPanel statsPanel = initStatsPanel();	//Enthält die Attribute und Werte
-		JLabel playerName = initPlayerNameLabel();
-		JLabel playerImage = initPlayerImage();
-		JPanel profilPanel = initProfilPanel(playerImage, playerName); //Enthält Profilname und Foto
+		initPlayerNameLabel();
+		initPlayerImage();
+		initProfilPanel(playerImage, playerName); //Enthält Profilname und Foto
 
 		view.addProfilPanel(profilPanel);
 		view.addStatsPanel(statsPanel);
@@ -56,31 +66,45 @@ public class PlayerPanelController implements UiEventDispatcher{
 	 * @param playerName Spielername
 	 * @return profilPanel
 	 */
-	public JPanel initProfilPanel(JLabel playerImage, JLabel playerName) {
-		JPanel profilPanel = new JPanel();
+	public void initProfilPanel(JLabel playerImage, JLabel playerName) {
+		profilPanel = new JPanel();
 		playerName.setPreferredSize(new Dimension(100,20));
 		profilPanel.add(playerName);
 		profilPanel.add(playerImage);
-		return profilPanel;
+		
 	}
 
 	/**
 	 * Setzt das Spielerbild
 	 * @return
 	 */
-	public JLabel initPlayerImage() {
-		//Image aus DB
-		return new JLabel("dummyImage");
+	public void initPlayerImage() {
+		String stripName = player.getName().replace(".", "").replaceAll(" ", "");
+		ImageIcon icon = createImageIcon("../../../res/img/"+stripName+".jpg","");
+		icon.setImage(icon.getImage().getScaledInstance(125, 125, Image.SCALE_DEFAULT));
+		playerImage = new JLabel(icon);
+		
 	}
+	
+	/** Returns an ImageIcon, or null if the path was invalid. */
+    protected static ImageIcon createImageIcon(String path, String description) {
+        java.net.URL imgURL = PlayerPanelController.class.getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL, description);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
+    }
 
 	/**
 	 * Initialisiert den Spielernamen und addet einen MouseListener der auf Klicken achtet
 	 * @return
 	 */
-	public JLabel initPlayerNameLabel() {
-		//String name = //aus DB
-		JLabel label = new JLabel("dummyspieler");// new JLabel(name);
-		label.addMouseListener(new MouseListener() {
+	public void initPlayerNameLabel() {
+		playerName = new JLabel(player.getName());
+		playerName.setHorizontalAlignment(JLabel.CENTER);
+		playerName.addMouseListener(new MouseListener() {
 			
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -111,7 +135,6 @@ public class PlayerPanelController implements UiEventDispatcher{
 				dispatch(new UiEvent("activatePlayerView"));
 			}
 		});
-		return label;
 	}
 	
 	/**
@@ -121,15 +144,18 @@ public class PlayerPanelController implements UiEventDispatcher{
 		JPanel statsPanel = new JPanel();
 		JLabel [] attributes = new JLabel[6];//Attribut Namen
 		JLabel [] attributesVars = new JLabel[6];;//Platzhalter für die Werte der Attribute
-		String []  attributeNames= {"games", "pps", "stamina", "value", "salary", "contract"};
+		String [] values = player.getStatArray();
+		String [] attributeNames= {"Games", "Pps", "Endurance", "Value", "Salary", "Contract"};
 		
 		
 		for(int i = 0; i < attributeNames.length; i++){
 			attributes[i] = new JLabel(attributeNames[i]); 
-			attributesVars[i] = new JLabel("dummy"); //TODO aus der DB
+			attributesVars[i] = new JLabel(values[i]); //TODO aus der DB
+			attributes[i].setHorizontalAlignment(JLabel.CENTER);
 			
-			attributes[i].setPreferredSize(new Dimension(50,30));
-			attributesVars[i].setPreferredSize(new Dimension(50,30));
+			attributes[i].setPreferredSize(new Dimension(80,25));
+			attributesVars[i].setPreferredSize(new Dimension(80,35));
+			attributesVars[i].setHorizontalAlignment(JLabel.CENTER);
 		}
 		
 		
@@ -147,9 +173,7 @@ public class PlayerPanelController implements UiEventDispatcher{
 						break;
 					}
 				}
-				
 			}
-			
 		}
 		for(; j < attributeNames.length; j++){
 			statsPanel.add(attributesVars[j]);
@@ -162,33 +186,28 @@ public class PlayerPanelController implements UiEventDispatcher{
 	}
 	
 	//Fügt alle Interessanten an Events zu einer Liste hinzu
-		@Override
-		public void addListener(UiEventListener listener){
-			listeners.add(listener);
-		}
+	@Override
+	public void addListener(UiEventListener listener){
+		listeners.add(listener);
+	}
 
-		
-		//Informmiert alle Interessenten
-		@Override
-		public void dispatch(UiEvent event) {
-			for(UiEventListener lis: listeners){
-				lis.onUiEventFired(event);
-				
-			}
-			
-		}
-
-		//Löscht aus der Interessentenliste
-		@Override
-		public void removeListener(UiEventListener listener) {
-			listeners.remove(listener);
-			
+	
+	//Informmiert alle Interessenten
+	@Override
+	public void dispatch(UiEvent event) {
+		for(UiEventListener lis: listeners){
+			lis.onUiEventFired(event);
 			
 		}
 		
-		private JLabel initPlayerImage(JLabel playerImage) {
-			playerImage.setPreferredSize(new Dimension(100,100));
-			return playerImage;
-		}
+	}
+
+	//Löscht aus der Interessentenliste
+	@Override
+	public void removeListener(UiEventListener listener) {
+		listeners.remove(listener);
+		
+		
+	}
 
 }

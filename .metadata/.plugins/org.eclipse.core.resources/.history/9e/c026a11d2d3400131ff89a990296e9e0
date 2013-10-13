@@ -1,0 +1,29 @@
+package gameContent;
+
+import java.util.ArrayList;
+
+public class Player {
+	
+	private int stamina = 0;
+	private int playerpoints = 0;
+	private int games = 0;
+	private int value;
+	private int salaray;
+	private int contract;
+	
+
+	public Player() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void setStamina(String string) {
+		
+		
+	}
+
+	public void setPlayerPoints(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
