@@ -19,7 +19,7 @@ public class DisciplinePanel extends JPanel{
 	
 	public DisciplinePanel(){
 		this.setBackground(Color.LIGHT_GRAY);
-		this.setPreferredSize(new Dimension(150,390));
+		this.setPreferredSize(new Dimension(200,390));
 		initDisciplinePanel();
 	}
 
@@ -30,8 +30,12 @@ public class DisciplinePanel extends JPanel{
 		
 		for(int i = 0; i < attributes.length; i++){
 			attributes[i] = new JLabel(attributesNames[i]);
+			attributes[i].setPreferredSize(new Dimension(93,30));
+			
 			attributesVars[i] = new JLabel("dummy"); //TODO aus DB
-			attributes[i].setPreferredSize(new Dimension(80,30));
+			attributesVars[i].setPreferredSize(new Dimension(93,30));
+			attributesVars[i].setHorizontalAlignment(JLabel.RIGHT);
+			
 			this.add(attributes[i]);
 			this.add(attributesVars[i]);
 			

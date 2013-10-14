@@ -12,6 +12,8 @@ import ui.eventHandling.UiEventListener;
 
 public class TeamChoiceBoxController implements UiEventDispatcher{
 
+	ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
+	
 	private TeamChoiceBox teamChoice;
 	String [] teamArray;
 	private Database db;
@@ -39,7 +41,7 @@ public class TeamChoiceBoxController implements UiEventDispatcher{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				teamChoice.setTeamname();
+				//teamChoice.setTeamname();
 				dispatch(new UiEvent("activateTeamView"));
 			}
 		});

@@ -1,0 +1,40 @@
+package ui.TeamView.elements;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+
+
+/**
+ * Hält alles zusammen was für die Teamansicht gebraucht wird
+ * @author Katy
+ *
+ */
+public class TeamAttributePanel extends JPanel{
+	
+	private TeamInformationPanel teamPanel;
+	private DisciplinePanel disciplinePanel;
+	private TotalPanel totalPanel;
+	
+	
+	public TeamAttributePanel(){
+		
+		initTeamAttributePanel();
+
+		//this.setBorder(new LineBorder(Color.CYAN));
+		this.setBounds(0, 0, 180, 800);	
+	}
+	
+	private void initTeamAttributePanel() {
+		teamPanel = new TeamInformationPanel();
+		disciplinePanel = new DisciplinePanel();
+		totalPanel = new TotalPanel();
+		
+		this.add(teamPanel);//Hält die allgemeinen Infos
+		this.add(disciplinePanel);//Hält Infos zu den Disziplinen
+		this.add(totalPanel);//Für den Gesamtwert
+	}
+}

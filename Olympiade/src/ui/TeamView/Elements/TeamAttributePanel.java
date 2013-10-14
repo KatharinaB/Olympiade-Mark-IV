@@ -23,9 +23,7 @@ public class TeamAttributePanel extends JPanel{
 	public TeamAttributePanel(){
 		
 		initTeamAttributePanel();
-
-		this.setBackground(Color.LIGHT_GRAY);
-		this.setBounds(0, 0, 150, 900);	
+		this.setBounds(0, 0, 200, 800);	
 	}
 	
 	private void initTeamAttributePanel() {

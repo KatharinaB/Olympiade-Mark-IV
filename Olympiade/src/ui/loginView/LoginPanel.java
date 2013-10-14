@@ -34,7 +34,7 @@ public class LoginPanel extends JPanel{
 	public LoginPanel() {
 		
 		this.setLayout(null);
-		this.setBounds(500,400,150,130);
+		this.setBounds(730,400,150,130);
 	
 		
 		initFields();

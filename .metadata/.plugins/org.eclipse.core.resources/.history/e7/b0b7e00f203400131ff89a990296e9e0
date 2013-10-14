@@ -1,9 +1,0 @@
-package ui.TeamView;
-
-public class TeamViewPanelController {
-
-	public TeamViewPanelController() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

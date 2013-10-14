@@ -17,59 +17,37 @@ import ui.eventHandling.UiEventListener;
  * @author Katy
  *
  */
-public class NavigationPanel extends JPanel implements UiEventDispatcher{
+public class NavigationPanel extends JPanel {
 	
 	private JButton [] buttons;
 	private String [] buttonNames = {"Overview", "Next Round", "Team", "Trainings-Camp", "Standings", "Top Players", "News", "Transfer", "Rumors", "Prize Money"}; 
 	
 	public NavigationPanel(){
+		buttons = new JButton[buttonNames.length];
+		
 		this.setVisible(true);
 		this.setBounds(0,100,150,800);
-		
 		
 		createNavigation();
 	}
 	
-	//TODO ActionListener für Buttons + Funktionen
-		/**
-		 * Initialisiert die Navigationsleiste 
-		 */
+	/**
+	 * Initialisiert die Navigationsleiste 
+	 */
 	public void createNavigation(){
 
 		for(int i = 0; i < buttonNames.length; i++){
-			buttons[i] = new JButton(buttonNames[i]);
-			
+			buttons[i] = new JButton(buttonNames[i]);	
 			buttons[i].setPreferredSize(new Dimension(140,30));
 			this.add(buttons[i]);
 		}
-		
-		buttons[0].addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				dispatch(new UiEvent("activateMainView"));
-				
-			}
-		});
 	}
 	
-
-	@Override
-	public void addListener(UiEventListener listener) {
-		// TODO Auto-generated method stub
-		
+	public JButton getOverviewButton(){
+		return buttons[0];
 	}
-
-	@Override
-	public void removeListener(UiEventListener listener) {
-		// TODO Auto-generated method stub
-		
+	
+	public JButton getTeamButton(){
+		return buttons[2];
 	}
-
-	@Override
-	public void dispatch(UiEvent event) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

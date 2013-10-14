@@ -1,0 +1,7 @@
+package ui.mainView;
+
+import ui.eventHandling.UiEventDispatcher;
+
+public class NavigationPanelColntroller implements UiEventDispatcher{
+
+}

@@ -15,7 +15,7 @@ import ui.eventHandling.UiEventListener;
 public class TeamChoiceBox extends JComboBox<String> {
 	
 	private ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
-	private String selectedItem;
+
 	
 	public TeamChoiceBox(String[] teamArray){
 		super(teamArray);
@@ -23,16 +23,12 @@ public class TeamChoiceBox extends JComboBox<String> {
 		this.setBackground(Color.WHITE);
 		this.setBounds(1400,100,250,30);
 		
-		setTeamname();
 		this.setVisible(true);
 	}
 	
-	public void setTeamname() {
-		selectedItem =  (String) this.getSelectedItem();		
-	}
 	
 	public String getTeamname(){
-		return selectedItem;
+		return (String) this.getSelectedItem();
 	}
 	
 

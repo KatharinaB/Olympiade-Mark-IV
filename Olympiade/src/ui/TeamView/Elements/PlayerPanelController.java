@@ -35,7 +35,7 @@ public class PlayerPanelController implements UiEventDispatcher{
 	private JPanel profilPanel;
 	
 	public PlayerPanelController(){
-		allPlayers.setBounds(150,0,900,800);
+		allPlayers.setBounds(250,0,900,800);
 	}
 	
 	/**

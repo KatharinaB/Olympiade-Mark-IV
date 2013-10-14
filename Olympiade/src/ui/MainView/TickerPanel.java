@@ -22,14 +22,13 @@ public class TickerPanel extends JPanel{
 		this.add(newsticker);
 		this.add(transferticker);
 		
-		this.setBounds(1010, 100, 250, 800);
+		this.setBounds(1400, 240, 250, 800);
 		
 	}
 	
 	private void initTransferticker() {
 		transferticker = new JTextArea("Transferticker (Anzeige der letzten Transfer)");
 		transferticker.setPreferredSize(new Dimension(250, 100));
-		
 		
 	}
 	

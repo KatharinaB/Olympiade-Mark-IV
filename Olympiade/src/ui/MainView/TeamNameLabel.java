@@ -10,7 +10,7 @@ public class TeamNameLabel extends JLabel{
 
 	public TeamNameLabel() {
 		this.setSize(200, 50);	
-		this.setBounds(560, 50, 400, 30);
+		this.setBounds(700, 50, 400, 30);
 		
 		this.setFont(new Font("Verdana", Font.BOLD, 30));
 		this.setHorizontalAlignment(JLabel.CENTER);

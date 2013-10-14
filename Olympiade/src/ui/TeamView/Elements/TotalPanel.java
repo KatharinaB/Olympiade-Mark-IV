@@ -18,14 +18,17 @@ public class TotalPanel extends JPanel{
 	public TotalPanel(){
 		this.setBackground(Color.GRAY);
 
-		this.setPreferredSize(new Dimension(180,30));
+		this.setPreferredSize(new Dimension(200,30));
 		initTotalPanel();
 	}
 
 	public void initTotalPanel(){
 		totalLabel = new JLabel("Total:");
 		totalVarLabel = new JLabel("dummy"); //TODO aus DB
-		totalLabel.setPreferredSize(new Dimension(80,20));
+		totalVarLabel.setPreferredSize(new Dimension(93,20));
+		totalVarLabel.setHorizontalAlignment(JLabel.RIGHT);
+		
+		totalLabel.setPreferredSize(new Dimension(93,20));
 		this.add(totalLabel);
 		this.add(totalVarLabel);
 	}
