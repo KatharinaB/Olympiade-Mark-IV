@@ -11,3 +11,6 @@
 1381744090160	Rename resource 'Voodoo Jester.jpg'
 1381744126914	Rename resource 'Velvet Assassin.jpg'
 1381744163288	Rename resource 'Azure Knight.jpg'
+1381776896681	Rename field 'skillPointLabel'
+1381777747473	Rename field 'skillPointButton'
+1381839866961	Rename type 'showPlayerEvent'

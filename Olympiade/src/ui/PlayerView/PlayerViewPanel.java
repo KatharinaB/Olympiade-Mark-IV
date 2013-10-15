@@ -1,11 +1,15 @@
 package ui.PlayerView;
 
+import gameContent.Player;
+
 import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
+
+import db.Database;
 
 import ui.PlayerView.elements.IconStatPanelController;
 import ui.PlayerView.elements.PlayerClassPanel;
@@ -39,19 +43,21 @@ public class PlayerViewPanel extends JPanel{
 	private PlayerClassPanel playerClassPanel;
 	private JLabel injuredLabel;
 	private StaminaPanel staminaPanel;
+	private Database db;
 	
-	public PlayerViewPanel(){
+	public PlayerViewPanel(Database db, Player player){
 		this.setLayout(null);
 		this.setBorder(new LineBorder(Color.YELLOW));
-		this.setBounds(160,50,1100,800);
+		this.setBounds(160,100,1480,800);
 		
+		this.db = db;
 		initElements();
 		
 	}
 
 	private void initElements() {
 		teamHistoryPanel = new TeamHistoryPanel();
-		iconStatPanelController = new IconStatPanelController();
+		iconStatPanelController = new IconStatPanelController(db);
 		playerStory = new PlayerStoryTextArea();
 		playerImageLabel = new PlayerImageLabel();
 		nameLabel = new JLabel("playername");

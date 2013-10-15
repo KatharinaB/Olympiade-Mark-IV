@@ -29,9 +29,9 @@ public class StaminaPanel extends JPanel{
 	}
 
 	private void initLabels() {
-		staminaNameLabel = new JLabel("Stamina");
+		staminaNameLabel = new JLabel("Endurance");
 		staminaVarLabel = new JLabel("42"); //TODO DB
-		staminaMaxLabel = new JLabel("/20");
+		staminaMaxLabel = new JLabel("/30");
 	}
 
 }

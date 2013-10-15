@@ -188,4 +188,10 @@ public class Database {
 		}
 		return player;
 	}
+
+
+	public ArrayList<Integer> getPlayerStats() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

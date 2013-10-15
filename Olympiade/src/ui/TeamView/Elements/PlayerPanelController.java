@@ -1,6 +1,7 @@
 package ui.TeamView.elements;
 
 import gameContent.Player;
+import helper.IconCreator;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -15,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.LineBorder;
 
+import ui.eventHandling.ShowPlayerEvent;
 import ui.eventHandling.UiEvent;
 import ui.eventHandling.UiEventDispatcher;
 import ui.eventHandling.UiEventListener;
@@ -80,22 +82,12 @@ public class PlayerPanelController implements UiEventDispatcher{
 	 */
 	public void initPlayerImage() {
 		String stripName = player.getName().replace(".", "").replaceAll(" ", "");
-		ImageIcon icon = createImageIcon("../../../res/img/"+stripName+".jpg","");
+		ImageIcon icon = IconCreator.createImageIcon("../../../res/img/"+stripName+".jpg","");
 		icon.setImage(icon.getImage().getScaledInstance(125, 125, Image.SCALE_DEFAULT));
 		playerImage = new JLabel(icon);
 		
 	}
 	
-	/** Returns an ImageIcon, or null if the path was invalid. */
-    protected static ImageIcon createImageIcon(String path, String description) {
-        java.net.URL imgURL = PlayerPanelController.class.getResource(path);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL, description);
-        } else {
-            System.err.println("Couldn't find file: " + path);
-            return null;
-        }
-    }
 
 	/**
 	 * Initialisiert den Spielernamen und addet einen MouseListener der auf Klicken achtet
@@ -132,7 +124,7 @@ public class PlayerPanelController implements UiEventDispatcher{
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				dispatch(new UiEvent("activatePlayerView"));
+				dispatch(new ShowPlayerEvent("activatePlayerView", player));
 			}
 		});
 	}

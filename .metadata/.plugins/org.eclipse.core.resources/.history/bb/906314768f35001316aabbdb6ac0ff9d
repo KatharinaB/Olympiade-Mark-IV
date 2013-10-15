@@ -1,0 +1,81 @@
+package ui.PlayerView.elements;
+
+import helper.IconCreator;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+/**
+ * Hält Die Stats mit Ihren Bildchen und Werten
+ * @author Katy
+ *
+ */
+public class IconStatPanel extends JPanel{
+	
+	private JLabel [] labels = new JLabel [12];
+	private int i = 0;
+	
+	public IconStatPanel(){
+		this.setBounds(0,350,295,350);
+		this.setBorder(new LineBorder(Color.ORANGE));
+	}
+
+	
+	public void addElement(JComponent comp){
+		labels[i] = new JLabel();
+		
+		ImageIcon icon = IconCreator.createImageIcon("../../../res/icons/lvlup.png","");
+		labels[i].setIcon(icon);
+		icon.setImage(icon.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT));
+		//skillPointLabel.setVisible(false);
+		labels[i].setPreferredSize(new Dimension(25, 25));
+		labels[i].setBorder(new LineBorder(Color.BLUE));
+		labels[i].addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				labels[i].setVisible(false);
+				
+			}
+		});
+		
+		
+		this.add(comp);
+		this.add(labels[i]);
+		i+=1;
+	}
+
+}

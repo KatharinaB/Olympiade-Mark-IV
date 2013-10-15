@@ -1,8 +1,16 @@
 package ui.PlayerView.elements;
 
-import java.awt.Color;
+import helper.IconCreator;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
@@ -13,14 +21,17 @@ import javax.swing.border.LineBorder;
  */
 public class IconStatPanel extends JPanel{
 	
+	private JLabel [] labels = new JLabel [12];
+	private int i = 0;
+	
 	public IconStatPanel(){
-		this.setBounds(0,350,400,160);
-		this.setBorder(new LineBorder(Color.MAGENTA));
+		this.setBounds(0,330,295,350);
 	}
 
 	
-	public void addElement(JComponent comp){
+	public void addElement(JComponent comp){	
 		this.add(comp);
+	
 	}
 
 }

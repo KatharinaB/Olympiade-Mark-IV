@@ -4,40 +4,41 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 
+import db.Database;
+
 public class IconStatPanelController {
 
 	//Ka ob IconImage für uns taugt
-	//private ArrayList <ImageIcon> iconlist = new ArrayList<IconImage>();
-	//private ArrayList <Integer> statList = new ArrayList<Integer>();
+	private String [] iconList = {"Strength-Icon.png", "Health.png", "Stamina.png", "Intelligence.png", "Awareness.png", "Determination.png", "Speed.png", "Dexterity.png", "Charisma.png", "Will.png", "Teamspirit.png", "Torment.png"};
+	private ArrayList <Integer> statList = new ArrayList<Integer>();
 	private IconStatPanel iconStatPanel;
+	private Database db;
 	
-	public IconStatPanelController() {
+	public IconStatPanelController(Database db) {
+		this.db = db;
+		
 		iconStatPanel = new IconStatPanel();
 		
-		//getIconsFromDB();
-		//getStatsFromDB();
+		getStatsFromDB();
 		initIconStatElement();
 	}
 
 	//Addet 12 Icons + wert+ skillupPoint
 	private void initIconStatElement() {
-		for(int i = 0; i < 12; i++){
+		for(int i = 0; i < iconList.length; i++){
 			IconStatElement ele = new IconStatElement();
-			//ele.setIconLabel(iconList[i]); //TODO so oder so ähnlich mit DB Infos füttern
-			//ele.setstatLabels(valueList[i]);
-			//ele.setSkillPointButton();
+			
+			
+			ele.setIconLabel(iconList[i]); 
+			//ele.setstatLabels(statList.get(i));
+			
 			iconStatPanel.addElement(ele);
 			
 		}
 	}
-
-	private void getIconsFromDB() {
-		//Spricht mit der Db Klasse
-		
-	}
 	
 	private void getStatsFromDB() {
-		//Spricht mit der Db Klasse
+		statList = db.getPlayerStats();
 		
 	}
 	

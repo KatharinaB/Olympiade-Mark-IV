@@ -1,9 +1,11 @@
 package ui;
 
 
+import gameContent.Player;
 import ui.PlayerView.PlayerViewPanel;
 import ui.TeamView.TeamViewPanel;
 import ui.TeamView.TeamViewPanelController;
+import ui.eventHandling.ShowPlayerEvent;
 import ui.eventHandling.UiEvent;
 import ui.eventHandling.UiEventListener;
 import ui.loginView.LoginPanelController;
@@ -50,15 +52,16 @@ public class MainPanelController implements UiEventListener{
 		loginPanelController = new LoginPanelController(db);
 		messagePanel = new MessagePanel();
 		teamViewPanelController = new TeamViewPanelController(db);
+		
 
-		//addMainView();
+		addPlayerView(new Player());
 		addLoginView();
 		
 		//Der Controller hört auf die Teamauswahl und die Playerpanel zum switchen der View
 		teamChoiceController.addListener(this);
 		loginPanelController.addListener(this);
-		loginPanelController.addListener(messagePanel);
 		naviController.addListener(this);
+		loginPanelController.addListener(messagePanel);
 		
 		view.addElement(messagePanel);
 	}
@@ -71,8 +74,12 @@ public class MainPanelController implements UiEventListener{
 
 
 	private void addMainView() {
-		view.removeElement(loginPanelController.getView());
-		view.removeElement(teamViewPanelController.getView());
+		if(loginPanelController.getView() != null){
+			view.removeElement(loginPanelController.getView());
+		}
+		if(teamViewPanelController.getView() != null){
+			view.removeElement(teamViewPanelController.getView());
+		}
 		view.addElement(naviController.getView());
 		view.addElement(teamChoiceController.getView());
 		view.addElement(teamNameLabel);
@@ -83,20 +90,28 @@ public class MainPanelController implements UiEventListener{
 	private void addTeamView() {
 		teamViewPanelController.setTeamName(teamChoiceController.getTeamname());
 		teamViewPanelController.addListener(this);
-		view.removeElement(tickerPanel);
+		if(tickerPanel != null){
+			view.removeElement(tickerPanel);
+		}
+		
 		view.add(teamViewPanelController.getView());
 		teamNameLabel.setText(teamChoiceController.getTeamname());
 		
 		updateView();
 	}
 	
-	private void addPlayerView() {
-		playerViewPanel = new PlayerViewPanel();
-		view.remove(teamViewPanelController.getView());
-		view.removeElement(teamChoiceController.getView());
-		view.removeElement(teamNameLabel);
+	private void addPlayerView(Player player) {
+		playerViewPanel = new PlayerViewPanel(db, player);
+		if(teamViewPanelController.getView() != null){
+			view.remove(teamViewPanelController.getView());
+		}
+		if(teamChoiceController.getView() != null){
+			view.removeElement(teamChoiceController.getView());
+		}
+		if(teamNameLabel != null){
+			view.removeElement(teamNameLabel);
+		}
 		view.add(playerViewPanel);
-		
 		updateView();
 	}
 
@@ -104,13 +119,13 @@ public class MainPanelController implements UiEventListener{
 		return view;
 	}
 
-	//TODO nochmal anders lösen, nicht mit diesen Strings
+	//TODO nochmal anders lösen, nicht mit diesen Strings, mit events
 	@Override
 	public void onUiEventFired(UiEvent event) {
 		if(event.getMessage() == "activateTeamView"){
 			addTeamView();
 		}else if(event.getMessage() == "activatePlayerView"){
-			addPlayerView();
+			addPlayerView(((ShowPlayerEvent)event).getPlayer());
 		}else if(event.getMessage() == "activateMainView"){
 			teamChoiceController.initTeams(loginPanelController.getUser());
 			teamNameLabel.setText(teamChoiceController.getTeamname());

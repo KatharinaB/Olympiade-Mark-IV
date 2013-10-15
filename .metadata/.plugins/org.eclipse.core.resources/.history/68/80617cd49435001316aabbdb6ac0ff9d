@@ -1,0 +1,12 @@
+package ui.eventHandling;
+
+public class ShowPlayerEvent extends UiEvent{
+
+	private Player player;
+	
+	public ShowPlayerEvent(String msg, Player player) {
+		super(msg);
+		this.player = player;
+	}
+
+}

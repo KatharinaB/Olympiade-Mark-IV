@@ -9,7 +9,7 @@ import javax.swing.border.LineBorder;
 public class PlayerStoryTextArea extends JTextArea{
 
 	public PlayerStoryTextArea() {
-		this.setBounds(700,0,400,350);
+		this.setBounds(1080,0,400,350);
 		this.setBorder(new LineBorder(Color.CYAN));
 		this.setText("blablabla BLA bla bLAbLA");
 	}
