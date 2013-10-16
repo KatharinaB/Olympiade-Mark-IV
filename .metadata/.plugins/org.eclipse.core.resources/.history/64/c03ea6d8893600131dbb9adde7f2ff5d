@@ -1,0 +1,21 @@
+package ui.PlayerView;
+
+import java.awt.Component;
+
+import gameContent.Player;
+import db.Database;
+
+public class PlayerViewPanelController {
+	
+	private PlayerViewPanel playerViewPanel;
+	
+	public PlayerViewPanelController(Database db, Player player){
+		playerViewPanel = new PlayerViewPanel(db, player);
+	}
+
+	public Component getView() {
+		// TODO Auto-generated method stub
+		return playerViewPanel;
+	}
+
+}

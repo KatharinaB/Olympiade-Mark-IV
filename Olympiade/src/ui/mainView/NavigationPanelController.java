@@ -27,7 +27,6 @@ public class NavigationPanelController implements UiEventDispatcher{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("dispatch");
 				dispatch(new UiEvent("activateMainView"));
 				
 			}
@@ -37,7 +36,6 @@ public class NavigationPanelController implements UiEventDispatcher{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("dispatch");
 				dispatch(new UiEvent("activateTeamView"));
 				
 			}

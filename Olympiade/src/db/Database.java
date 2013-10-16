@@ -151,7 +151,7 @@ public class Database {
 		//Hol die ID von Spielern die im Team sind
 		try {
 			stmt = conn.createStatement();
-			rs = stmt.executeQuery("SELECT ID FROM spieler WHERE team_ID ='"+id+"'");
+			rs = stmt.executeQuery("SELECT ID FROM player WHERE team_ID ='"+id+"'");
 		
 			while (rs.next()) {
 				playerId.add(Integer.parseInt(rs.getString("ID")));
@@ -175,7 +175,7 @@ public class Database {
 		
 		try {
 			stmt = conn.createStatement();
-			rs = stmt.executeQuery("SELECT * FROM spieler WHERE ID = '"+id+"'");
+			rs = stmt.executeQuery("SELECT * FROM player WHERE ID = '"+id+"'");
 		
 			while (rs.next()) { //TODO nicht stamina sondern endurance
 				player.setStamina(Integer.parseInt(rs.getString("Stamina")));

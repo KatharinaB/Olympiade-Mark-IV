@@ -9,17 +9,14 @@ import db.Database;
 public class IconStatPanelController {
 
 	//Ka ob IconImage für uns taugt
-	private String [] iconList = {"Strength-Icon.png", "Health.png", "Stamina.png", "Intelligence.png", "Awareness.png", "Determination.png", "Speed.png", "Dexterity.png", "Charisma.png", "Will.png", "Teamspirit.png", "Torment.png"};
+	private String [] iconList = {"Strength-Icon.png", "Speed.png", "Health.png", "Dexterity.png", "Stamina.png", "Charisma.png","Intelligence.png","Will.png", "Awareness.png","Teamspirit.png", "Determination.png", "Torment.png"};
 	private ArrayList <Integer> statList = new ArrayList<Integer>();
 	private IconStatPanel iconStatPanel;
-	private Database db;
 	
-	public IconStatPanelController(Database db) {
-		this.db = db;
+	public IconStatPanelController() {
 		
 		iconStatPanel = new IconStatPanel();
 		
-		getStatsFromDB();
 		initIconStatElement();
 	}
 
@@ -37,8 +34,8 @@ public class IconStatPanelController {
 		}
 	}
 	
-	private void getStatsFromDB() {
-		statList = db.getPlayerStats();
+	public void setStatsFromDB(ArrayList<Integer> list) {
+		statList = list;
 		
 	}
 	

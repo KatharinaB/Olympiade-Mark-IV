@@ -15,8 +15,9 @@ public class TeamChoiceBoxController implements UiEventDispatcher{
 	ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
 	
 	private TeamChoiceBox teamChoice;
-	String [] teamArray;
+	private String [] teamArray;
 	private Database db;
+	private boolean isInitialized = false;
 	
 	public TeamChoiceBoxController(Database db){
 		this.db = db;
@@ -25,18 +26,19 @@ public class TeamChoiceBoxController implements UiEventDispatcher{
 	}
 	
 	public void initTeams(String user) {
+		this.isInitialized = true;
 		
 		ArrayList <String> teamNames = db.getTeamNames(user);
 		
-		
-		
-		teamArray = new String[teamNames.size()];
-		teamArray[0] = "Teamless";
-		for(int i = 1; i < teamArray.length; i++){
+		teamArray = new String[teamNames.size()+1];
+		teamArray[teamNames.size()] = "Teamless";
+		for(int i = 0; i < teamArray.length-1; i++){
 			teamArray[i] = teamNames.get(i);
 		}
 		
 		teamChoice = new TeamChoiceBox(teamArray);
+		teamChoice.setSelectedIndex(teamChoice.getItemCount()-1);
+		
 		teamChoice.addActionListener(new ActionListener() {
 
 			@Override
@@ -74,6 +76,10 @@ public class TeamChoiceBoxController implements UiEventDispatcher{
 	
 	public String getTeamname(){
 		return teamChoice.getTeamname();
+	}
+
+	public boolean getIsInitialized() {
+		return isInitialized;
 	}
 	
 }

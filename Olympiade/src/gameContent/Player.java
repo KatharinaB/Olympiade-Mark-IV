@@ -2,6 +2,8 @@ package gameContent;
 
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 public class Player {
 	
 	private int stamina = 0;
@@ -11,6 +13,7 @@ public class Player {
 	private int salary = 0;
 	private int contract = 0;
 	private String name = "";
+	private ImageIcon icon;
 
 	public Player() {
 		// TODO Auto-generated constructor stub
@@ -90,6 +93,14 @@ public class Player {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public ImageIcon getIcon() {
+		return icon;
+	}
+
+	public void setIcon(ImageIcon icon) {
+		this.icon = icon;
 	}
 
 	

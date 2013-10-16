@@ -1,8 +1,12 @@
 package ui.PlayerView.elements;
 
+import helper.IconCreator;
+
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
@@ -45,6 +49,9 @@ public class PlayerTrophiesPanel extends JPanel{
 	//TODO aus DB
 	private void initlabelTexts() {
 		trophyLabelText = new String [14];
+		
+	//	ImageIcon icon = IconCreator.createImageIcon("../../../res/icons/GoldTrophy.png","");
+	//	icon.setImage(icon.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT));
 		
 		trophyLabelText[0] = "Games Played";
 		trophyLabelText[1] = "var"; 

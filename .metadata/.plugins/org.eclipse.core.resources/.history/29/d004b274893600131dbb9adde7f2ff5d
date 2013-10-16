@@ -1,0 +1,11 @@
+package ui.PlayerView;
+
+public class PlayerViewPanelController {
+	
+	private PlayerViewPanel playerViewPanel;
+	
+	public PlayerViewPanelController(){
+		playerViewPanel = new PlayerViewPanelController();
+	}
+
+}

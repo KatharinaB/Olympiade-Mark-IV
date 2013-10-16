@@ -1,0 +1,99 @@
+package gameContent;
+
+import java.util.ArrayList;
+
+public class Player {
+	
+	private int stamina = 0;
+	private int playerpoints = 0;
+	private int games = 0;
+	private int value = 0;
+	private int salary = 0;
+	private int contract = 0;
+	private String name = "";
+	private ImageIcon icon;
+
+	public Player() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public String [] getStatArray(){ 
+		// + "" castet zu String
+		String [] stats = { games+ "", playerpoints+ "", stamina+ "", value+"", salary+"" , contract+""};
+		return stats;
+	}
+
+
+	public int getStamina() {
+		return stamina;
+	}
+
+
+	public void setStamina(int stamina) {
+		this.stamina = stamina;
+	}
+
+
+	public int getPlayerpoints() {
+		return playerpoints;
+	}
+
+
+	public void setPlayerpoints(int playerpoints) {
+		this.playerpoints = playerpoints;
+	}
+
+
+	public int getGames() {
+		return games;
+	}
+
+
+	public void setGames(int games) {
+		this.games = games;
+	}
+
+
+	public int getValue() {
+		return value;
+	}
+
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+
+
+	public int getSalary() {
+		return salary;
+	}
+
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+
+	public int getContract() {
+		return contract;
+	}
+
+
+	public void setContract(int contract) {
+		this.contract = contract;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	
+	
+
+}

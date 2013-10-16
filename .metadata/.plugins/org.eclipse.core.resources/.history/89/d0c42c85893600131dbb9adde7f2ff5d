@@ -1,0 +1,14 @@
+package ui.PlayerView;
+
+import gameContent.Player;
+import db.Database;
+
+public class PlayerViewPanelController {
+	
+	private PlayerViewPanel playerViewPanel;
+	
+	public PlayerViewPanelController(Database db, Player player){
+		playerViewPanel = new PlayerViewPanel(db, player);
+	}
+
+}

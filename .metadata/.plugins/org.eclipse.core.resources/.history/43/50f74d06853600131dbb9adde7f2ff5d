@@ -1,0 +1,86 @@
+package ui.mainView;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import db.Database;
+
+import ui.eventHandling.UiEvent;
+import ui.eventHandling.UiEventDispatcher;
+import ui.eventHandling.UiEventListener;
+
+public class TeamChoiceBoxController implements UiEventDispatcher{
+
+	ArrayList<UiEventListener> listeners = new ArrayList<UiEventListener>();
+	
+	private TeamChoiceBox teamChoice;
+	private String [] teamArray;
+	private Database db;
+	private boolean isInitialized = false;
+	
+	public TeamChoiceBoxController(Database db){
+		this.db = db;
+				
+		
+	}
+	
+	public void initTeams(String user) {
+		this.isInitialized = true;
+		
+		ArrayList <String> teamNames = db.getTeamNames(user);
+		
+		teamArray = new String[teamNames.size()+1];
+		teamArray[teamNames.size()] = "Teamless";
+		for(int i = 0; i < teamArray.length-1; i++){
+			teamArray[i] = teamNames.get(i);
+		}
+		
+		teamChoice = new TeamChoiceBox(teamArray);
+		teamChoice.setSelectedIndex(teamChoice.getItemCount());
+		
+		teamChoice.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//teamChoice.setTeamname();
+				dispatch(new UiEvent("activateTeamView"));
+			}
+		});
+	}
+
+
+	@Override
+	public void addListener(UiEventListener listener) {
+		listeners.add(listener);
+		
+	}
+
+	@Override
+	public void removeListener(UiEventListener listener) {
+		listeners.remove(listener);
+		
+	}
+
+	@Override
+	public void dispatch(UiEvent event) {
+		for(UiEventListener lis: listeners){
+			lis.onUiEventFired(event);
+		}
+		
+	}
+	
+	public TeamChoiceBox getView(){
+		return teamChoice;
+	}
+	
+	public String getTeamname(){
+		return teamChoice.getTeamname();
+	}
+
+	public boolean getIsInitialized() {
+		return isInitialized;
+	}
+	
+}
+
