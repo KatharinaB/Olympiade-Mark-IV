@@ -22,12 +22,11 @@ public class PlayerValue extends JPanel{
 	private JLabel salaryCurrencyLabel;
 	private JLabel contractCurrencyLabel;
 	
-	public PlayerValue() {
-		this.setBounds(330,80,180,70);
-		this.setBorder(new LineBorder(Color.GREEN));
+	public PlayerValue(String [] values) {
+		this.setBounds(330,80,170,70);
 		
 		initLabels();
-		initVars();
+		initVars(values);
 		
 		this.add(valueLabel);
 		this.add(valueVarLabel);
@@ -46,10 +45,10 @@ public class PlayerValue extends JPanel{
 	/**
 	 * Setzt mit Daten aus DB
 	 */
-	private void initVars() {
-		valueVarLabel.setText("bla");
-		salaryVarLabel.setText("bla");
-		contractVarLabel.setText("bla");
+	private void initVars(String [] values) {
+		valueVarLabel.setText(values[0]);
+		salaryVarLabel.setText(values[1]);
+		contractVarLabel.setText(values[2]);
 		
 	}
 
@@ -66,17 +65,22 @@ public class PlayerValue extends JPanel{
 		salaryCurrencyLabel = new JLabel("Mio");
 		contractCurrencyLabel = new JLabel("Games");
 		
-		valueLabel.setPreferredSize(new Dimension(60,15));
-		salaryLabel.setPreferredSize(new Dimension(60,15));
-		contractLabel.setPreferredSize(new Dimension(60,15));
+		valueLabel.setPreferredSize(new Dimension(70,15));
+		salaryLabel.setPreferredSize(new Dimension(70,15));
+		contractLabel.setPreferredSize(new Dimension(70,15));
 		
-		valueVarLabel.setPreferredSize(new Dimension(50,15));
-		salaryVarLabel.setPreferredSize(new Dimension(50,15));
-		contractVarLabel.setPreferredSize(new Dimension(50,15));
+		valueCurrencyLabel.setPreferredSize(new Dimension(55,15));
+		salaryCurrencyLabel.setPreferredSize(new Dimension(55,15));
+		contractCurrencyLabel.setPreferredSize(new Dimension(55,15));
 		
-		valueCurrencyLabel.setPreferredSize(new Dimension(50,15));
-		salaryCurrencyLabel.setPreferredSize(new Dimension(50,15));
-		contractCurrencyLabel.setPreferredSize(new Dimension(50,15));
+		valueVarLabel.setPreferredSize(new Dimension(25,15));
+		salaryVarLabel.setPreferredSize(new Dimension(25,15));
+		contractVarLabel.setPreferredSize(new Dimension(25,15));
+		
+		valueVarLabel.setHorizontalAlignment(JLabel.RIGHT);
+		salaryVarLabel.setHorizontalAlignment(JLabel.RIGHT);
+		contractVarLabel.setHorizontalAlignment(JLabel.RIGHT);
+		
 	}
 
 }

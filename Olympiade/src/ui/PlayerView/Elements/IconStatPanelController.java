@@ -10,11 +10,11 @@ public class IconStatPanelController {
 
 	//Ka ob IconImage für uns taugt
 	private String [] iconList = {"Strength-Icon.png", "Speed.png", "Health.png", "Dexterity.png", "Stamina.png", "Charisma.png","Intelligence.png","Will.png", "Awareness.png","Teamspirit.png", "Determination.png", "Torment.png"};
-	private ArrayList <Integer> statList = new ArrayList<Integer>();
+	private int [] statList;
 	private IconStatPanel iconStatPanel;
 	
-	public IconStatPanelController() {
-		
+	public IconStatPanelController(int[] stats) {
+		statList = stats;
 		iconStatPanel = new IconStatPanel();
 		
 		initIconStatElement();
@@ -27,16 +27,11 @@ public class IconStatPanelController {
 			
 			
 			ele.setIconLabel(iconList[i]); 
-			//ele.setstatLabels(statList.get(i));
+			ele.setstatLabels(statList[i]);
 			
 			iconStatPanel.addElement(ele);
 			
 		}
-	}
-	
-	public void setStatsFromDB(ArrayList<Integer> list) {
-		statList = list;
-		
 	}
 	
 	public IconStatPanel getView(){

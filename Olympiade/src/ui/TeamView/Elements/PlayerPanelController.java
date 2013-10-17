@@ -33,11 +33,10 @@ public class PlayerPanelController implements UiEventDispatcher{
 	private JPanel allPlayers = new JPanel();
 	private ArrayList<Player> players = new ArrayList<Player>();
 
-	private Player actPlayer;
 	private JLabel actPlayerImage; 
 	private JLabel actPlayerName;
 	private JPanel actProfilPanel;
-	private int playerCounter = 0;
+
 	
 	public PlayerPanelController(){
 		allPlayers.setBounds(250,0,900,800);
@@ -46,26 +45,28 @@ public class PlayerPanelController implements UiEventDispatcher{
 	/**
 	 * Initialisiert die verschiebenen Panel und Label für die Spieleransicht
 	 * und addet diese auf ein gesamt Panel
-	 * @param player 
+	 * @param players2 
 	 */
-	public void addPlayer(Player player){
-		this.actPlayer = player;
-		players.add(player);
+	public void addPlayers(ArrayList<Player> players){
+		this.players = players;
+	
+		for(Player p: players){
 		
-		PlayerPanel view = new PlayerPanel();
+			PlayerPanel view = new PlayerPanel();
 		
-		JPanel statsPanel = initStatsPanel();	//Enthält die Attribute und Werte
-		initPlayerNameLabel();
-		initPlayerImage();
-		initProfilPanel(actPlayerImage, actPlayerName); //Enthält Profilname und Foto
+			JPanel statsPanel = initStatsPanel(p);	//Enthält die Attribute und Werte
+			initPlayerNameLabel(p);
+			initPlayerImage(p);
+			initProfilPanel(actPlayerImage, actPlayerName); //Enthält Profilname und Foto
+	
+			view.addProfilPanel(actProfilPanel);
+			view.addStatsPanel(statsPanel);
+			
+			
+			//Hält alle Player
+			allPlayers.add(view);
+		}
 
-		view.addProfilPanel(actProfilPanel);
-		view.addStatsPanel(statsPanel);
-		
-		
-		//Hält alle Player
-		allPlayers.add(view);
-		playerCounter+=1;
 	}
 	
 	/**
@@ -86,12 +87,12 @@ public class PlayerPanelController implements UiEventDispatcher{
 	 * Setzt das Spielerbild
 	 * @return
 	 */
-	public void initPlayerImage() {
-		String stripName = actPlayer.getName().replace(".", "").replaceAll(" ", "");
+	public void initPlayerImage(Player player) {
+		String stripName = player.getName().replace(".", "").replaceAll(" ", "");
 		ImageIcon icon = IconCreator.createImageIcon("../../../res/img/"+stripName+".jpg","");
 		icon.setImage(icon.getImage().getScaledInstance(125, 125, Image.SCALE_DEFAULT));
 		actPlayerImage = new JLabel(icon);
-		actPlayer.setIcon(icon);
+		player.setIcon(icon);
 	}
 	
 
@@ -99,8 +100,8 @@ public class PlayerPanelController implements UiEventDispatcher{
 	 * Initialisiert den Spielernamen und addet einen MouseListener der auf Klicken achtet
 	 * @return
 	 */
-	public void initPlayerNameLabel() {
-		actPlayerName = new JLabel(actPlayer.getName());
+	public void initPlayerNameLabel(final Player player) {
+		actPlayerName = new JLabel(player.getName());
 		actPlayerName.setHorizontalAlignment(JLabel.CENTER);
 		actPlayerName.addMouseListener(new MouseListener() {
 			
@@ -130,8 +131,7 @@ public class PlayerPanelController implements UiEventDispatcher{
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println(actPlayerName.getName());
-				dispatch(new ShowPlayerEvent("activatePlayerView", players.get(playerCounter-1)));
+				dispatch(new ShowPlayerEvent("activatePlayerView",player));
 			}
 		});
 	}
@@ -139,11 +139,11 @@ public class PlayerPanelController implements UiEventDispatcher{
 	/**
 	 * Fügt die Attribute eines Players in das StatPanel
 	 */
-	public JPanel initStatsPanel() {
+	public JPanel initStatsPanel(Player player) {
 		JPanel statsPanel = new JPanel();
 		JLabel [] attributes = new JLabel[6];//Attribut Namen
 		JLabel [] attributesVars = new JLabel[6];;//Platzhalter für die Werte der Attribute
-		String [] values = actPlayer.getStatArray();
+		String [] values = player.getStatArray();
 		String [] attributeNames= {"Games", "Pps", "Endurance", "Value", "Salary", "Contract"};
 		
 		

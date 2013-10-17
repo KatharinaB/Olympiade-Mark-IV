@@ -1,0 +1,16 @@
+package ui.PlayerView.elements;
+
+import java.awt.Color;
+
+import javax.swing.JTextArea;
+import javax.swing.border.LineBorder;
+
+
+public class PlayerStoryTextArea extends JTextArea{
+
+	public PlayerStoryTextArea(String storytext) {
+		this.setBounds(1080,0,400,350);
+		this.setBorder(new LineBorder(Color.CYAN));
+		this.setText(storytext);
+	}
+}

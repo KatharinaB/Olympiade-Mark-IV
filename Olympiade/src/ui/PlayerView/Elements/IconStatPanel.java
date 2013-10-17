@@ -21,9 +21,6 @@ import javax.swing.border.LineBorder;
  */
 public class IconStatPanel extends JPanel{
 	
-	private JLabel [] labels = new JLabel [12];
-	private int i = 0;
-	
 	public IconStatPanel(){
 		this.setBounds(0,330,295,350);
 	}

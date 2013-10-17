@@ -28,8 +28,7 @@ public class TeamViewPanel extends JPanel {
 	
 	
 	public TeamViewPanel(){
-		this.setLayout(null); //alle Elemente frei positionierbar
-		this.setBorder(new LineBorder(Color.MAGENTA));
+		this.setLayout(null); //alle Elemente frei positionierbare
 		this.setBounds(200,100,1300,800);
 		
 		initTeamView();

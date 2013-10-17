@@ -1,0 +1,40 @@
+package ui.PlayerView.elements;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+/**
+ * Hält das Label "Team" und dazugehörigen Wert
+ * @author Katy
+ *
+ */
+public class PlayerteamNamePanel extends JPanel{
+
+	private JLabel teamLabel;
+	private JLabel teamNameLabel;
+
+	
+	public PlayerteamNamePanel(String teamName) {
+		this.setBounds(330,40,200,25);
+		this.setBorder(new LineBorder(Color.ORANGE));
+		
+		initLabels(teamName);
+	}
+
+	private void initLabels(String name) {
+		
+		teamLabel = new JLabel("Team:");
+		teamNameLabel = new JLabel(name);
+		
+		//teamLabel.setPreferredSize(new Dimension(40,15));
+
+		
+		this.add(teamLabel);
+		this.add(teamNameLabel);
+	}
+
+}

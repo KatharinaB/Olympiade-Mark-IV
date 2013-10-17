@@ -2,7 +2,9 @@ package ui.PlayerView.elements;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
@@ -16,17 +18,10 @@ import javax.swing.border.LineBorder;
  */
 public class PlayerImageLabel extends JLabel{
 
-	public PlayerImageLabel(){
-		super("dummy");
+	public PlayerImageLabel(ImageIcon imageIcon){
+		imageIcon.setImage(imageIcon.getImage().getScaledInstance(295, 295, Image.SCALE_DEFAULT));
+		this.setIcon(imageIcon);
 		this.setBounds(0,0,295,295);
-		this.setBorder(new LineBorder(Color.PINK));
-		initPlayerImage();
-	}
-
-	//Holt aus der Db und setzt das Bild
-	private void initPlayerImage() {
-	
 		
 	}
-
 }

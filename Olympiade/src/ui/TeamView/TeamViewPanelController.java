@@ -29,15 +29,9 @@ public class TeamViewPanelController implements  UiEventDispatcher, UiEventListe
 	}
 	
 	public void fillFromDB(String teamname) {
-		
 		playerPanelController.getPanel().removeAll();
-		
 		players = db.getPlayers(teamname);
-		
-		for(Player player: players){
-			playerPanelController.addPlayer(player);
-		}
-		
+		playerPanelController.addPlayers(players);
 	}
 
 	public TeamViewPanel getView(){

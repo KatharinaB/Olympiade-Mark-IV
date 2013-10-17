@@ -6,6 +6,7 @@ import java.awt.Font;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
 
 import ui.PlayerView.elements.IconStatPanelController;
 import ui.PlayerView.elements.PlayerClassPanel;
@@ -41,11 +42,15 @@ public class PlayerViewPanelController {
 	private JLabel injuredLabel;
 	private StaminaPanel staminaPanel;
 	private Player player;
+	private String teamname;
 	
-	public PlayerViewPanelController(Database db, Player player){
+	public PlayerViewPanelController(Database db, Player player, String teamname){
+		this.teamname = teamname;
 		this.db = db;
 		this.player = player;
 		playerViewPanel = new PlayerViewPanel();
+		
+		player = db.getPlayerStats(player);
 		
 		initElements();
 	}
@@ -56,22 +61,22 @@ public class PlayerViewPanelController {
 	
 	private void initElements() {
 		teamHistoryPanel = new TeamHistoryPanel();
-		iconStatPanelController = new IconStatPanelController();
-		playerStory = new PlayerStoryTextArea();
-		playerImageLabel = new PlayerImageLabel();
+		iconStatPanelController = new IconStatPanelController(player.getPlayerStats());
+		playerStory = new PlayerStoryTextArea(player.getStory());
+		playerImageLabel = new PlayerImageLabel(player.getIcon());
 		nameLabel = new JLabel();
-		playerteamNamePanel = new PlayerteamNamePanel();
-		playerValue = new PlayerValue();
-		playerPointPanel = new PlayerPointPanel();
+		playerteamNamePanel = new PlayerteamNamePanel(teamname);
+		playerValue = new PlayerValue(player.getValues());
+		playerPointPanel = new PlayerPointPanel(player.getPlayerpoints(), player.getSkillpoints());
 		playerTrophiesPanel = new PlayerTrophiesPanel();
 		playerRelationshipPanelFriends =  new PlayerRelationshipPanel();
-		playerClassPanel = new PlayerClassPanel();
+		playerClassPanel = new PlayerClassPanel(player.getAlignment(), player.getHeroClass());
 		injuredLabel = new JLabel("Injured");
 		staminaPanel = new StaminaPanel();
 		
 		//nur wenn wirklich verletzt
 		initInjuredLabel();
-		initStatPanel();
+		
 		initName();
 		
 		playerViewPanel.add(playerStory);
@@ -89,11 +94,6 @@ public class PlayerViewPanelController {
 		playerViewPanel.add(staminaPanel);
 	}
 
-	private void initStatPanel() {
-		iconStatPanelController.setStatsFromDB(db.getPlayerStats());
-		
-	}
-
 	private void initInjuredLabel() {
 		injuredLabel.setForeground(Color.RED);
 		injuredLabel.setBounds(30,600,80,20);
@@ -102,11 +102,10 @@ public class PlayerViewPanelController {
 	}
 
 	private void initName() {
-		//nameLabel.setText(); aus Db
-		nameLabel.setBounds(350,0,150,30);
-		nameLabel.setBackground(Color.GREEN);
-		nameLabel.setFont(new Font("Arial", Font.BOLD, 18));
+		nameLabel.setBounds(330,0,200,30);
+		nameLabel.setFont(new Font("VERDANA", Font.BOLD, 18));
 		nameLabel.setText(player.getName());
+		nameLabel.setHorizontalAlignment(JLabel.LEFT);
 	}
 
 }

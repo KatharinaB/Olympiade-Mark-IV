@@ -36,7 +36,7 @@ public class PlayerViewPanel extends JPanel{
 	public PlayerViewPanel(){
 		this.setLayout(null);
 		this.setBorder(new LineBorder(Color.YELLOW));
-		this.setBounds(160,100,1480,800);
+		this.setBounds(200,100,1380,800);
 
 	}
 	

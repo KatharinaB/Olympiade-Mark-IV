@@ -21,8 +21,7 @@ public class PlayerRelationshipPanel extends JPanel{
 	
 	public PlayerRelationshipPanel() {
 		
-		this.setBounds(330,550,400,100);
-		this.setBorder(new LineBorder(Color.MAGENTA));
+		this.setBounds(330,385,390,100);
 		
 		initRelationShipLabels();
 		
@@ -36,8 +35,8 @@ public class PlayerRelationshipPanel extends JPanel{
 	private void initRelationShipLabels() {
 		relationshipFriendsLabel =  new JLabel("Friends:");
 		relationshipRivalsLabel =  new JLabel("Rivals:");
-		relationshipFriendsLabel.setPreferredSize(new Dimension(80,35));
-		relationshipRivalsLabel.setPreferredSize(new Dimension(80,35));
+		relationshipFriendsLabel.setPreferredSize(new Dimension(70,35));
+		relationshipRivalsLabel.setPreferredSize(new Dimension(70,35));
 		
 		//TODO aus Db String zusammen bauen und einfügen
 		relationshipMembersLabelFriends = new JLabel("vars mit Links");

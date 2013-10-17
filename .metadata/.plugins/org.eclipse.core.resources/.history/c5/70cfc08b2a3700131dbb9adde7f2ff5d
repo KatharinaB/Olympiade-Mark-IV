@@ -1,0 +1,25 @@
+package ui.PlayerView.elements;
+
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.border.LineBorder;
+
+
+
+//TODO Alle Daten aus DB
+/**
+ * Stellt die Playerdetailansicht dar
+ * @author Katy
+ *
+ */
+public class PlayerImageLabel extends JLabel{
+
+	public PlayerImageLabel(ImageIcon imageIcon){
+		super(imageIcon);
+		this.setBounds(0,0,295,295);
+		
+	}
+}

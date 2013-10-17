@@ -169,10 +169,15 @@ public class Database {
 		return players;
 	}
 
-
+	/**
+	 * Holt direkt alle Infos über einen Spieler die für die Übesicht benötigt werden
+	 * @param id
+	 * @return
+	 */
 	private Player getPlayerOverview(int id) {
 		Player player = new Player();
 		
+		player.setId(id);
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM player WHERE ID = '"+id+"'");
@@ -181,6 +186,7 @@ public class Database {
 				player.setStamina(Integer.parseInt(rs.getString("Stamina")));
 				player.setPlayerpoints(Integer.parseInt(rs.getString("PlayerPoints")));
 				player.setName(rs.getString("Name"));
+				
 			}
 			
 		} catch (SQLException e) {
@@ -190,8 +196,38 @@ public class Database {
 	}
 
 
-	public ArrayList<Integer> getPlayerStats() {
-		// TODO Auto-generated method stub
-		return null;
+	public Player getPlayerStats(Player player) {
+		
+
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM player WHERE ID = '"+player.getId()+"'");
+		
+			while (rs.next()) { //TODO nicht stamina sondern endurance
+				
+				
+				player.setSkillpoints(Integer.parseInt(rs.getString("SkillPoints")));
+				player.setStory(rs.getString("Story_TA"));
+				player.setPower(Integer.parseInt(rs.getString("Power")));
+				player.setHealth(Integer.parseInt(rs.getString("Health")));
+				player.setIntelligence(Integer.parseInt(rs.getString("Intelligence")));
+				player.setAwareness(Integer.parseInt(rs.getString("Awareness")));
+				player.setDetermination(Integer.parseInt(rs.getString("Determination")));
+				player.setSpeed(Integer.parseInt(rs.getString("Speed")));
+				player.setDexterity(Integer.parseInt(rs.getString("Dexterity")));
+				player.setCharisma(Integer.parseInt(rs.getString("Charisma")));
+				player.setWill(Integer.parseInt(rs.getString("Will")));
+				player.setSpirit(Integer.parseInt(rs.getString("Spirit")));
+				player.setTorment(Integer.parseInt(rs.getString("Torment")));
+				player.setHeroClass(rs.getString("Class"));
+				player.setAlignment(rs.getString("Alignment"));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return player;
+		
 	}
 }

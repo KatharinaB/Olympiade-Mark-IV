@@ -1,0 +1,226 @@
+package db;
+
+import gameContent.Player;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+public class Database {
+	
+	private Connection conn;
+	private Statement stmt;
+	private ResultSet rs;
+	
+	public Database(){
+		initDb();
+		getAllTeams();
+	}
+	
+	
+	public void initDb(){
+		conn = null;
+		String url = "jdbc:mysql://db4free.net:3306/";
+		String dbName = "olympiade";
+		String driver = "com.mysql.jdbc.Driver";
+		String userName = "olympiade";
+		String password = "penis1";
+	
+		try {
+			Class.forName(driver).newInstance();
+			conn = DriverManager.getConnection(url + dbName, userName, password);
+			System.out.println("Connected to the database");
+		
+		
+		}catch(Exception e){
+			System.out.println("NO CONNECTION " + e);
+		}
+	}
+	
+	public void closeDB(){
+		
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			System.out.println("Disconnected from database");
+	}
+	
+	public void getAllTeams(){
+		ArrayList<String> teamNames = new ArrayList<String>();
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT Lang FROM teams");
+			
+			while (rs.next()) {
+				teamNames.add(rs.getString("Lang")+ "\n");
+			}
+			
+		} catch (SQLException e) {
+		
+		e.printStackTrace();
+		}
+	}
+	
+	
+	public boolean checkLoginData(String username, String inputPW) {
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM user");
+		
+			while (rs.next()) {
+			
+			String name = rs.getString("Name");
+			String pw = rs.getString("Passwort");
+				
+				if(name.equals(username) && pw.equals(inputPW)){
+				
+				return true;
+				}
+			}
+			
+			return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+			return false;
+	}
+
+
+	public ArrayList<String> getTeamNames(String user) {
+		String id =  "";
+		
+		ArrayList<String> names = new ArrayList<String>();
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT ID FROM user WHERE Name = '"+user+"'");
+		
+			while (rs.next()) {
+			
+				id = rs.getString("ID");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT Lang FROM teams WHERE User_ID ='"+id+"'");
+		
+			while (rs.next()) {
+				names.add(rs.getString("Lang"));
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return names;
+	}
+
+
+	public ArrayList<Player> getPlayers(String teamname) {
+		
+		String id =  "";
+		ArrayList<Player> players = new ArrayList<Player>();
+		ArrayList<Integer> playerId = new ArrayList<Integer>();
+		
+		//Hol die ID zum Teamnamen
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT ID FROM teams WHERE Lang = '"+teamname+"'");
+		
+			while (rs.next()) {
+				id = rs.getString("ID");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//Hol die ID von Spielern die im Team sind
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT ID FROM player WHERE team_ID ='"+id+"'");
+		
+			while (rs.next()) {
+				playerId.add(Integer.parseInt(rs.getString("ID")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//Hol für jeden Spieler die Spielerinformationen
+		for(Integer pl: playerId){
+			players.add(getPlayerOverview(pl));
+		}
+		
+		
+		return players;
+	}
+
+	/**
+	 * Holt direkt alle Infos über einen Spieler die für die Übesicht benötigt werden
+	 * @param id
+	 * @return
+	 */
+	private Player getPlayerOverview(int id) {
+		Player player = new Player();
+		
+		player.setId(id);
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM player WHERE ID = '"+id+"'");
+		
+			while (rs.next()) { //TODO nicht stamina sondern endurance
+				player.setStamina(Integer.parseInt(rs.getString("Stamina")));
+				player.setPlayerpoints(Integer.parseInt(rs.getString("PlayerPoints")));
+				player.setName(rs.getString("Name"));
+				player.setSkillpoints(Integer.parseInt(rs.getString("SkillPoints")));
+				player.setStory(rs.getString("Story_TA"));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return player;
+	}
+
+
+	public ArrayList<Integer> getPlayerStats(Player player) {
+		
+
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM player WHERE ID = '"+player.getId()+"'");
+		
+			while (rs.next()) { //TODO nicht stamina sondern endurance
+				
+				
+				player.setSkillpoints(Integer.parseInt(rs.getString("SkillPoints")));
+				player.setStory(rs.getString("Story_TA"));
+				player.setSkillpoints(Integer.parseInt(rs.getString("SkillPoints")));
+				player.setSkillpoints(Integer.parseInt(rs.getString("SkillPoints")));
+				player.setSkillpoints(Integer.parseInt(rs.getString("SkillPoints")));
+				player.setSkillpoints(Integer.parseInt(rs.getString("SkillPoints")));
+				
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return player;
+		
+	}
+}

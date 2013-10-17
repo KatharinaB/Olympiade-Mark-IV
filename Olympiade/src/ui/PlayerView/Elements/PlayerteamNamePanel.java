@@ -15,31 +15,24 @@ import javax.swing.border.LineBorder;
 public class PlayerteamNamePanel extends JPanel{
 
 	private JLabel teamLabel;
-	private JLabel teamName;
+	private JLabel teamNameLabel;
+
 	
-	public PlayerteamNamePanel() {
-		this.setBounds(330,40,150,25);
-		this.setBorder(new LineBorder(Color.ORANGE));
-		
-		initLabels();
-		setTeamName();
+	public PlayerteamNamePanel(String teamName) {
+		this.setBounds(330,40,250,25);
+		initLabels(teamName);
 	}
 
-	private void initLabels() {
+	private void initLabels(String name) {
 		
 		teamLabel = new JLabel("Team:");
-		teamName = new JLabel();
+		teamNameLabel = new JLabel(name);
 		
-		//teamLabel.setPreferredSize(new Dimension(40,15));
-
+		teamNameLabel.setPreferredSize(new Dimension(165,15));
+		teamLabel.setPreferredSize(new Dimension(70,15));
 		
 		this.add(teamLabel);
-		this.add(teamName);
-	}
-
-	private void setTeamName() {
-		teamName.setText("dummyteam");//TODO aus DB
-		
+		this.add(teamNameLabel);
 	}
 
 }

@@ -8,14 +8,8 @@ import javax.swing.border.LineBorder;
 
 public class PlayerStoryTextArea extends JTextArea{
 
-	public PlayerStoryTextArea() {
-		this.setBounds(1080,0,400,350);
-		this.setBorder(new LineBorder(Color.CYAN));
-		this.setText("blablabla BLA bla bLAbLA");
-	}
-	
-	public void initText(){
-		//this.setText();
-		//mit Dbklasse sprechen
+	public PlayerStoryTextArea(String storytext) {
+		this.setBounds(950,0,400,350);
+		this.setText(storytext);
 	}
 }

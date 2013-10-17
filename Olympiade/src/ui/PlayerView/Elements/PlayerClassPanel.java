@@ -19,11 +19,10 @@ public class PlayerClassPanel extends JPanel{
 	private JLabel alignmentVarLabel;
 	private JLabel classVarLabel;
 	
-	public PlayerClassPanel(){
-		this.setBounds(330,650,150,70);
-		this.setBorder(new LineBorder(Color.MAGENTA));
+	public PlayerClassPanel(String alignment, String heroClass){
+		this.setBounds(330,480,200,70);
 		
-		initLabels();
+		initLabels(alignment, heroClass);
 		
 		this.add(alignmentLabel);
 		this.add(alignmentVarLabel);
@@ -31,15 +30,17 @@ public class PlayerClassPanel extends JPanel{
 		this.add(classVarLabel);
 	}
 
-	private void initLabels() {
+	private void initLabels(String alignment, String heroClass) {
 		alignmentLabel = new JLabel("Alignment");
 		classLabel = new JLabel("Class");
-		alignmentLabel.setPreferredSize(new Dimension(80,20));
-		classLabel.setPreferredSize(new Dimension(80,20));
+		alignmentLabel.setPreferredSize(new Dimension(70,20));
+		classLabel.setPreferredSize(new Dimension(70,20));
 		
 		//TODO aus Db
-		alignmentVarLabel = new JLabel("dummy");
-		classVarLabel = new JLabel("dummy");
+		alignmentVarLabel = new JLabel(alignment);
+		classVarLabel = new JLabel(heroClass);
+		alignmentVarLabel.setPreferredSize(new Dimension(110,20));
+		classVarLabel.setPreferredSize(new Dimension(110,20));
 		
 	}
 

@@ -1,0 +1,49 @@
+package ui.PlayerView;
+
+import gameContent.Player;
+
+import java.awt.Color;
+import java.awt.Font;
+
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+import db.Database;
+
+import ui.PlayerView.elements.IconStatPanelController;
+import ui.PlayerView.elements.PlayerClassPanel;
+import ui.PlayerView.elements.PlayerImageLabel;
+import ui.PlayerView.elements.PlayerPointPanel;
+import ui.PlayerView.elements.PlayerRelationshipPanel;
+import ui.PlayerView.elements.PlayerStoryTextArea;
+import ui.PlayerView.elements.PlayerTrophiesPanel;
+import ui.PlayerView.elements.PlayerValue;
+import ui.PlayerView.elements.PlayerteamNamePanel;
+import ui.PlayerView.elements.StaminaPanel;
+import ui.PlayerView.elements.TeamHistoryPanel;
+
+/**
+ * Hält alle Componenten die zur Playeransicht benötigt werden
+ * @author Katy
+ *
+ */
+public class PlayerViewPanel extends JPanel{
+	
+	
+	
+	public PlayerViewPanel(){
+		this.setLayout(null);
+		this.setBorder(new LineBorder(Color.YELLOW));
+		this.setBounds(160,100,1480,800);
+
+	}
+	
+	public void addElement(JComponent ele){
+		this.add(ele);
+	}
+
+
+
+}

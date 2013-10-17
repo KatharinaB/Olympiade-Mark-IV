@@ -108,15 +108,12 @@ public class MainPanelController implements UiEventListener{
 	}
 	
 	private void addPlayerView(Player player) {
-		playerViewPanelController = new PlayerViewPanelController(db, player);
+		playerViewPanelController = new PlayerViewPanelController(db, player, teamChoiceController.getTeamname());
 		if(teamViewPanelController.getView() != null){
 			view.remove(teamViewPanelController.getView());
 		}
 		if(teamChoiceController.getView() != null){
 			view.removeElement(teamChoiceController.getView());
-		}
-		if(teamNameLabel != null){
-			view.removeElement(teamNameLabel);
 		}
 		
 		view.add(playerViewPanelController.getView());
